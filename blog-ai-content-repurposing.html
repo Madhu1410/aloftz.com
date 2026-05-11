@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta -->
+  <title>AI Content Repurposing: 1 Blog Post → 15 Assets | Aloftz</title>
+  <meta name="description" content="Turn one blog post into 15 content assets using AI. A practical content repurposing strategy for agencies, CMOs, and busy marketers. No extra research needed.">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fff9ec;
+      color: #2e1a0e;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .blog-wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── Header Meta ── */
+    .blog-meta {
+      font-family: 'Arial', sans-serif;
+      font-size: 13px;
+      color: #8b6340;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .blog-meta span { display: flex; align-items: center; gap: 5px; }
+
+    /* ── Headline Variants Box ── */
+    .headline-options {
+      background: #fff3d6;
+      border-left: 4px solid #d4960a;
+      border-radius: 6px;
+      padding: 22px 24px;
+      margin-bottom: 32px;
+    }
+    .headline-options p {
+      font-family: 'Arial', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c17f3b;
+      margin-bottom: 12px;
+    }
+    .headline-options ol { padding-left: 20px; }
+    .headline-options li {
+      font-family: 'Arial', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #2e1a0e;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .headline-options li:last-child { margin-bottom: 0; }
+
+    /* ── Main H1 ── */
+    h1 {
+      font-family: 'Georgia', serif;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #1a0d00;
+      margin-bottom: 24px;
+    }
+
+    /* ── Section Headings ── */
+    h2 {
+      font-family: 'Arial', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a0d00;
+      margin-top: 44px;
+      margin-bottom: 14px;
+      border-bottom: 2px solid #e8d5b0;
+      padding-bottom: 8px;
+    }
+    h3 {
+      font-family: 'Arial', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #2e1a0e;
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+
+    /* ── Body Text ── */
+    p {
+      margin-bottom: 18px;
+      max-width: 680px;
+    }
+
+    /* ── Bold ── */
+    strong { color: #1a0d00; }
+
+    /* ── Bullet Lists ── */
+    ul, ol {
+      padding-left: 22px;
+      margin-bottom: 20px;
+      max-width: 680px;
+    }
+    li {
+      margin-bottom: 9px;
+      line-height: 1.65;
+    }
+    li strong { font-size: 15px; }
+
+    /* ── Divider ── */
+    hr {
+      border: none;
+      border-top: 1px solid #e8d5b0;
+      margin: 36px 0;
+    }
+
+    /* ── Pro-Tip Callout ── */
+    .callout-box {
+      background: #fff3d6;
+      border-left: 4px solid #d4960a;
+      border-radius: 6px;
+      padding: 18px 22px;
+      margin: 28px 0;
+      font-family: 'Arial', sans-serif;
+      font-size: 15px;
+    }
+    .callout-box .callout-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #c17f3b;
+      margin-bottom: 7px;
+    }
+    .callout-box p { margin-bottom: 0; font-size: 15px; line-height: 1.65; max-width: none; }
+
+    /* ── Key Takeaway ── */
+    .takeaway-box {
+      background: #f0f9e8;
+      border-left: 4px solid #5a9e3a;
+      border-radius: 6px;
+      padding: 18px 22px;
+      margin: 28px 0;
+      font-family: 'Arial', sans-serif;
+      font-size: 15px;
+    }
+    .takeaway-box .callout-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4a8630;
+      margin-bottom: 7px;
+    }
+    .takeaway-box p { margin-bottom: 0; font-size: 15px; max-width: none; }
+
+    /* ── Content 15 Grid ── */
+    .assets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+      margin: 22px 0 30px;
+    }
+    .asset-card {
+      background: white;
+      border: 1px solid #e8d5b0;
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-family: 'Arial', sans-serif;
+    }
+    .asset-card .asset-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: #c17f3b;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+    .asset-card .asset-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a0d00;
+      margin-bottom: 4px;
+    }
+    .asset-card .asset-desc {
+      font-size: 13px;
+      color: #6b4a2a;
+      line-height: 1.5;
+    }
+
+    /* ── Step Guide ── */
+    .step-guide { counter-reset: steps; margin: 22px 0 28px; }
+    .step-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 18px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #d4960a;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-content {}
+    .step-content strong {
+      display: block;
+      font-family: 'Arial', sans-serif;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .step-content p { font-size: 15px; margin-bottom: 0; max-width: none; }
+
+    /* ── Link style ── */
+    a {
+      color: #d4960a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    a:hover { color: #b37d08; }
+
+    /* ── Internal Link Note ── */
+    .link-note {
+      background: #f2e8d0;
+      border-radius: 5px;
+      padding: 8px 14px;
+      font-family: 'Arial', sans-serif;
+      font-size: 12px;
+      color: #6b4a2a;
+      margin: -8px 0 20px;
+      display: inline-block;
+    }
+    .link-note::before { content: '🔗 '; }
+
+    /* ── CTA Box ── */
+    .cta-box {
+      background: #2e1a0e;
+      border-radius: 10px;
+      padding: 32px 36px;
+      margin-top: 44px;
+      text-align: center;
+      color: #fff9ec;
+    }
+    .cta-box h3 {
+      font-family: 'Georgia', serif;
+      font-size: 24px;
+      color: #f5c842;
+      margin-bottom: 12px;
+      margin-top: 0;
+    }
+    .cta-box p {
+      font-size: 15px;
+      color: rgba(255,249,236,0.8);
+      margin-bottom: 22px;
+      max-width: 480px;
+      margin-inline: auto;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-btn-primary {
+      background: #d4960a;
+      color: #1a0d00;
+      padding: 13px 26px;
+      border-radius: 6px;
+      font-family: 'Arial', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: background 0.2s;
+    }
+    .cta-btn-primary:hover { background: #f5c842; color: #1a0d00; }
+    .cta-btn-outline {
+      background: transparent;
+      color: #f5c842;
+      border: 2px solid #f5c842;
+      padding: 11px 24px;
+      border-radius: 6px;
+      font-family: 'Arial', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: all 0.2s;
+    }
+    .cta-btn-outline:hover { background: #f5c842; color: #1a0d00; }
+
+    /* ── SEO Metadata Box ── */
+    .seo-box {
+      background: #f8f8f8;
+      border: 1px solid #e0d4c0;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-top: 52px;
+      font-family: 'Arial', sans-serif;
+    }
+    .seo-box h4 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8b6340;
+      margin-bottom: 14px;
+    }
+    .seo-row { margin-bottom: 12px; }
+    .seo-row label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #6b4a2a;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .seo-row p {
+      font-size: 14px;
+      color: #2e1a0e;
+      background: white;
+      border: 1px solid #e0d4c0;
+      border-radius: 4px;
+      padding: 8px 12px;
+      margin: 0;
+    }
+    .seo-row .char-count {
+      font-size: 11px;
+      color: #8b6340;
+      margin-top: 3px;
+      text-align: right;
+    }
+    .link-suggestions { margin-top: 14px; }
+    .link-suggestions li { font-size: 14px; margin-bottom: 7px; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 26px; }
+      h2 { font-size: 19px; }
+      .assets-grid { grid-template-columns: 1fr; }
+      .cta-box { padding: 24px 20px; }
+      .blog-wrapper { padding: 32px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+<article class="blog-wrapper">
+
+  
+
+  <!-- ── Active H1 ── -->
+  <div class="blog-meta">
+    <span>📅 April 2026</span>
+    <span>⏱ 6 min read</span>
+    <span>🏷️ Content Strategy</span>
+    <span>✍️ Aloftz Marketing</span>
+  </div>
+
+  <h1>How to Use AI Content Repurposing to Turn 1 Blog Post Into 15 Pieces of Content</h1>
+
+  <hr>
+
+  <!-- ── INTRO ── -->
+  <p>
+    Most businesses spend 4–6 hours writing a blog post, publish it once, share it on LinkedIn, and then move on. That's it. The content disappears into the void while the team scrambles to write something new next week.
+  </p>
+  <p>
+    Here's the uncomfortable truth: <strong>you're sitting on a content goldmine and walking away from it every single time.</strong>
+  </p>
+  <p>
+    A well-researched 1,000-word blog post has the raw material for a week's worth of social media content, a YouTube script, an email newsletter, three short-form reels, a LinkedIn carousel, and more — without a single new idea or research session. You just need to know how to extract it.
+  </p>
+  <p>
+    This is what <strong>AI-powered content repurposing</strong> makes genuinely fast. Not theoretically fast. Actually fast — we're talking 20 minutes to go from one blog post to a full content distribution plan across five platforms.
+  </p>
+  <p>
+    Below is the exact content multiplication strategy we use at Aloftz. Walk through it once and you'll never waste a piece of content again.
+  </p>
+
+  <div class="callout-box">
+    <div class="callout-label">📊 Stat Worth Knowing</div>
+    <p>Businesses that repurpose content generate <strong>3× more leads</strong> per content dollar than those that publish and abandon. <a href="https://contentmarketinginstitute.com" target="_blank" rel="noopener">Content Marketing Institute</a> found that the top-performing content teams update and repurpose existing posts more than they create new ones.</p>
+  </div>
+
+  <hr>
+
+  <!-- ── SECTION 1 ── -->
+  <h2>Why Most Brands Waste 80% of Their Content</h2>
+
+  <p>
+    The "publish and forget" model made sense in 2012 when producing any content felt like a competitive advantage. It doesn't anymore. Your audience is spread across Instagram, LinkedIn, YouTube Shorts, email inboxes, podcasts, and WhatsApp. <strong>They're not all going to find your blog on their own.</strong>
+  </p>
+  <p>
+    The problem isn't a lack of ideas. It's a lack of extraction. One blog post already contains:
+  </p>
+
+  <ul>
+    <li>A core argument worth repeating in three different formats</li>
+    <li>4–6 data points that each work as standalone social stats</li>
+    <li>A step-by-step process that becomes a carousel or infographic</li>
+    <li>Multiple quotable lines ready for Twitter/X or Instagram</li>
+    <li>A full email sequence if you break it into parts</li>
+  </ul>
+
+  <p>
+    The issue is time. Manually adapting a blog post for six platforms takes hours. That's where <strong>AI content repurposing tools</strong> compress the work from hours to minutes.
+  </p>
+
+  
+
+  <hr>
+
+  <!-- ── SECTION 2 ── -->
+  <h2>The 15 Content Assets You Can Pull From One Blog Post</h2>
+
+  <p>
+    Before you touch any AI tool, it helps to know what you're producing. Here are the 15 assets a single well-written blog post can generate. We've grouped them by effort so you can prioritize.
+  </p>
+
+  <h3>Zero-to-Low Effort (Under 5 Minutes Each)</h3>
+  <div class="assets-grid">
+    <div class="asset-card">
+      <div class="asset-num">ASSET 01</div>
+      <div class="asset-name">Twitter/X Thread</div>
+      <div class="asset-desc">Each H2 becomes a tweet. The intro becomes the hook. Done.</div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-num">ASSET 02</div>
+      <div class="asset-name">LinkedIn Post</div>
+      <div class="asset-desc">Pull the strongest insight, reframe it as a personal take, add a CTA.</div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-num">ASSET 03</div>
+      <div class="asset-name">Email Newsletter</div>
+      <div class="asset-desc">Condense the post into 150 words. Link to the full read. Simple.</div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-num">ASSET 04</div>
+      <div class="asset-name">3 Instagram Captions</div>
+      <div class="asset-desc">One stat, one tip, one question — three separate posts this week.</div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-num">ASSET 05</div>
+      <div class="asset-name">WhatsApp Broadcast</div>
+      <div class="asset-desc">A 2-line summary with a link for your business WhatsApp channel.</div>
+    </div>
+  </div>
+
+  <h3>Medium Effort (5–15 Minutes Each)</h3>
+  <div class="assets-grid">
+    <div class="asset-card">
+      <div class="asset-num">ASSET 06</div>
+      <div class="asset-name">LinkedIn Carousel</div>
+      <div class="asset-desc">Each section = one slide. 8–10 slides, strong CTA on the last one.</div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-num">ASSET 07</div>
+      <div class="asset-name">Instagram Reel Script</div>
+      <div class="asset-desc">The intro hook, 3 points, a CTA — all from your existing intro and subheadings.</div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-num">ASSET 08</div>
+      <div class="asset-name">YouTube Shorts Script</div>
+      <div class="asset-desc">Pick one stat or step. 45 seconds. Tighter version of the Reel script.</div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-num">ASSET 09</div>
+      <div class="asset-name">Pinterest Pin Copy</div>
+      <div class="asset-desc">The post title + a bullet summary works as pin description. Drives traffic back.</div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-num">ASSET 10</div>
+      <div class="asset-name">Quote Graphics (×3)</div>
+      <div class="asset-desc">Find three bold sentences. Put them on branded templates. Post all week.</div>
+    </div>
+  </div>
+
+  <h3>Higher Effort (15–30 Minutes With AI)</h3>
+  <div class="assets-grid">
+    <div class="asset-card">
+      <div class="asset-num">ASSET 11</div>
+      <div class="asset-name">Infographic</div>
+      <div class="asset-desc">The step-by-step section, visualised. Use Canva or Adobe Express.</div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-num">ASSET 12</div>
+      <div class="asset-name">Podcast Talking Points</div>
+      <div class="asset-desc">5 bullet points, an opening hook, and 2 discussion questions from the blog content.</div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-num">ASSET 13</div>
+      <div class="asset-name">YouTube Long-Form Script</div>
+      <div class="asset-desc">Expand each section into a spoken segment. Add transitions, an intro, and an outro.</div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-num">ASSET 14</div>
+      <div class="asset-name">Lead Magnet / Mini PDF</div>
+      <div class="asset-desc">The step-by-step section reformatted as a downloadable checklist or guide.</div>
+    </div>
+    <div class="asset-card">
+      <div class="asset-num">ASSET 15</div>
+      <div class="asset-name">Updated / Republished Post</div>
+      <div class="asset-desc">6 months later: add new stats, refresh examples, republish to boost SEO.</div>
+    </div>
+  </div>
+
+
+  <hr>
+
+  <!-- ── SECTION 3 ── -->
+  <h2>The Step-by-Step AI Content Repurposing Workflow</h2>
+
+  <p>
+    Here's the exact process. You'll need a blog post, access to an AI writing tool (ChatGPT, Claude, or Gemini all work), and about 20–30 minutes the first time through. After that? It gets faster.
+  </p>
+
+  <div class="step-guide">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <strong>Run an "Asset Audit" on Your Post</strong>
+        <p>Paste the blog into your AI tool and ask: <em>"List every stat, claim, tip, and step in this post as separate bullet points."</em> This gives you your raw material list in under 60 seconds.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <strong>Choose Your 5 Priority Formats</strong>
+        <p>Look at where your audience actually spends time. Instagram and WhatsApp for B2C. LinkedIn and email for B2B. Don't spread to every platform — go deep on two or three first.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <strong>Prompt Platform by Platform</strong>
+        <p>For each format, give the AI a specific prompt. Not <em>"write a LinkedIn post"</em> — but <em>"write a LinkedIn post for a CMO audience, 150 words max, using only this specific insight: [paste]. Start with a counterintuitive hook. End with a question."</em></p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <strong>Edit for Brand Voice — Always</strong>
+        <p>AI output is a draft, not a final post. Read it aloud. If it sounds like a press release, it needs a rewrite. Add your brand's tone, a specific example, or a line that only your brand would say.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <strong>Schedule Across the Week</strong>
+        <p>Don't post everything in one day. One post → one asset per day for a week. Monday: LinkedIn post. Wednesday: Instagram carousel. Friday: email newsletter. The blog does a week's work.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <strong>Track What Gets Engagement</strong>
+        <p>After two weeks, look at which format got the most clicks, saves, or replies. That tells you which assets to prioritise next time. This is how your <a href="https://aloftz.com/services.html">content strategy</a> gets smarter without more effort.</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <hr>
+
+  <!-- ── SECTION 4 ── -->
+  <h2>Which AI Tools Actually Work for Content Repurposing</h2>
+
+  <p>
+    The market is full of repurposing tools. Most of them are wrappers around the same underlying models. Here's what actually matters:
+  </p>
+
+  <ul>
+    <li><strong>ChatGPT (GPT-4o):</strong> Best for bulk output and versatile formatting. Paste in your blog and get 8 assets out in one session. The multimodal version can also help with visual brief suggestions.</li>
+    <li><strong>Claude (Anthropic):</strong> Better for longer-form content and keeping a consistent tone across assets. Less likely to slip into generic marketing language.</li>
+    <li><strong>Gemini (Google):</strong> Useful if you're working inside Google Docs or Workspace — native integration makes the workflow faster for some teams.</li>
+    <li><strong>Repurpose.io / Lately.ai:</strong> Dedicated repurposing platforms that automate some of the scheduling too. Worth it for teams publishing daily.</li>
+    <li><strong>Canva AI:</strong> For turning text assets into visual content (carousels, quote graphics, infographics) without a separate design step.</li>
+  </ul>
+
+  <p>
+    You don't need all of them. Most brands get 80% of the value from one good AI writing tool and Canva. Start there.
+  </p>
+
+  <hr>
+
+  <!-- ── SECTION 5 ── -->
+  <h2>Common Mistakes That Kill Your Repurposed Content</h2>
+
+  <p>
+    Content repurposing sounds simple until you do it badly and wonder why nothing performs. Here are the four traps to avoid:
+  </p>
+
+  <ul>
+    <li>
+      <strong>Posting the same text across every platform.</strong> LinkedIn and Instagram are not the same audience, the same format, or the same context. Copy-pasting kills engagement. Each asset needs a platform-native rewrite — even if the idea is identical.
+    </li>
+    <li>
+      <strong>Repurposing weak content.</strong> AI can multiply what you've made, but it can't fix a blog post with no original insight. Start with your most useful, specific, and data-backed posts.
+    </li>
+    <li>
+      <strong>Ignoring analytics.</strong> If a format gets zero traction after four tries, stop using it. Your audience tells you what works if you're paying attention.
+    </li>
+    <li>
+      <strong>Over-automating the editing step.</strong> Fully AI-generated, unedited posts are now easy to spot. Audiences — and algorithms — are getting better at filtering them out. The human editing pass isn't optional.
+    </li>
+  </ul>
+
+  
+
+  <hr>
+
+  <!-- ── CONCLUSION ── -->
+  <h2>Wrapping Up: One Post, Maximum Reach</h2>
+
+  <p>
+    The brands winning on content in 2026 aren't the ones with the biggest budgets. They're the ones who understand that <strong>distribution beats production</strong> — and that every piece of quality content you make deserves to reach your audience in more than one way.
+  </p>
+  <p>
+    A single, well-researched blog post is the raw material for an entire week of content. AI makes the extraction fast. Your brand voice makes it worth reading. A smart <strong>content multiplication strategy</strong> turns both into compounding results over time.
+  </p>
+
+  <p><strong>Here's your one-line summary:</strong> Stop writing six new ideas a week. Start milking the one good one you already have.</p>
+
+  <ul>
+    <li>Identify your 5 best blog posts from the past year</li>
+    <li>Run each through the 6-step workflow above</li>
+    <li>Build a prompt library for your team</li>
+    <li>Post one repurposed asset per day for 30 days</li>
+    <li>Measure which formats perform best for your audience</li>
+    <li>Double down — and repeat the cycle</li>
+  </ul>
+
+  <!-- ── CTA ── -->
+  <div class="cta-box">
+    <h3>Ready to Build Your Content Repurposing Engine?</h3>
+    <p>Aloftz helps agencies, startups, and growing brands turn their existing content into full-scale distribution strategies — using AI tools your team will actually use.</p>
+    <div class="cta-buttons">
+      <a href="https://aloftz.com/contact.html" class="cta-btn-primary">Book a Free Strategy Call →</a>
+      <a href="https://aloftz.com/prompt-library" class="cta-btn-outline">Download the Prompt Library</a>
+    </div>
+  </div>
+
+  <hr>
+
+  </div>
+
+</article>
+</body>
+</html>

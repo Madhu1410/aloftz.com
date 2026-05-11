@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From 200 to 50,000 Instagram Followers: An AI Content Strategy Breakdown | ALOFTZ</title>
+  <meta name="description" content="A real breakdown of how we grew an Instagram account from 200 to 50,000 followers using AI-assisted content strategy." />
+  <meta property="og:title" content="From 200 to 50,000 Instagram Followers: An AI Content Strategy Breakdown | ALOFTZ" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="ALOFTZ Marketing Agency" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&family=Syne:wght@900&display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --bg: #0a1f22;
+      --ac: #11948d;
+      --ow: #F4FAFB;
+      --sl: rgba(214,240,243,0.68);
+      --gb: rgba(214,240,243,0.11);
+    }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f8f8f6;
+      color: #1a1a1a;
+      line-height: 1.75;
+      margin: 0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    .site-header {
+      background: rgba(10,31,34,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(214,240,243,0.11);
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+    .logo { font-size: 16px; font-weight: 700; color: #F4FAFB; letter-spacing: .04em; }
+    .logo span { color: #11948d; }
+    .back-btn {
+      background: none;
+      border: 1px solid rgba(214,240,243,0.11);
+      color: rgba(214,240,243,0.68);
+      padding: 7px 18px;
+      border-radius: 20px;
+      font-size: .8rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .25s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .back-btn:hover { border-color: #11948d; color: #11948d; }
+
+    /* Blog wrap styles */
+    .blog-wrap { max-width: 800px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; line-height: 1.8; }
+    .blog-wrap .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.25rem; }
+    .blog-wrap .tag { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: #f5f5f3; color: #666; padding: 4px 10px; border-radius: 20px; border: 0.5px solid rgba(0,0,0,0.1); }
+    .blog-wrap .tag.hl { background: #E6F1FB; color: #0C447C; border-color: #B5D4F4; }
+    .blog-wrap .headline { font-family: 'Syne', serif; font-size: clamp(26px, 5vw, 44px); font-weight: 900; line-height: 1.15; margin-bottom: 1rem; color: #1a1a1a; }
+    .blog-wrap .headline em { color: #D85A30; font-style: normal; }
+    .blog-wrap .deck { font-size: 17px; font-weight: 300; color: #555; margin-bottom: 1.5rem; line-height: 1.65; border-left: 3px solid #D85A30; padding-left: 1rem; }
+    .blog-wrap .post-meta { font-size: 13px; color: #999; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid rgba(0,0,0,0.1); }
+    .blog-wrap .post-meta strong { color: #1a1a1a; }
+    .blog-wrap .toc { background: #f5f5f3; border: 0.5px solid rgba(0,0,0,0.1); border-radius: 12px; padding: 1.1rem 1.4rem; margin: 0 0 2rem; }
+    .blog-wrap .toc-title { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; color: #999; margin-bottom: 0.75rem; }
+    .blog-wrap .toc ol { padding-left: 1.25rem; font-size: 14px; color: #555; }
+    .blog-wrap .toc li { margin-bottom: 5px; }
+    .blog-wrap .toc a { color: #185FA5; text-decoration: none; }
+    .blog-wrap .toc a:hover { text-decoration: underline; }
+    .blog-wrap .bl { color: #185FA5; text-decoration: underline; text-decoration-color: rgba(24,95,165,0.35); text-underline-offset: 3px; font-weight: 500; cursor:pointer; }
+    .blog-wrap .bl:hover { text-decoration-color: #185FA5; }
+    .blog-wrap .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 2rem 0; }
+    .blog-wrap .stat-card { background: #f5f5f3; border: 0.5px solid rgba(0,0,0,0.1); border-radius: 12px; padding: 1rem 1.25rem; text-align: center; }
+    .blog-wrap .stat-num { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: #D85A30; display: block; }
+    .blog-wrap .stat-label { font-size: 12px; color: #666; margin-top: 4px; line-height: 1.4; }
+    .blog-wrap h2 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; margin: 2rem 0 0.65rem; color: #1a1a1a; scroll-margin-top: 1rem; }
+    .blog-wrap h3 { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 500; margin: 1.25rem 0 0.4rem; color: #1a1a1a; }
+    .blog-wrap p { margin-bottom: 0.9rem; font-size: 15.5px; }
+    .blog-wrap ul, .blog-wrap ol { margin-bottom: 0.9rem; padding-left: 1.5rem; font-size: 15px; }
+    .blog-wrap li { margin-bottom: 0.4rem; }
+    .blog-wrap .callout { background: #FAECE7; border-left: 4px solid #D85A30; border-radius: 0 8px 8px 0; padding: 0.9rem 1.1rem; margin: 1.25rem 0; color: #993C1D; font-size: 14.5px; }
+    .blog-wrap .callout-green { background: #EAF3DE; border-left: 4px solid #639922; border-radius: 0 8px 8px 0; padding: 0.9rem 1.1rem; margin: 1.25rem 0; color: #27500A; font-size: 14.5px; }
+    .blog-wrap .checklist { list-style: none; padding: 0; margin: 0.75rem 0 1.25rem; }
+    .blog-wrap .checklist li { padding: 0.45rem 0 0.45rem 1.75rem; position: relative; font-size: 15px; border-bottom: 0.5px solid rgba(0,0,0,0.08); }
+    .blog-wrap .checklist li:last-child { border-bottom: none; }
+    .blog-wrap .checklist li::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 15px; height: 15px; border-radius: 50%; background: #E6F1FB; border: 2px solid #378ADD; }
+    .blog-wrap .checklist li.done::before { background: #D85A30; border-color: #D85A30; }
+    .blog-wrap .faq-item { border-bottom: 0.5px solid rgba(0,0,0,0.08); padding: 0.85rem 0; }
+    .blog-wrap .faq-item:last-child { border-bottom: none; }
+    .blog-wrap .faq-q { font-weight: 500; font-size: 15px; margin-bottom: 0.35rem; color: #1a1a1a; }
+    .blog-wrap .faq-a { font-size: 14px; color: #555; line-height: 1.7; }
+    .blog-wrap .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin: 1.25rem 0 1.75rem; }
+    .blog-wrap .svc-card { background: #fff; border: 0.5px solid rgba(0,0,0,0.1); border-radius: 10px; padding: 0.75rem 1rem; text-align: center; cursor: pointer; transition: all 0.3s ease; }
+    .blog-wrap .svc-card:hover { border-color: rgba(0,0,0,0.25); background: #f9f9f9; transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+    .blog-wrap .svc-icon { font-size: 18px; margin-bottom: 5px; display: block; }
+    .blog-wrap .svc-name { font-size: 13px; font-weight: 500; display: block; color: #1a1a1a; }
+    .blog-wrap hr { border: none; border-top: 1px solid rgba(0,0,0,0.1); margin: 1.75rem 0; }
+    /* Back button inside blog-wrap */
+    .blog-wrap button[onclick*="go("] { background: none; border: 1px solid rgba(0,0,0,0.15); color: #555; padding: 7px 16px; border-radius: 20px; font-size: .8rem; cursor: pointer; font-family: inherit; transition: all .3s; }
+    .blog-wrap button[onclick*="go("]:hover { border-color: #11948d; color: #11948d; }
+  </style>
+<link rel="canonical" href="https://www.aloftz.com/blog/200-to-50000-instagram-followers-ai-strategy">
+</head>
+<body>
+<header class="site-header">
+  <a href="/blog" class="logo" style="text-decoration:none">Aloftz <span>Marketing</span></a>
+  <button class="back-btn" onclick="goBack()">← Back to Blog</button>
+</header>
+<div class="blog-wrap">
+  <div class="wrap" style="max-width:800px;margin:0 auto;padding:2.5rem 1.5rem 5rem;line-height:1.8">
+
+      <div style="margin-bottom:1rem">
+        <button onclick="go('blog')" style="background:none;border:1px solid rgba(255,255,255,.15);color:var(--sl);padding:7px 16px;border-radius:20px;font-size:.8rem;cursor:pointer;font-family:inherit;transition:all .3s" onmouseover="this.style.borderColor='var(--ac)';this.style.color='var(--ac)'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='var(--sl)'">← Back to Blog</button>
+      </div>
+
+      <div class="tag-row">
+        <span class="tag hl">Social Media Strategy</span>
+        <span class="tag">Instagram Growth</span>
+        <span class="tag">AI Content</span>
+        <span class="tag">Case Study</span>
+      </div>
+
+      <h2 class="headline">From 200 to <em>50,000 Instagram Followers:</em> An AI Content Strategy Breakdown</h2>
+
+      <p class="deck">The brand had a great product and zero online presence. We fixed that — fast. Numbers don't lie. Strategy doesn't fail.</p>
+
+      <div class="post-meta">
+        <span>By <strong>Aloftz Marketing Agency PVT LTD</strong></span>
+        <span>April 10, 2026</span>
+        <span>11 min read · ~2,000 words</span>
+      </div>
+
+      <div class="toc">
+        <div class="toc-title">In this article</div>
+        <ol>
+          <li><a href="#where-we-started">Where we started — and why most brands fail here</a></li>
+          <li><a href="#audit">Phase 1 — The audit that changed everything</a></li>
+          <li><a href="#positioning">Phase 2 — AI-assisted positioning and content pillars</a></li>
+          <li><a href="#content-engine">Phase 3 — Building the AI content engine</a></li>
+          <li><a href="#content-types">The 5 content types that drove the most growth</a></li>
+          <li><a href="#consistency">Phase 4 — Consistency at scale without burning out</a></li>
+          <li><a href="#engagement">Phase 5 — Engagement strategy (the part everyone skips)</a></li>
+          <li><a href="#results">The results — and what they actually mean</a></li>
+          <li><a href="#conclusion">What to take from this</a></li>
+        </ol>
+      </div>
+
+      <p>When this client came to us, their Instagram had 200 followers. Most of those were friends, family, and one suspiciously active bot. They had a skincare product that genuinely worked — we tried it — and a founder who was spending her evenings manually commenting on competitor posts hoping someone would notice her.</p>
+
+      <p>Eight months later: 50,000 followers, a 6.2% average engagement rate, and a waitlist for the product launch. <strong>The difference between month 1 and month 8 wasn't budget — it was a repeatable content system powered by AI.</strong></p>
+
+      <p>Here's exactly how we built it.</p>
+
+      <div class="callout-green">
+        <strong>200 followers → 50,000 followers | 6.2% engagement rate | ₹2.4L revenue generated</strong>
+      </div>
+
+      <hr />
+
+      <h2 id="where-we-started">Where we started — and why most brands fail here</h2>
+
+      <p>The first question we ask every new social media client is: "Who are you trying to talk to, and what problem does your content solve for them?" Most brands can't answer this cleanly. They describe their product instead. "We sell natural skincare." That's what you sell — not what your audience needs to hear.</p>
+
+      <p>This client's initial Instagram was a product catalogue with a filter applied. Every post was a product shot. Every caption was a product description. It looked fine. It performed terribly. The reason is simple: <strong>Instagram doesn't reward products — it rewards points of view.</strong></p>
+
+      <p>Before we touched a single piece of content, we ran a proper audit. That audit is where the real strategy lives.</p>
+
+      <div class="callout-green">
+        <strong>Key Insight:</strong> If your Instagram looks like a brochure, your audience will treat it like one — by ignoring it. Content that earns followers solves a problem or expresses a belief.
+      </div>
+
+      <hr />
+
+      <h2 id="audit">Phase 1 — The audit that changed everything</h2>
+
+      <p><strong>3 weeks of research before a single post went live</strong></p>
+
+      <p>We spent the first three weeks not posting. Instead, we mapped the competitive landscape, analysed what content was performing across 12 competitor and adjacent accounts, and used AI tools to identify patterns in the top-performing posts by engagement type, caption structure, and posting time.</p>
+
+      <p><strong>What the audit revealed:</strong></p>
+      <ul>
+        <li><strong>Educational content</strong> in this niche consistently outperformed product content by 3–5x</li>
+        <li><strong>Relatable "real life" content</strong> (unfiltered, honest, slightly imperfect) outperformed polished studio shots on saves and shares</li>
+        <li><strong>The founder's voice was completely absent</strong> — there was no human behind the brand, and audiences noticed</li>
+        <li><strong>Captions were generic</strong> — no questions, no opinions, no engagement hooks</li>
+        <li>Posting was inconsistent — 2 posts one week, 7 the next, then nothing for 10 days</li>
+      </ul>
+
+      <p>Every one of these was fixable. None of them required a bigger budget. They required a different approach.</p>
+
+      <hr />
+
+      <h2 id="positioning">Phase 2 — AI-assisted positioning and content pillars</h2>
+
+      <p><strong>Using AI to find the gaps competitors were missing</strong></p>
+
+      <p>We fed the audit data into our AI workflow and asked it to identify underserved angles in the niche — topics and perspectives that the audience was searching for but competitors weren't covering consistently. This takes a human about two weeks to do manually. AI surfaced 30+ angles in an afternoon.</p>
+
+      <p><strong>Four content pillars that this brand would own:</strong></p>
+      <ul>
+        <li><strong>Education:</strong> "Why your skin does X" — debunking myths, explaining ingredients, demystifying routines</li>
+        <li><strong>Proof:</strong> Before/after content, customer reviews, founder testing her own products (raw, unfiltered)</li>
+        <li><strong>Community:</strong> User-generated content, Q&A sessions, "this or that" comparisons</li>
+        <li><strong>Entertainment:</strong> Fun, relatable content that builds personality without being salesy</li>
+      </ul>
+
+      <p>Each pillar had a clear content mix: 40% educational, 30% proof, 20% community, 10% entertainment. This structure ensured every post served the audience while building authority.</p>
+
+      <hr />
+
+      <h2 id="content-engine">Phase 3 — Building the AI content engine</h2>
+
+      <p><strong>AI as a co-pilot, not a replacement</strong></p>
+
+      <p>The production bottleneck for most small brands is time, not ideas. The founder knew what she wanted to say — she just couldn't write 20 captions a month, research 8 educational posts, and script 6 Reels while running the actual business. AI solved the production problem without removing the human voice.</p>
+
+      <p><strong>How the AI workflow ran:</strong></p>
+      <ul>
+        <li>Each week, the founder gave us 3–4 voice notes: raw thoughts, customer feedback, ingredient information</li>
+        <li>We fed those into our AI prompting framework with the brand's tone guide</li>
+        <li>AI produced 10–12 draft captions, 2 Reel scripts, and 3 carousel structures per week</li>
+        <li>The founder did a 20-minute review pass — editing for voice, adding specific anecdotes</li>
+        <li>Final content went to our creative team for visual production</li>
+      </ul>
+
+      <p>Total time from the founder per week: approximately 25 minutes. Total content output: 14–16 pieces. Before this system, she was spending 6–8 hours on social and producing 3–4 posts.</p>
+
+      <hr />
+
+      <h2 id="content-types">The 5 content types that drove the most growth</h2>
+
+      <p>Not all content performed equally. After tracking 90 days of data, five formats consistently outperformed everything else in this niche.</p>
+
+      <ul>
+        <li><strong>Educational Carousels:</strong> "3 things dermatologists wish you knew about SPF" — swipeable, save-worthy, 4.1% engagement</li>
+        <li><strong>Honest Reels:</strong> Founder talking to camera, no script, slightly messy. Outperformed every polished video</li>
+        <li><strong>Before/After Posts:</strong> Real customer results with authentic testimonials. Enormous reshares</li>
+        <li><strong>Opinion Posts:</strong> "Unpopular opinion: most skincare routines are too complicated." Takes a position. Algorithm loves engagement</li>
+        <li><strong>Saves-Bait Infographics:</strong> Dense single images people want to save: ingredient glossary, routine order, myth vs. fact</li>
+      </ul>
+
+      <p>Each content type was optimized for Instagram's algorithm: vertical video for Reels, carousel posts for education, Stories for quick engagement.</p>
+
+      <hr />
+
+      <h2 id="consistency">Phase 4 — Consistency at scale without burning out</h2>
+
+      <p><strong>The algorithm rewards consistency more than brilliance</strong></p>
+
+      <p>We've seen perfect posts from brands that post twice a month get ignored. We've seen good posts from brands posting five times a week build serious audiences. Consistency tells Instagram's algorithm that you're a real publisher.</p>
+
+      <p><strong>The posting structure we settled on:</strong></p>
+      <ul>
+        <li><strong>Monday:</strong> Educational carousel (Education pillar)</li>
+        <li><strong>Wednesday:</strong> Reel — founder-led or behind-the-scenes</li>
+        <li><strong>Friday:</strong> Customer proof or community-driven content</li>
+        <li><strong>Stories:</strong> Daily — polls, questions, quick updates, re-sharing UGC</li>
+        <li><strong>Monthly:</strong> One longer-form Reel with higher production value</li>
+      </ul>
+
+      <p>This is not a lot of content by agency standards. But it was exactly the right amount for a founder who was also running the business. Overcommitting and posting inconsistently is worse than a leaner schedule you can actually maintain.</p>
+
+      <hr />
+
+      <h2 id="engagement">Phase 5 — Engagement strategy (the part everyone skips)</h2>
+
+      <p>Most brands treat Instagram like a broadcast channel. Post, walk away, check the likes. <strong>Instagram is a social network. It rewards social behaviour.</strong></p>
+
+      <p><strong>The engagement system we ran: 30 minutes every day</strong></p>
+      <ul>
+        <li>Reply to every comment within the first hour of posting (signals quality to the algorithm)</li>
+        <li>Spend 15 minutes genuinely engaging with posts from accounts in the same niche</li>
+        <li>Respond to all DMs within 24 hours — and when appropriate, share the conversation as a Story</li>
+        <li>Re-share UGC in Stories with a thank-you reply — creates a loop where customers post more</li>
+      </ul>
+
+      <div class="callout-green">
+        <strong>Pro Tip:</strong> The first 60 minutes after posting are everything. If you drop a post and go silent, the algorithm sees low early engagement and reduces distribution. Post when you can respond.
+      </div>
+
+      <hr />
+
+      <h2 id="results">The results — and what they actually mean</h2>
+
+      <div class="callout-green">
+        <strong>200 → 50,000 followers | 6.2% engagement rate (industry avg: ~1.4%) | ₹2.4 lakh revenue from Instagram alone</strong>
+      </div>
+
+      <p>The 50,000 number is the headline. But honestly, the 6.2% engagement rate is the result we're more proud of. A lot of brands chase follower count and end up with an audience that doesn't care. A 6.2% engagement rate means this community is genuinely invested.</p>
+
+      <p><strong>That's the difference between an audience and a fanbase.</strong> Fanbases buy things. Fanbases share without being asked. Fanbases wait for a product launch and sell it out for you.</p>
+
+      <p>The AI content strategy didn't create any of that on its own. It created the volume, consistency, and structure that made those human moments possible.</p>
+
+      <hr />
+
+      <h2 id="conclusion">What to take from this</h2>
+
+      <p>If your Instagram is stuck, the problem is almost never the product. It's usually one of three things: no clear positioning, inconsistent content, or treating the platform like a brochure instead of a conversation.</p>
+
+      <p>AI doesn't fix weak strategy. But if your strategy is clear — your pillars are defined, your audience is specific, your voice is distinct — AI removes the production bottleneck that's keeping you from showing up consistently.</p>
+
+      <p>This took 8 months. Month 3 was slow. Month 5 was the inflection point. The brands that build real audiences on Instagram are the ones who keep going past the slow months. And a system that doesn't require 6 hours a week from the founder makes that possible.</p>
+
+      <hr />
+
+      <div class="cta-block">
+        <h3>Ready to grow an Instagram that actually converts?</h3>
+        <p>Aloftz builds AI-powered social media strategies for brands that want real followers, real engagement, and real results.</p>
+        <a href="javascript:go('contact')" class="cta-btn">Get a Free Social Media Audit ↗</a>
+      </div>
+
+      <div class="services-grid">
+        <div class="svc-card" onclick="goService(1)" style="cursor:pointer;"><span class="svc-icon">📱</span><span class="svc-name">Social Media</span></div>
+        <div class="svc-card" onclick="goService(0)" style="cursor:pointer;"><span class="svc-icon">🔍</span><span class="svc-name">SEO</span></div>
+        <div class="svc-card" onclick="goService(2)" style="cursor:pointer;"><span class="svc-icon">💻</span><span class="svc-name">Website</span></div>
+        <div class="svc-card" onclick="goService(3)" style="cursor:pointer;"><span class="svc-icon">🎯</span><span class="svc-name">Ad Campaigns</span></div>
+        <div class="svc-card" onclick="goService(5)" style="cursor:pointer;"><span class="svc-icon">🎬</span><span class="svc-name">Creative</span></div>
+        <div class="svc-card" onclick="goService(6)" style="cursor:pointer;"><span class="svc-icon">📊</span><span class="svc-name">Digital Strategy</span></div>
+      </div>
+
+      <p style="font-size:13px;color:rgba(214,240,243,0.4);margin-top:2rem">Keywords: Instagram growth strategy AI, social media marketing India, AI social media content, Instagram followers growth, content strategy Instagram 2026, AI content creation agency, Instagram engagement rate, social media case study India</p>
+
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page ob" id="pg-contact">
+  <div class="orb o1"></div><div class="orb o2"></div>
+  <div class="s">
+    <div class="w">
+      <div style="text-align:center;margin-bottom:64px"><div class="ey">Get In Touch</div><h2>Let's Start a <span style="color:var(--ac)">Conversation</span></h2><p style="max-width:440px;margin:10px auto 0">Ready to grow? We respond within 24 hours.</p></div>
+      <div class="csp">
+        <div>
+          <div id="ciEl"></div>
+          <div class="mb g map-container" onclick="window.open('https://maps.app.goo.gl/u9WbKE7rqjNTYdVt9', '_blank')" style="cursor:pointer;">
+            <iframe src="https://maps.google.com/maps?q=ECOSPACE+BUSINESS+PARK,+Newtown,+West+Bengal+700160,+India&output=embed" width="100%" height="220" style="border:0;border-radius:18px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="map-overlay">
+              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" style="width:40px;opacity:.8"><circle cx="30" cy="26" r="10" fill="none" stroke="#1AB564" stroke-width="2"/><circle cx="30" cy="26" r="4" fill="#1AB564"/><path d="M30,36 L30,52" stroke="#1AB564" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".5"/><ellipse cx="30" cy="54" rx="10" ry="2.5" fill="rgba(26,181,100,.12)"/></svg>
+              <span style="font-family:'Courier New',monospace;font-size:.7rem;letter-spacing:.1em;color:var(--sl)">Click to open in Google Maps</span>
+            </div>
+          </div>
+        </div>
+        <div class="gd" style="padding:42px">
+          <h3 style="margin-bottom:28px;color:var(--ow)">Send a <span style="color:var(--ac)">Message</span></h3>
+          <form id="cForm" onsubmit="subForm(event)">
+            <div class="fr">
+              <div class="fg"><label class="fl">First Name</label><input class="fi" type="text" placeholder="John" required></div>
+              <div class="fg"><label class="fl">Last Name</label><input class="fi" type="text" placeholder="Doe" required></div>
+            </div>
+            <div class="fg"><label class="fl">Email</label><input class="fi" type="email" placeholder="hello@company.com" required></div>
+            <div class="fg"><label class="fl">Phone</label><input class="fi" type="tel" placeholder="+91 98765 43210"></div>
+            <div class="fg"><label class="fl">Service</label>
+              <select class="fse fi"><option>SEO Optimisation</option><option>Social Media Marketing</option><option>Website Development</option><option>Ad Campaigns</option><option>Creative Production</option><option>Full Digital Package</option></select>
+            </div>
+            <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Tell us about your project..."></textarea></div>
+            <button type="submit" class="bg2" style="width:100%;justify-content:center">Send Message ✦</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function goBack() {
+    try {
+      if (window.parent && window.parent !== window && window.parent.go) {
+        window.parent.go('blog');
+      } else {
+        window.location.href = 'blog.html';
+      }
+    } catch(e) { window.history.back(); }
+  }
+  function goContact() {
+    try {
+      if (window.parent && window.parent !== window && window.parent.go) {
+        window.parent.go('contact');
+      } else {
+        window.location.href = 'contact.html';
+      }
+    } catch(e) {}
+  }
+  function goServices() {
+    try {
+      if (window.parent && window.parent !== window && window.parent.go) {
+        window.parent.go('services');
+      } else {
+        window.location.href = 'services.html';
+      }
+    } catch(e) {}
+  }
+  function goService(idx) {
+    try {
+      if (window.parent && window.parent !== window && window.parent.go) {
+        window.parent.go('services');
+      } else {
+        window.location.href = 'services.html';
+      }
+    } catch(e) {}
+  }
+  // Fix go() calls inside blog-wrap buttons
+  function go(pg) {
+    try {
+      if (window.parent && window.parent !== window && window.parent.go) {
+        window.parent.go(pg);
+      } else {
+        window.location.href = 'blog.html';
+      }
+    } catch(e) {}
+  }
+  document.querySelectorAll('.toc a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>

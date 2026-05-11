@@ -1,0 +1,9 @@
+# robots.txt — ALOFTZ.COM
+User-agent: *
+Allow: /
+Disallow: /workpulse/
+Disallow: /admin/
+Disallow: /login/
+Disallow: /wp-login.php
+
+Sitemap: https://www.aloftz.com/sitemap.xml

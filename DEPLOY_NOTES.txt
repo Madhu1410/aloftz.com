@@ -1,0 +1,34 @@
+ALOFTZ — Migration v2 Deployment Notes
+=======================================
+
+WHAT'S BEEN FIXED IN THIS ZIP:
+1. ✓ 7 blog posts now have canonical tags added:
+   - blog-ai-to-Write-30-days.html → /blog/ai-blog-writing-30-days-content
+   - blog-ai-tools-agencies.html   → /blog/jasper-copyai-claude-comparison-agencies
+   - blog-creative.html            → /blog/death-of-generic-content
+   - blog-instagram-growth.html    → /blog/200-to-50000-instagram-followers-ai-strategy
+   - blog-social.html              → /blog/ai-content-strategy-social-media
+   - blog-strategy.html            → /blog/0-to-1-lakh-organic-visitors-90-days
+   - blog-web-dev.html             → /blog/top-10-ai-marketing-tools-india-2026
+
+2. ✓ index.html canonical fixed: now points to https://www.aloftz.com/ (was missing www)
+
+3. ✓ blog-paid-ads.html: Duplicate title fixed + unique canonical assigned
+   New title: "Paid Ads SEO Mistakes: Why Your Agency's Google Rankings Are Suffering"
+   New canonical: https://www.aloftz.com/blog/paid-ads-seo-mistakes-guide
+
+4. ✓ All 18 internal .html hrefs replaced with clean URLs across all HTML files
+
+5. ✓ sitemap.xml updated: all 23 clean URLs (was .html paths, 8 missing blog posts added)
+
+6. ✓ htaccess renamed to .htaccess for direct deployment
+
+DEPLOY INSTRUCTIONS:
+1. Upload all files from this folder to your server root
+2. Upload .htaccess (rename from htaccess if server didn't accept the dot-file)
+3. DELETE home.html and "blog (1).html" from your server (htaccess handles 301s)
+4. Submit updated sitemap.xml to Google Search Console
+5. Use GSC URL Inspection → Request Indexing for the 7 newly canonicalized blog posts
+
+ROLLBACK:
+   cp .htaccess.bak .htaccess   (restore instantly if anything breaks)

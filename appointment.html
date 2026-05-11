@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book an Appointment – Aloftz</title>
+  <meta name="description" content="Book an appointment with Aloftz – your digital marketing partner in Kolkata. We'll respond within 24 hours." />
+  <link rel="canonical" href="https://www.aloftz.com/appointment" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ab:#0A1F22; --tl:#0D5C63; --oc:#107A84; --ac:#11948d;
+      --ms:#D6F0F3; --gd:#C9A84C; --sl:#6B8C90; --ow:#F4FAFB;
+      --sf:rgba(13,92,99,0.14); --gb:rgba(214,240,243,0.11);
+      --gbs:rgba(26,181,100,0.22); --gg:rgba(26,181,100,0.28);
+      --ggd:rgba(201,168,76,0.32);
+      --ease:cubic-bezier(0.16,1,0.3,1);
+      --bnc:cubic-bezier(0.34,1.56,0.64,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--ab); color: var(--ow); overflow-x: hidden; min-height: 100vh; }
+    a { color: inherit; text-decoration: none; }
+
+    /* LAYOUT */
+    .page { min-height: 100vh; position: relative; overflow: hidden; }
+    .s { padding: 110px 5vw; }
+    .w { max-width: 1260px; margin: 0 auto; padding: 0 5vw; }
+
+    /* BACKGROUND ORBS */
+    .orb { position: absolute; border-radius: 50%; filter: blur(88px); pointer-events: none; animation: of 13s ease-in-out infinite; }
+    .o1 { width: 540px; height: 540px; background: rgba(13,92,99,.34); top: -120px; right: -120px; animation-delay: 0s; }
+    .o2 { width: 380px; height: 380px; background: rgba(26,181,100,.12); bottom: 80px; left: -100px; animation-delay: -6.5s; }
+    @keyframes of { 0%,100%{transform:translate(0,0)} 33%{transform:translate(22px,-18px)} 66%{transform:translate(-14px,24px)} }
+
+    /* EYEBROW */
+    .ey { display: inline-flex; align-items: center; gap: 10px; font-family: 'Courier New', monospace; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ac); margin-bottom: 18px; }
+    .ey::before { content: ''; width: 18px; height: 1px; background: var(--ac); }
+
+    h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 4vw, 3.1rem); font-weight: 700; line-height: 1.18; color: var(--ow); }
+
+    /* CONTACT SPLIT */
+    .csp { display: grid; grid-template-columns: 1fr 1.55fr; gap: 72px; align-items: start; }
+
+    /* CONTACT INFO ITEMS */
+    .cii { display: flex; align-items: flex-start; gap: 14px; padding: 20px; border-radius: 14px; margin-bottom: 10px; background: rgba(13,92,99,.11); backdrop-filter: blur(12px); border: 1px solid var(--gb); transition: border-color .3s; }
+    .cii:hover { border-color: var(--gbs); }
+    .ciic { width: 42px; height: 42px; border-radius: 11px; flex-shrink: 0; background: linear-gradient(135deg, rgba(26,181,100,.14), rgba(13,92,99,.22)); border: 1px solid rgba(26,181,100,.18); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+    .cilb { font-family: 'Courier New', monospace; font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--sl); }
+    .civl { font-size: .92rem; color: var(--ow); font-weight: 600; margin-top: 3px; }
+
+    /* MAP */
+    .mb { margin-bottom: 12px; }
+    .map-container { position: relative; overflow: hidden; transition: transform .3s var(--ease); border-radius: 18px; }
+    .map-container:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,.3); }
+    .map-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(10,31,34,.7), rgba(13,92,99,.5)); backdrop-filter: blur(4px); transition: opacity .3s; }
+    .map-container:hover .map-overlay { opacity: 0; }
+
+    /* FORM CARD */
+    .gd { background: rgba(13,92,99,.22); backdrop-filter: blur(28px) saturate(180%); -webkit-backdrop-filter: blur(28px) saturate(180%); border: 1px solid var(--gbs); border-radius: 22px; }
+    .fl { display: block; font-family: 'Courier New', monospace; font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--sl); margin-bottom: 7px; }
+    .fi, .fse, .fta { width: 100%; padding: 12px 16px; background: rgba(13,92,99,.14); border: 1px solid var(--gb); border-radius: 11px; color: var(--ow); font-family: 'Segoe UI', system-ui, sans-serif; font-size: .9rem; transition: all .3s; outline: none; backdrop-filter: blur(8px); }
+    .fi:focus, .fse:focus, .fta:focus { border-color: rgba(26,181,178,.42); background: rgba(13,92,99,.24); box-shadow: 0 0 0 3px rgba(26,181,100,.1); }
+    .fi::placeholder, .fta::placeholder { color: var(--sl); opacity: .5; }
+    .fta { height: 126px; resize: none; }
+    .fse option { background: var(--ab); color: var(--ow); }
+    .fr { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .fg { margin-bottom: 16px; }
+
+    /* SUBMIT BUTTON */
+    .bg2 { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; border-radius: 13px; background: linear-gradient(135deg, var(--gd), #DEB84E); color: var(--ab); font-weight: 800; font-size: .88rem; letter-spacing: .05em; text-transform: uppercase; transition: all .3s var(--bnc); border: none; cursor: pointer; }
+    .bg2:hover { transform: translateY(-3px); box-shadow: 0 0 40px var(--ggd), 0 12px 30px rgba(0,0,0,.3); }
+
+    /* TOAST */
+    #toast { position: fixed; bottom: 26px; right: 26px; z-index: 9000; display: flex; align-items: center; gap: 9px; padding: 13px 20px; border-radius: 13px; background: rgba(10,31,34,.92); backdrop-filter: blur(22px); border: 1px solid rgba(26,181,100,.28); box-shadow: 0 18px 48px rgba(0,0,0,.4); font-size: .86rem; color: var(--ow); transform: translateY(80px); opacity: 0; transition: all .4s var(--ease); }
+    #toast.show { transform: translateY(0); opacity: 1; }
+    .ti { color: var(--ac); }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+<meta property="og:title" content="Book a Free Strategy Call — ALOFTZ" />
+<meta property="og:description" content="Book a free 30-minute digital marketing strategy call with ALOFTZ. India's AI-powered marketing agency. Get your custom growth roadmap." />
+<meta property="og:url" content="https://www.aloftz.com/appointment" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://www.aloftz.com/IMG/aloftz-logo-final.png" />
+<meta property="og:locale" content="en_IN" />
+<meta property="og:site_name" content="ALOFTZ Marketing Agency" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Book a Free Strategy Call — ALOFTZ" />
+<meta name="twitter:description" content="Get a free 30-minute digital marketing strategy call. India's AI-powered marketing agency." />
+<meta name="twitter:image" content="https://www.aloftz.com/IMG/aloftz-logo-final.png" />
+<meta name="twitter:site" content="@aloftz14887" />
+</head>
+<body>
+
+<div id="toast"><span class="ti">✦</span><span id="tmsg"></span></div>
+
+<div class="page">
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="s">
+    <div class="w">
+      <div style="text-align:center;margin-bottom:64px">
+        <div class="ey">Schedule a Session</div>
+        <h2>Book an <span style="color:var(--ac)">Appointment</span></h2>
+        <p style="max-width:440px;margin:10px auto 0">Ready to grow? We respond within 24 hours.</p>
+      </div>
+      <div class="csp">
+        <!-- LEFT COLUMN: Contact info + map -->
+        <div>
+          <div id="ciEl">
+            <div class="cii">
+              <div class="ciic">&#128231;</div>
+              <div>
+                <div class="cilb">Email Us</div>
+                <div class="civl">hr@aloftz.com</div>
+              </div>
+            </div>
+            <div class="cii">
+              <div class="ciic">&#128222;</div>
+              <div>
+                <div class="cilb">Call Us</div>
+                <div class="civl">+91 62892 52238</div>
+              </div>
+            </div>
+            <div class="cii">
+              <div class="ciic">&#128205;</div>
+              <div>
+                <div class="cilb">Visit Us</div>
+                <div class="civl">Business Tower, ECOSPACE BUSINESS PARK, 5A, Newtown, West Bengal 700160, India</div>
+              </div>
+            </div>
+            <div class="cii">
+              <div class="ciic">&#128336;</div>
+              <div>
+                <div class="cilb">Working Hours</div>
+                <div class="civl">Mon–Sat, 10am–7pm IST</div>
+              </div>
+            </div>
+          </div>
+          <div class="mb gd map-container" onclick="window.open('https://maps.app.goo.gl/u9WbKE7rqjNTYdVt9','_blank')" style="cursor:pointer;margin-top:12px;">
+            <iframe src="https://maps.google.com/maps?q=ECOSPACE+BUSINESS+PARK,+Newtown,+West+Bengal+700160,+India&output=embed" width="100%" height="220" style="border:0;border-radius:18px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="map-overlay">
+              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" style="width:40px;opacity:.8">
+                <circle cx="30" cy="26" r="10" fill="none" stroke="#1AB564" stroke-width="2"/>
+                <circle cx="30" cy="26" r="4" fill="#1AB564"/>
+                <path d="M30,36 L30,52" stroke="#1AB564" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".5"/>
+                <ellipse cx="30" cy="54" rx="10" ry="2.5" fill="rgba(26,181,100,.12)"/>
+              </svg>
+              <span style="font-family:'Courier New',monospace;font-size:.7rem;letter-spacing:.1em;color:var(--sl)">Click to open in Google Maps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Booking form -->
+        <div class="gd" style="padding:42px">
+          <h3 style="margin-bottom:28px;color:var(--ow)">Book an <span style="color:var(--ac)">Appointment</span></h3>
+          <form id="cForm" onsubmit="subForm(event)">
+            <div class="fr">
+              <div class="fg"><label class="fl">First Name</label><input class="fi" type="text" name="first_name" placeholder="John" required></div>
+              <div class="fg"><label class="fl">Last Name</label><input class="fi" type="text" name="last_name" placeholder="Doe" required></div>
+            </div>
+            <div class="fg"><label class="fl">Email</label><input class="fi" type="email" name="email" placeholder="hello@company.com" required></div>
+            <div class="fg"><label class="fl">Phone</label><input class="fi" type="tel" name="phone" placeholder="+91 98765 43210"></div>
+            <div class="fg">
+              <label class="fl">Preferred Date</label>
+              <input class="fi" type="date" id="appt-date" name="preferred_date" required>
+            </div>
+            <div class="fg">
+              <label class="fl">Preferred Time</label>
+              <select class="fse fi" id="appt-time" name="preferred_time">
+                <option value="">Select a time slot</option>
+                <option>10:00 AM – 11:00 AM</option>
+                <option>11:00 AM – 12:00 PM</option>
+                <option>12:00 PM – 1:00 PM</option>
+                <option>2:00 PM – 3:00 PM</option>
+                <option>3:00 PM – 4:00 PM</option>
+                <option>4:00 PM – 5:00 PM</option>
+                <option>5:00 PM – 6:00 PM</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label class="fl" for="service">Service</label>
+              <select class="fse fi" id="service" name="service">
+                <option>SEO Optimisation</option>
+                <option>Social Media Marketing</option>
+                <option>Website Development</option>
+                <option>Ad Campaigns</option>
+                <option>Creative Production</option>
+                <option>Full Digital Package</option>
+              </select>
+            </div>
+            <div class="fg"><label class="fl">Message</label><textarea class="fta" name="message" placeholder="Tell us about your project..."></textarea></div>
+            <button type="submit" id="submitBtn" class="bg2" style="width:100%;justify-content:center">Book an Appointment ✦</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  /* ── Min date = today ───────────────────────────────────────── */
+  const dateInput = document.getElementById('appt-date');
+  if (dateInput) {
+    dateInput.setAttribute('min', new Date().toISOString().split('T')[0]);
+  }
+
+  /* ── Field-level error helpers ──────────────────────────────── */
+  function showFieldError(inputEl, msg) {
+    let err = inputEl.parentElement.querySelector('.field-err');
+    if (!err) {
+      err = document.createElement('span');
+      err.className = 'field-err';
+      err.style.cssText =
+        'display:block;font-size:.72rem;color:#ff6b6b;margin-top:5px;' +
+        'font-family:"Courier New",monospace;letter-spacing:.04em;';
+      inputEl.parentElement.appendChild(err);
+    }
+    err.textContent = msg;
+    inputEl.style.borderColor = 'rgba(255,107,107,.6)';
+    inputEl.style.boxShadow   = '0 0 0 3px rgba(255,107,107,.1)';
+  }
+
+  function clearFieldError(inputEl) {
+    const err = inputEl.parentElement.querySelector('.field-err');
+    if (err) err.textContent = '';
+    inputEl.style.borderColor = '';
+    inputEl.style.boxShadow   = '';
+  }
+
+  function clearAllErrors(form) {
+    form.querySelectorAll('.fi, .fse, .fta').forEach(clearFieldError);
+  }
+
+  /* ── Validation ─────────────────────────────────────────────── */
+  function validate(fd, form) {
+    let ok = true;
+
+    const fields = {
+      first_name:     { el: form.querySelector('[name="first_name"]'),     test: v => v.trim().length >= 2,                    msg: 'Please enter your first name' },
+      last_name:      { el: form.querySelector('[name="last_name"]'),      test: v => v.trim().length >= 2,                    msg: 'Please enter your last name' },
+      email:          { el: form.querySelector('[name="email"]'),          test: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),   msg: 'Enter a valid email address' },
+      phone:          { el: form.querySelector('[name="phone"]'),          test: v => !v || /^[+\d\s\-().]{7,20}$/.test(v),  msg: 'Enter a valid phone number' },
+      preferred_date: { el: form.querySelector('[name="preferred_date"]'), test: v => { if (!v) return false; return new Date(v) >= new Date(new Date().toDateString()); }, msg: 'Select today or a future date' },
+      preferred_time: { el: form.querySelector('[name="preferred_time"]'), test: v => v !== '',                               msg: 'Please select a time slot' }
+    };
+
+    for (const key in fields) {
+      const { el, test, msg } = fields[key];
+      const val = fd.get(key) || '';
+      if (!test(val)) {
+        showFieldError(el, msg);
+        ok = false;
+      } else {
+        clearFieldError(el);
+      }
+    }
+
+    return ok;
+  }
+
+  /* ── Toast helper ───────────────────────────────────────────── */
+  function showToast(msg, isError = false) {
+    const t    = document.getElementById('toast');
+    const tmsg = document.getElementById('tmsg');
+    tmsg.textContent    = msg;
+    t.style.borderColor = isError ? 'rgba(220,50,50,.5)' : 'rgba(26,181,100,.5)';
+    t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer = setTimeout(() => t.classList.remove('show'), 5000);
+  }
+
+  /* ── Form submission → SheetDB ──────────────────────────────── */
+  async function subForm(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn  = document.getElementById('submitBtn');
+    const fd   = new FormData(form);
+
+    clearAllErrors(form);
+
+    /* Client-side validation */
+    if (!validate(fd, form)) {
+      showToast('Please fix the highlighted fields before submitting.', true);
+      return;
+    }
+
+    /* Lock button */
+    btn.disabled     = true;
+    btn.innerHTML    = '<span style="display:inline-block;width:14px;height:14px;border:2px solid rgba(10,31,34,.3);border-top-color:var(--ab);border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle;margin-right:8px"></span>Submitting…';
+
+    /* SheetDB payload — keys MUST match your Google Sheet Row 1 headers exactly */
+    const payload = {
+      data: [{
+        name:         fd.get('first_name').trim() + ' ' + fd.get('last_name').trim(),
+        email:        fd.get('email').trim().toLowerCase(),
+        phone:        (fd.get('phone') || '').trim(),
+        date:         fd.get('preferred_date'),
+        time:         fd.get('preferred_time'),
+        service:      fd.get('service'),
+        notes:        (fd.get('message') || '').trim(),
+        submitted_at: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+      }]
+    };
+
+    try {
+      const res = await fetch('https://sheetdb.io/api/v1/fsctrxajck3ph', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body:    JSON.stringify(payload)
+      });
+
+      const responseBody = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        throw new Error(responseBody.error || 'HTTP ' + res.status);
+      }
+
+      showToast("Appointment booked! We'll confirm within 24 hours. ✓");
+      form.reset();
+      clearAllErrors(form);
+
+      /* Optional: redirect after success */
+      // setTimeout(() => window.location.href = 'index.html', 2500);
+
+    } catch (err) {
+      showToast('Oops! Submission failed: ' + err.message + '. Please try again.', true);
+    } finally {
+      btn.disabled  = false;
+      btn.innerHTML = 'Book an Appointment ✦';
+    }
+  }
+</script>
+</body>
+</html>

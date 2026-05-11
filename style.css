@@ -1,0 +1,803 @@
+/* Inline styles moved to external CSS */
+
+/* Nav logo img */
+.nav-logo-img {
+  height: 65px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(0,229,255,0.5));
+  margin-left: 23px;
+  margin-top: 9px;
+}
+
+/* Hero container */
+.hero-container {
+  position: relative;
+}
+
+/* Hero description */
+.hero-description {
+  font-size: 1.08rem;
+  max-width: 460px;
+  margin-bottom: 40px;
+  line-height: 1.82;
+}
+
+/* Hero buttons container */
+.hero-buttons {
+  display: flex;
+  gap: 13px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+/* Hero svg container */
+.hero-svg-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hero svg */
+.hero-svg {
+  width: 90%;
+  max-width: 400px;
+  opacity: .93;
+}
+
+/* Avatar backgrounds */
+.avatar-bg-1 {
+  background: linear-gradient(135deg, #0D5C63, #107A84);
+}
+
+.avatar-bg-2 {
+  background: linear-gradient(135deg, #11777a, #1aa6b5);
+}
+
+.avatar-bg-3 {
+  background: linear-gradient(135deg, #8B6E20, #C9A84C);
+}
+
+.avatar-bg-4 {
+  background: linear-gradient(135deg, #3A5C60, #6B8C90);
+}
+
+/* Return text */
+.return-text {
+  font-weight: 800;
+  font-size: .95rem;
+  color: var(--ow);
+}
+
+/* Speaker bars */
+.speaker-40 {
+  height: 40%;
+}
+
+.speaker-55 {
+  height: 55%;
+}
+
+.speaker-48 {
+  height: 48%;
+}
+
+.speaker-72 {
+  height: 72%;
+}
+
+.speaker-62 {
+  height: 62%;
+}
+
+.speaker-88 {
+  height: 88%;
+}
+
+.speaker-100 {
+  height: 100%;
+}
+
+/* Rating */
+.rating-text {
+  font-weight: 900;
+  font-size: .95rem;
+  color: var(--ow);
+}
+
+/* Trusted by text */
+.trusted-by {
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-size: .65rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--sl);
+  margin-bottom: 22px;
+}
+
+/* Services section */
+.services-section {
+  padding-top: 0;
+}
+
+/* Services title */
+.services-title {
+  color: var(--ac);
+}
+
+/* Services description */
+.services-description {
+  margin-bottom: 26px;
+}
+
+/* Process section */
+.process-section {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+/* Process title */
+.process-title {
+  color: var(--ac);
+}
+
+/* Portfolio section */
+.portfolio-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 36px;
+}
+
+/* Portfolio title */
+.portfolio-title {
+  color: var(--ac);
+}
+
+/* Testimonials section */
+.testimonials-section {
+  background: rgba(13,92,99,.05);
+  border-top: 1px solid var(--gb);
+}
+
+/* Testimonials title */
+.testimonials-title {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+/* Testimonials title span */
+.testimonials-title-span {
+  color: var(--ac);
+}
+
+/* Testimonial overlay */
+.testimonial-overlay {
+  position: relative;
+  z-index: 1;
+}
+
+/* CTA ready */
+.cta-ready {
+  color: rgba(244,250,251,.55);
+}
+
+/* CTA title */
+.cta-title {
+  color: var(--ow);
+  margin-bottom: 18px;
+}
+
+/* CTA title span */
+.cta-title-span {
+  color: var(--gd);
+}
+
+/* CTA description */
+.cta-description {
+  color: rgba(244,250,251,.7);
+  margin-bottom: 32px;
+  font-size: 1.02rem;
+}
+
+/* CTA svg */
+.cta-svg {
+  width: 80%;
+  opacity: .9;
+}
+
+/* About founded */
+.about-founded {
+  font-weight: 900;
+  font-size: 1.9rem;
+  color: var(--ac);
+}
+
+/* About location */
+.about-location {
+  font-size: .75rem;
+  color: var(--sl);
+  margin-top: 2px;
+}
+
+/* About team size */
+.about-team-size {
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: var(--ow);
+}
+
+/* About team size span */
+.about-team-size-span {
+  color: var(--ac);
+}
+
+/* About title */
+.about-title {
+  margin-bottom: 22px;
+}
+
+/* About title span */
+.about-title-span {
+  color: var(--ac);
+}
+
+/* About description 1 */
+.about-description-1 {
+  margin-bottom: 16px;
+}
+
+/* About description 2 */
+.about-description-2 {
+  margin-bottom: 32px;
+}
+
+/* About links */
+.about-links {
+  margin-top: 28px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Team section */
+.team-section {
+  background: rgba(13,92,99,.05);
+  border-top: 1px solid var(--gb);
+}
+
+/* Team title */
+.team-title {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+/* Team title span */
+.team-title-span {
+  color: var(--ac);
+}
+
+/* Journey title */
+.journey-title {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+/* Journey title span */
+.journey-title-span {
+  color: var(--ac);
+}
+
+/* Services title */
+.services-built-title {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+/* Services built title span */
+.services-built-title-span {
+  color: var(--ac);
+}
+
+/* Services built description */
+.services-built-description {
+  max-width: 520px;
+  margin: 0 auto 48px;
+}
+
+/* Services tabs */
+.services-tabs {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* Pricing section */
+.pricing-section {
+  background: rgba(13,92,99,.05);
+  border-top: 1px solid var(--gb);
+  padding-top: 80px;
+}
+
+/* Pricing title */
+.pricing-title {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+/* Pricing title span */
+.pricing-title-span {
+  color: var(--ac);
+}
+
+/* Pricing tabs */
+.pricing-tabs {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* Pricing slider */
+.pricing-slider {
+  display: inline-flex;
+  background: rgba(13,92,99,.14);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--gb);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Pricing slider indicator */
+.pricing-slider-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--ac), #0f94af);
+  transition: transform .3s var(--ease);
+  border-radius: 16px;
+}
+
+/* Pricing slider tab on */
+.pricing-slider-tab-on {
+  position: relative;
+  z-index: 1;
+  padding: 12px 28px;
+  border: none;
+  background: none;
+  color: var(--ow);
+  font-weight: 700;
+  cursor: pointer;
+  transition: color .3s;
+  flex: 2;
+}
+
+/* Pricing slider tab */
+.pricing-slider-tab {
+  position: relative;
+  z-index: 1;
+  padding: 20px 14px;
+  border: none;
+  background: none;
+  color: var(--sl);
+  font-weight: 700;
+  cursor: pointer;
+  transition: color .3s;
+  flex: 4;
+}
+
+/* Pricing grid */
+.pricing-grid {
+  margin-bottom: 32px;
+}
+
+/* FAQ title */
+.faq-title {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* FAQ title span */
+.faq-title-span {
+  color: var(--ac);
+}
+
+/* Portfolio title */
+.portfolio-work-title {
+  margin-bottom: 40px;
+}
+
+/* Portfolio work title */
+.portfolio-work-title-main {
+  margin-bottom: 12px;
+}
+
+/* Portfolio work title span */
+.portfolio-work-title-span {
+  color: var(--ac);
+}
+
+/* Portfolio work description */
+.portfolio-work-description {
+  max-width: 440px;
+}
+
+/* Method section */
+.method-section {
+  padding-top: 0;
+  background: rgba(13,92,99,.05);
+  border-top: 1px solid var(--gb);
+}
+
+/* Method title */
+.method-title {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* Method title span */
+.method-title-span {
+  color: var(--ac);
+}
+
+/* Blog title */
+.blog-title {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* Blog title span */
+.blog-title-span {
+  color: var(--ac);
+}
+
+/* Blog description */
+.blog-description {
+  max-width: 440px;
+  margin: 10px auto 0;
+}
+
+/* Blog tabs */
+.blog-tabs {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Back button */
+.back-button {
+  background: none;
+  border: 1px solid rgba(255,255,255,.15);
+  color: var(--sl);
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-size: .8rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all .3s;
+}
+
+/* Process grid */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin: 1.5rem 0;
+}
+
+/* Process step */
+.process-step {
+  background: rgba(13,92,99,.13);
+  border: 1px solid var(--gb);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+}
+
+/* Process step number */
+.process-step-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ac);
+  display: block;
+  line-height: 1;
+}
+
+/* Process step title */
+.process-step-title {
+  font-size: .85rem;
+  font-weight: 500;
+  margin: 4px 0 6px;
+  color: var(--ow);
+}
+
+/* Process step description */
+.process-step-description {
+  font-size: .8rem;
+  color: var(--sl);
+  line-height: 1.6;
+}
+
+/* Callout */
+.callout {
+  font-style: italic;
+  font-size: 1rem;
+  border-left-width: 3px;
+}
+
+/* HR */
+.horizontal-rule {
+  border: none;
+  border-top: 1px solid var(--gb);
+  margin: 1.75rem 0;
+}
+
+/* Services card */
+.services-card {
+  cursor: pointer;
+}
+
+/* Back to blog button */
+.back-to-blog-button {
+  margin-bottom: 1rem;
+}
+
+/* Blog callout */
+.blog-callout {
+  background: var(--ac);
+  border-radius: 14px;
+  padding: 1.75rem 2rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* Blog callout title */
+.blog-callout-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+/* Blog callout description */
+.blog-callout-description {
+  font-size: .9rem;
+  color: rgba(255,255,255,.8);
+  margin-bottom: 1.1rem;
+}
+
+/* Contact title */
+.contact-title {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+/* Contact title span */
+.contact-title-span {
+  color: var(--ac);
+}
+
+/* Contact description */
+.contact-description {
+  max-width: 440px;
+  margin: 10px auto 0;
+}
+
+/* Map container */
+.map-container {
+  cursor: pointer;
+}
+
+/* Map iframe */
+.map-iframe {
+  border: 0;
+  border-radius: 18px;
+}
+
+/* Map text */
+.map-text {
+  font-family: 'Courier New', monospace;
+  font-size: .7rem;
+  letter-spacing: .1em;
+  color: var(--sl);
+}
+
+/* Contact form */
+.contact-form {
+  padding: 42px;
+}
+
+/* Contact form title */
+.contact-form-title {
+  margin-bottom: 28px;
+  color: var(--ow);
+}
+
+/* Contact form title span */
+.contact-form-title-span {
+  color: var(--ac);
+}
+
+/* Contact form button */
+.contact-form-button {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Footer logo */
+.footer-logo {
+  height: 40px;
+  width: auto;
+}
+
+/* Footer links */
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+/* Footer link */
+.footer-link {
+  padding: 0;
+}
+
+/* Testimonial avatar */
+.testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: .85rem;
+  border: 2px solid rgba(26,181,100,.25);
+}
+
+/* Values title */
+.values-title {
+  color: var(--ow);
+  margin-bottom: 4px;
+  font-size: .96rem;
+}
+
+/* Values description */
+.values-description {
+  font-size: .84rem;
+}
+
+/* Team member avatar */
+.team-member-avatar {
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: rgba(255,255,255,.9);
+  z-index: 1;
+}
+
+/* Team member bio */
+.team-member-bio {
+  color: var(--ow);
+  margin-bottom: 6px;
+}
+
+/* Services panel */
+.services-panel {
+  padding: clamp(20px, 4vw, 48px);
+}
+
+/* Services inner grid */
+.services-inner-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 4vw, 56px);
+  align-items: start;
+}
+
+/* Services icon */
+.services-icon {
+  font-size: 3rem;
+  margin-bottom: 18px;
+}
+
+/* Services name */
+.services-name {
+  color: var(--ow);
+  margin-bottom: 14px;
+}
+
+/* Services description */
+.services-description-panel {
+  font-size: 1rem;
+  line-height: 1.84;
+  margin-bottom: 28px;
+}
+
+/* Services label */
+.services-label {
+  font-family: 'Courier New', monospace;
+  font-size: .65rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--ac);
+  margin-bottom: 18px;
+}
+
+/* Services feature */
+.services-feature {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 12px 14px;
+  border-radius: 11px;
+  background: rgba(13,92,99,.14);
+  border: 1px solid var(--gb);
+  margin-bottom: 7px;
+  transition: background .25s;
+}
+
+/* Services feature icon */
+.services-feature-icon {
+  color: var(--ac);
+}
+
+/* Services feature text */
+.services-feature-text {
+  color: var(--ow);
+  font-size: .88rem;
+}
+
+/* Pricing card */
+.pricing-card {
+  position: relative;
+}
+
+/* Pricing popular */
+.pricing-popular {
+  position: absolute;
+  top: 58px;
+  left: 1px;
+  font-size: 1.5rem;
+}
+
+/* Pricing for */
+.pricing-for {
+  font-size: .75rem;
+  color: var(--sl);
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+/* Pricing button */
+.pricing-button {
+  margin-top: 24px;
+  width: 100%;
+  justify-content: center;
+}
+
+/* Portfolio item overlay */
+.portfolio-item-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Blog item description */
+.blog-item-description {
+  font-size: .83rem;
+  line-height: 1.68;
+  margin-top: 7px;
+}
+
+/* Journey container */
+.journey-container {
+  max-width: 840px;
+}

@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALOFTZ — Clean URL Migration Plan</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&family=Playfair+Display:ital@1&display=swap');
+
+:root {
+  --bg: #f8f6f1;
+  --ink: #111010;
+  --muted: #6b6660;
+  --accent: #c8400f;
+  --accent2: #1a6b3a;
+  --warn: #b86c00;
+  --border: #ddd9d0;
+  --card: #ffffff;
+  --code-bg: #111010;
+  --code-border: #2a2828;
+  --pass: #1a6b3a;
+  --fail: #c8400f;
+  --phase1: #c8400f;
+  --phase2: #b86c00;
+  --phase3: #1a6b3a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Archivo', sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--ink);
+  color: #f8f6f1;
+  padding: 0 56px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo { font-size: 12px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #f8f6f1; }
+.header-right { font-family: 'Fira Code', monospace; font-size: 11px; color: #6b6660; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--ink);
+  color: #f8f6f1;
+  padding: 64px 56px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: 'MIGRATION';
+  position: absolute;
+  right: -20px; top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-size: 96px;
+  font-weight: 900;
+  letter-spacing: -.04em;
+  color: rgba(255,255,255,0.04);
+  pointer-events: none;
+  white-space: nowrap;
+}
+.hero-eyebrow {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--accent); }
+h1 {
+  font-size: clamp(34px, 4.5vw, 58px);
+  font-weight: 900;
+  letter-spacing: -.035em;
+  line-height: 1.0;
+  max-width: 700px;
+  margin-bottom: 24px;
+}
+h1 i { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; color: #d4836a; }
+.hero-sub { font-size: 15px; color: #aaa49e; max-width: 540px; line-height: 1.75; margin-bottom: 40px; }
+.stats-row { display: flex; gap: 48px; flex-wrap: wrap; }
+.stat-item { }
+.stat-val { font-size: 30px; font-weight: 900; letter-spacing: -.04em; display: block; color: #f8f6f1; }
+.stat-val.orange { color: #e89f3c; }
+.stat-val.red { color: #e07060; }
+.stat-val.green { color: #6bba8a; }
+.stat-lbl { font-size: 11px; font-family: 'Fira Code', monospace; color: #6b6660; letter-spacing: .08em; text-transform: uppercase; }
+
+/* ── LAYOUT ── */
+.container { max-width: 1060px; margin: 0 auto; }
+section { padding: 56px; border-bottom: 1px solid var(--border); }
+section:last-of-type { border-bottom: none; }
+
+.sec-eyebrow {
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: var(--muted);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sec-eyebrow .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+h2 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -.025em;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+h3 { font-size: 15px; font-weight: 700; margin-bottom: 10px; letter-spacing: -.01em; }
+p { color: #4a4845; margin-bottom: 12px; line-height: 1.75; font-size: 14px; }
+
+/* ── PHASE BANNER ── */
+.phase-banner {
+  background: var(--ink);
+  color: #f8f6f1;
+  padding: 14px 20px;
+  border-radius: 6px 6px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 700;
+  font-size: 13px;
+}
+.phase-num {
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  background: var(--accent);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 3px;
+  letter-spacing: .06em;
+}
+.phase-num.p2 { background: var(--warn); }
+.phase-num.p3 { background: var(--accent2); }
+.phase-num.p4 { background: #556080; }
+
+/* ── TABLES ── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-bottom: 28px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.data-table th {
+  background: #f0ece4;
+  text-align: left;
+  padding: 9px 14px;
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+.data-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid #f0ece4;
+  vertical-align: top;
+  color: #333;
+  line-height: 1.5;
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: #faf9f6; }
+.old-url { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--fail); }
+.new-url { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--pass); font-weight: 600; }
+.arrow-cell { color: var(--muted); text-align: center; font-size: 16px; }
+.badge {
+  display: inline-block;
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 3px;
+  letter-spacing: .04em;
+}
+.badge.ok { background: #e6f5ec; color: var(--pass); border: 1px solid #b8dfc6; }
+.badge.miss { background: #fdecea; color: var(--fail); border: 1px solid #f5c8c2; }
+.badge.warn { background: #fef6e6; color: var(--warn); border: 1px solid #f0d9a0; }
+.badge.del { background: #f0ece4; color: #888; border: 1px solid #ddd; }
+
+/* ── CODE BLOCKS ── */
+.code-wrap {
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.code-header {
+  background: #1e1c1c;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--code-border);
+}
+.code-lang {
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+.code-note { font-size: 11px; color: #555; font-family: 'Fira Code', monospace; }
+pre {
+  padding: 20px;
+  overflow-x: auto;
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  line-height: 1.75;
+  color: #d4d0c8;
+}
+.cm { color: #5a5855; }
+.ck { color: #e07060; }
+.cv { color: #7ab0d4; }
+.cs { color: #98c47a; }
+.cn { color: #e8b84b; }
+.cp { color: #c07ad4; }
+
+/* ── CALLOUT ── */
+.callout {
+  border-left: 3px solid var(--accent);
+  background: #fff8f5;
+  border-radius: 0 6px 6px 0;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+}
+.callout.green { border-left-color: var(--accent2); background: #f4faf6; }
+.callout.orange { border-left-color: var(--warn); background: #fffaf0; }
+.callout-lbl {
+  font-size: 10px;
+  font-family: 'Fira Code', monospace;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 5px;
+}
+.callout.green .callout-lbl { color: var(--accent2); }
+.callout.orange .callout-lbl { color: var(--warn); }
+.callout p { font-size: 13px; margin: 0; color: #3a3836; }
+
+/* ── STEPS ── */
+.step-list { display: flex; flex-direction: column; gap: 0; margin-bottom: 24px; }
+.step {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+.step:last-child { border-bottom: none; }
+.step-left { display: flex; flex-direction: column; align-items: center; padding-top: 2px; }
+.step-circle {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #f8f6f1;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.step-line { flex: 1; width: 1px; background: var(--border); margin-top: 6px; }
+.step:last-child .step-line { display: none; }
+.step-body {}
+.step-title { font-size: 15px; font-weight: 700; margin-bottom: 6px; letter-spacing: -.01em; }
+.step-desc { font-size: 13px; color: #5a5855; line-height: 1.7; }
+
+/* ── CHECKLIST ── */
+.checklist { list-style: none; margin-bottom: 24px; }
+.cl-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+}
+.cl-item:last-child { border-bottom: none; }
+.cl-box {
+  width: 18px; height: 18px;
+  border: 2px solid #ccc9c0;
+  border-radius: 3px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.cl-content { flex: 1; }
+.cl-content strong { font-size: 13px; display: block; margin-bottom: 2px; }
+.cl-content span { font-size: 12px; color: var(--muted); }
+.cl-badge { flex-shrink: 0; margin-top: 2px; }
+
+/* ── CARDS ── */
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+@media(max-width:700px){ .card-grid { grid-template-columns: 1fr; } }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.card-head {
+  padding: 12px 16px;
+  background: #f5f2eb;
+  border-bottom: 1px solid var(--border);
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-icon {
+  width: 22px; height: 22px;
+  border-radius: 4px;
+  background: var(--ink);
+  color: #f8f6f1;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+.card-body { padding: 14px 16px; font-size: 13px; color: #4a4845; line-height: 1.7; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  color: #6b6660;
+  padding: 28px 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">ALOFTZ — Migration Plan</div>
+  <div class="header-right">v2.0 · Apache · 24 pages · April 2026 — All Fixes Applied</div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Clean URL Migration · SEO Deployment</div>
+  <h1>From <i>.html</i> Files<br>to Clean URLs</h1>
+  <p class="hero-sub">A complete, executable migration plan for aloftz.com — 301 redirects, canonical tags, meta descriptions, Apache and Nginx configs, rollback steps, and a validation checklist. Built from your actual file inventory. <strong style="color:#6bba8a">v2: All canonical tags added, all internal .html hrefs replaced, index.html canonical fixed — files ready to deploy.</strong></p>
+  <div class="stats-row">
+    <div class="stat-item"><span class="stat-val">24</span><span class="stat-lbl">HTML Files</span></div>
+    <div class="stat-item"><span class="stat-val orange">22</span><span class="stat-lbl">Unique Clean URLs</span></div>
+    <div class="stat-item"><span class="stat-val red">2</span><span class="stat-lbl">Delete (Duplicates)</span></div>
+    <div class="stat-item"><span class="stat-val green">Apache</span><span class="stat-lbl">Confirmed Host</span></div>
+  </div>
+</div>
+
+<!-- SECTION 1: ASSUMPTIONS -->
+<section>
+  <div class="sec-eyebrow"><div class="dot"></div>§ 01 — Environment</div>
+  <h2>Confirmed Hosting Environment & Assumptions</h2>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-head"><div class="card-icon">A</div>Apache (confirmed)</div>
+      <div class="card-body">Your <code style="font-family:'Fira Code',monospace;font-size:11px;background:#f0ece4;padding:1px 5px;border-radius:2px;">htaccess</code> file confirms Apache with <code style="font-family:'Fira Code',monospace;font-size:11px;background:#f0ece4;padding:1px 5px;border-radius:2px;">mod_rewrite</code>. HTTPS + www redirects are already in place. All new directives are added to this same file.</div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="card-icon">F</div>Flat Static File Structure</div>
+      <div class="card-body">No CMS. All pages are individual <code style="font-family:'Fira Code',monospace;font-size:11px;background:#f0ece4;padding:1px 5px;border-radius:2px;">.html</code> files in a single root directory. Blog posts use filename slugs (e.g., <code style="font-family:'Fira Code',monospace;font-size:11px;background:#f0ece4;padding:1px 5px;border-radius:2px;">blog-creative.html</code>). No plugin changes needed.</div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="card-icon">C</div>Canonical Domain</div>
+      <div class="card-body">All canonical tags and 301 redirect destinations use <strong>https://www.aloftz.com</strong> — HTTPS, www, no trailing slash on path slugs. Non-www → www redirect already enforced.</div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="card-icon">S</div>Scope</div>
+      <div class="card-body">24 HTML files. 2 are true duplicates (home.html, blog (1).html) and will be deleted, not migrated. Net result: <strong>22 unique clean URLs</strong> — 7 core pages + 15 blog posts.</div>
+    </div>
+  </div>
+
+  <div class="callout orange">
+    <div class="callout-lbl">⚠ Pre-migration Note</div>
+    <p><strong>Do not run this migration directly on production.</strong> Deploy to a staging subdomain (e.g., staging.aloftz.com) first, validate all redirects and canonical tags, then cut over. Rollback instructions are in §08.</p>
+  </div>
+</section>
+
+<!-- SECTION 2: INVENTORY + URL MAP -->
+<section>
+  <div class="sec-eyebrow"><div class="dot"></div>§ 02 — Inventory & URL Map</div>
+  <h2>Complete Page Inventory: .html → Clean URL</h2>
+  <p>Every file on the server, its current .html filename, the clean URL it maps to, and its current canonical status. This is your master migration reference.</p>
+
+  <h3 style="margin-bottom:10px; margin-top:24px;">Core Pages (7)</h3>
+  <table class="data-table">
+    <thead>
+      <tr><th>#</th><th>Current File</th><th></th><th>Clean URL (target)</th><th>Canonical Status</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td class="old-url">index.html</td><td class="arrow-cell">→</td><td class="new-url">https://www.aloftz.com/</td><td><span class="badge ok">✓ Set</span></td><td><strong style="color:#1a6b3a">✓ Fixed (v2)</strong> — www.aloftz.com canonical applied</td></tr>
+      <tr><td>2</td><td class="old-url">about.html</td><td class="arrow-cell">→</td><td class="new-url">https://www.aloftz.com/about</td><td><span class="badge ok">✓ Set</span></td><td>Add 301 for /about.html → /about</td></tr>
+      <tr><td>3</td><td class="old-url">services.html</td><td class="arrow-cell">→</td><td class="new-url">https://www.aloftz.com/services</td><td><span class="badge ok">✓ Set</span></td><td>Add 301 for /services.html → /services</td></tr>
+      <tr><td>4</td><td class="old-url">work.html</td><td class="arrow-cell">→</td><td class="new-url">https://www.aloftz.com/work</td><td><span class="badge ok">✓ Set</span></td><td>Add 301 for /work.html → /work</td></tr>
+      <tr><td>5</td><td class="old-url">blog.html</td><td class="arrow-cell">→</td><td class="new-url">https://www.aloftz.com/blog</td><td><span class="badge ok">✓ Set</span></td><td>Add 301 for /blog.html → /blog</td></tr>
+      <tr><td>6</td><td class="old-url">contact.html</td><td class="arrow-cell">→</td><td class="new-url">https://www.aloftz.com/contact</td><td><span class="badge ok">✓ Set</span></td><td>Add 301 for /contact.html → /contact</td></tr>
+      <tr><td>7</td><td class="old-url">appointment.html</td><td class="arrow-cell">→</td><td class="new-url">https://www.aloftz.com/appointment</td><td><span class="badge ok">✓ Set</span></td><td>Add 301 for /appointment.html → /appointment</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin-bottom:10px; margin-top:24px;">Blog Posts — With Canonical (9)</h3>
+  <table class="data-table">
+    <thead>
+      <tr><th>#</th><th>Current File</th><th></th><th>Clean URL (target)</th><th>Canonical</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>8</td><td class="old-url">7-seo-mistakes-blog.html</td><td class="arrow-cell">→</td><td class="new-url">/blog/7-seo-mistakes-agency-google-rankings</td><td><span class="badge ok">✓ Set</span></td></tr>
+      <tr><td>9</td><td class="old-url">blog-ai-copywriting.html</td><td class="arrow-cell">→</td><td class="new-url">/blog/ai-vs-human-copywriters-2026</td><td><span class="badge ok">✓ Set</span></td></tr>
+      <tr><td>10</td><td class="old-url">blog-ai-landing-page.html</td><td class="arrow-cell">→</td><td class="new-url">/blog/ai-landing-page-2-hours</td><td><span class="badge ok">✓ Set</span></td></tr>
+      <tr><td>11</td><td class="old-url">blog-ai.html</td><td class="arrow-cell">→</td><td class="new-url">/blog/claude-chatgpt-content-strategy</td><td><span class="badge ok">✓ Set</span></td></tr>
+      <tr><td>12</td><td class="old-url">blog-generative-ai-advertising-india.html</td><td class="arrow-cell">→</td><td class="new-url">/blog/generative-ai-advertising-india</td><td><span class="badge ok">✓ Set</span></td></tr>
+      <tr><td>13</td><td class="old-url">blog-landing-page.html</td><td class="arrow-cell">→</td><td class="new-url">/blog/high-converting-landing-page-guide</td><td><span class="badge ok">✓ Set</span></td></tr>
+      <tr><td>14</td><td class="old-url">blog-long-tail-keywords.html</td><td class="arrow-cell">→</td><td class="new-url">/blog/long-tail-keywords-indian-startups</td><td><span class="badge ok">✓ Set</span></td></tr>
+      <tr><td>15</td><td class="old-url">blog-rank-page-1.html</td><td class="arrow-cell">→</td><td class="new-url">/blog/rank-page-1-ai-blog-posts</td><td><span class="badge ok">✓ Set</span></td></tr>
+      <tr><td>16</td><td class="old-url">blog-traffic-zero-leads.html</td><td class="arrow-cell">→</td><td class="new-url">/blog/blog-traffic-zero-leads-fix</td><td><span class="badge ok">✓ Set</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin-bottom:10px; margin-top:24px;">Blog Posts — Canonical Fixed (7) — Applied in v2 ✓</h3>
+  <table class="data-table">
+    <thead>
+      <tr><th>#</th><th>Current File</th><th></th><th>Assigned Clean URL</th><th>Canonical</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>17</td><td class="old-url">blog-ai-to-Write-30-days.html</td><td class="arrow-cell">→</td><td class="new-url">/blog/ai-blog-writing-30-days-content</td><td><span class="badge ok">✓ Fixed (v2)</span></td></tr>
+      <tr><td>18</td><td class="old-url">blog-ai-tools-agencies.html</td><td class="arrow-cell">→</td><td class="new-url">/blog/jasper-copyai-claude-comparison-agencies</td><td><span class="badge ok">✓ Fixed (v2)</span></td></tr>
+      <tr><td>19</td><td class="old-url">blog-creative.html</td><td class="arrow-cell">→</td><td class="new-url">/blog/death-of-generic-content</td><td><span class="badge ok">✓ Fixed (v2)</span></td></tr>
+      <tr><td>20</td><td class="old-url">blog-instagram-growth.html</td><td class="arrow-cell">→</td><td class="new-url">/blog/200-to-50000-instagram-followers-ai-strategy</td><td><span class="badge ok">✓ Fixed (v2)</span></td></tr>
+      <tr><td>21</td><td class="old-url">blog-social.html</td><td class="arrow-cell">→</td><td class="new-url">/blog/ai-content-strategy-social-media</td><td><span class="badge ok">✓ Fixed (v2)</span></td></tr>
+      <tr><td>22</td><td class="old-url">blog-strategy.html</td><td class="arrow-cell">→</td><td class="new-url">/blog/0-to-1-lakh-organic-visitors-90-days</td><td><span class="badge ok">✓ Fixed (v2)</span></td></tr>
+      <tr><td>23</td><td class="old-url">blog-web-dev.html</td><td class="arrow-cell">→</td><td class="new-url">/blog/top-10-ai-marketing-tools-india-2026</td><td><span class="badge ok">✓ Fixed (v2)</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin-bottom:10px; margin-top:24px;">Files to Delete (2) — Duplicates</h3>
+  <table class="data-table">
+    <thead>
+      <tr><th>File</th><th>Reason</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="old-url">home.html</td><td>Duplicate of index.html — same canonical (https://www.aloftz.com/), "Coming Soon" title mismatch</td><td><span class="badge del">DELETE</span> + add 301 /home.html → /</td></tr>
+      <tr><td class="old-url">blog (1).html</td><td>Duplicate of blog.html — same canonical (/blog), same content</td><td><span class="badge del">DELETE</span> + add 301 for encoded URL</td></tr>
+      <tr><td class="old-url">blog-paid-ads.html</td><td>Title identical to 7-seo-mistakes-blog.html — likely a stale copy</td><td><span class="badge warn">REVIEW</span> — Fix title or delete + 301 to original</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SECTION 3: APACHE CONFIG -->
+<section>
+  <div class="sec-eyebrow"><div class="dot"></div>§ 03 — Apache Configuration</div>
+  <h2>Complete .htaccess — Drop-In Replacement</h2>
+  <p>This is your full, production-ready <code style="font-family:'Fira Code',monospace;font-size:12px;background:#f0ece4;padding:2px 5px;border-radius:3px;">.htaccess</code>. It replaces your existing file entirely. The order of rules is critical — do not reorder them.</p>
+
+  <div class="callout">
+    <div class="callout-lbl">Rule Order Matters</div>
+    <p>Rules execute top-to-bottom. HTTPS enforcement must be first, then www redirect, then .html → clean URL 301s, then clean URL → .html internal rewrites, then the SPA fallback last.</p>
+  </div>
+
+  <div class="code-wrap">
+    <div class="code-header"><span class="code-lang">Apache .htaccess</span><span class="code-note">Complete drop-in replacement — all 24 pages</span></div>
+    <pre><span class="cn">RewriteOptions</span> inherit
+<span class="cn">RewriteEngine</span> On
+
+<span class="cm"># ═══════════════════════════════════════════════════════════
+# BLOCK 1: HTTPS + WWW ENFORCEMENT (runs first, always)
+# ═══════════════════════════════════════════════════════════</span>
+
+<span class="cm"># 1a. HTTP → HTTPS redirect</span>
+<span class="cv">RewriteCond</span> %{HTTPS} off
+<span class="cn">RewriteRule</span> <span class="cs">^(.*)$</span> https://www.aloftz.com/$1 [L,R=301]
+
+<span class="cm"># 1b. non-www → www redirect</span>
+<span class="cv">RewriteCond</span> %{HTTP_HOST} <span class="cs">^aloftz\.com$</span> [NC]
+<span class="cn">RewriteRule</span> <span class="cs">^(.*)$</span> https://www.aloftz.com/$1 [L,R=301]
+
+<span class="cm"># ═══════════════════════════════════════════════════════════
+# BLOCK 2: 301 REDIRECTS — .html → clean URL
+# (Browsers/crawlers hitting old .html URLs get sent here)
+# ═══════════════════════════════════════════════════════════</span>
+
+<span class="cm"># 2a. Trailing-slash strip (except homepage)</span>
+<span class="cv">RewriteCond</span> %{REQUEST_URI} <span class="cs">!^/$</span>
+<span class="cv">RewriteCond</span> %{REQUEST_FILENAME} !-d
+<span class="cn">RewriteRule</span> <span class="cs">^(.*)/+$</span> /$1 [R=301,L]
+
+<span class="cm"># 2b. Core page .html → clean URL redirects</span>
+<span class="cn">RewriteRule</span> <span class="cs">^index\.html$</span>       / [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^about\.html$</span>       /about [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^services\.html$</span>    /services [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^work\.html$</span>        /work [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog\.html$</span>        /blog [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^contact\.html$</span>     /contact [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^appointment\.html$</span> /appointment [R=301,L]
+
+<span class="cm"># 2c. Duplicate file redirects (delete these files from server too)</span>
+<span class="cn">RewriteRule</span> <span class="cs">^home\.html$</span>          / [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog%20\(1\)\.html$</span>  /blog [R=301,L]
+
+<span class="cm"># 2d. Blog post .html → clean URL redirects (file slug → /blog/post-slug)</span>
+<span class="cn">RewriteRule</span> <span class="cs">^7-seo-mistakes-blog\.html$</span>
+    /blog/7-seo-mistakes-agency-google-rankings [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog-ai-copywriting\.html$</span>
+    /blog/ai-vs-human-copywriters-2026 [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog-ai-landing-page\.html$</span>
+    /blog/ai-landing-page-2-hours [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog-ai-to-Write-30-days\.html$</span>
+    /blog/ai-blog-writing-30-days-content [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog-ai-tools-agencies\.html$</span>
+    /blog/jasper-copyai-claude-comparison-agencies [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog-ai\.html$</span>
+    /blog/claude-chatgpt-content-strategy [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog-creative\.html$</span>
+    /blog/death-of-generic-content [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog-generative-ai-advertising-india\.html$</span>
+    /blog/generative-ai-advertising-india [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog-instagram-growth\.html$</span>
+    /blog/200-to-50000-instagram-followers-ai-strategy [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog-landing-page\.html$</span>
+    /blog/high-converting-landing-page-guide [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog-long-tail-keywords\.html$</span>
+    /blog/long-tail-keywords-indian-startups [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog-rank-page-1\.html$</span>
+    /blog/rank-page-1-ai-blog-posts [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog-social\.html$</span>
+    /blog/ai-content-strategy-social-media [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog-strategy\.html$</span>
+    /blog/0-to-1-lakh-organic-visitors-90-days [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog-traffic-zero-leads\.html$</span>
+    /blog/blog-traffic-zero-leads-fix [R=301,L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog-web-dev\.html$</span>
+    /blog/top-10-ai-marketing-tools-india-2026 [R=301,L]
+
+<span class="cm"># ═══════════════════════════════════════════════════════════
+# BLOCK 3: INTERNAL REWRITES — clean URL → serve .html file
+# (These are invisible to the browser; no redirect shown)
+# ═══════════════════════════════════════════════════════════</span>
+
+<span class="cn">RewriteBase</span> /
+
+<span class="cm"># 3a. Core pages</span>
+<span class="cn">RewriteRule</span> <span class="cs">^about$</span>       about.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^services$</span>    services.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^work$</span>        work.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog$</span>        blog.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^contact$</span>     contact.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^appointment$</span> appointment.html [L]
+
+<span class="cm"># 3b. Blog posts (clean slug → actual .html filename)</span>
+<span class="cn">RewriteRule</span> <span class="cs">^blog/7-seo-mistakes-agency-google-rankings$</span>
+    7-seo-mistakes-blog.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog/ai-vs-human-copywriters-2026$</span>
+    blog-ai-copywriting.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog/ai-landing-page-2-hours$</span>
+    blog-ai-landing-page.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog/ai-blog-writing-30-days-content$</span>
+    blog-ai-to-Write-30-days.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog/jasper-copyai-claude-comparison-agencies$</span>
+    blog-ai-tools-agencies.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog/claude-chatgpt-content-strategy$</span>
+    blog-ai.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog/death-of-generic-content$</span>
+    blog-creative.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog/generative-ai-advertising-india$</span>
+    blog-generative-ai-advertising-india.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog/200-to-50000-instagram-followers-ai-strategy$</span>
+    blog-instagram-growth.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog/high-converting-landing-page-guide$</span>
+    blog-landing-page.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog/long-tail-keywords-indian-startups$</span>
+    blog-long-tail-keywords.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog/rank-page-1-ai-blog-posts$</span>
+    blog-rank-page-1.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog/ai-content-strategy-social-media$</span>
+    blog-social.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog/0-to-1-lakh-organic-visitors-90-days$</span>
+    blog-strategy.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog/blog-traffic-zero-leads-fix$</span>
+    blog-traffic-zero-leads.html [L]
+<span class="cn">RewriteRule</span> <span class="cs">^blog/top-10-ai-marketing-tools-india-2026$</span>
+    blog-web-dev.html [L]
+
+<span class="cm"># ═══════════════════════════════════════════════════════════
+# BLOCK 4: HOTLINK PROTECTION (unchanged from original)
+# ═══════════════════════════════════════════════════════════</span>
+<span class="cv">RewriteCond</span> %{HTTP_REFERER} !^$
+<span class="cv">RewriteCond</span> %{HTTP_REFERER} !^https://www\.aloftz\.com/.*$ [NC]
+<span class="cv">RewriteCond</span> %{HTTP_REFERER} !^https://aloftz\.com/.*$ [NC]
+<span class="cn">RewriteRule</span> <span class="cs">.*\.(jpg|jpeg|gif|png|bmp|webp)$</span> - [F,NC]
+
+<span class="cm"># ═══════════════════════════════════════════════════════════
+# BLOCK 5: SPA FALLBACK — must be absolutely last
+# ═══════════════════════════════════════════════════════════</span>
+<span class="cv">RewriteCond</span> %{REQUEST_FILENAME} !-f
+<span class="cv">RewriteCond</span> %{REQUEST_FILENAME} !-d
+<span class="cn">RewriteRule</span> . /index.html [L]</pre>
+  </div>
+</section>
+
+<!-- SECTION 4: NGINX CONFIG -->
+<section>
+  <div class="sec-eyebrow"><div class="dot"></div>§ 04 — Nginx Configuration</div>
+  <h2>Nginx Server Block — Full Equivalent</h2>
+  <p>If you ever migrate from Apache to Nginx (or your CDN terminates at Nginx), use this server block. Nginx does not use .htaccess — configuration goes in <code style="font-family:'Fira Code',monospace;font-size:12px;background:#f0ece4;padding:2px 5px;border-radius:3px;">/etc/nginx/sites-available/aloftz.com</code>.</p>
+
+  <div class="code-wrap">
+    <div class="code-header"><span class="code-lang">Nginx</span><span class="code-note">nginx.conf server block — complete</span></div>
+    <pre><span class="cm"># ── Redirect HTTP → HTTPS (port 80)</span>
+<span class="cp">server</span> {
+    <span class="cv">listen</span> 80;
+    <span class="cv">server_name</span> aloftz.com www.aloftz.com;
+    <span class="cv">return</span> 301 https://www.aloftz.com$request_uri;
+}
+
+<span class="cm"># ── Redirect non-www → www (HTTPS)</span>
+<span class="cp">server</span> {
+    <span class="cv">listen</span> 443 ssl http2;
+    <span class="cv">server_name</span> aloftz.com;
+    <span class="cm"># ssl_certificate / ssl_certificate_key here</span>
+    <span class="cv">return</span> 301 https://www.aloftz.com$request_uri;
+}
+
+<span class="cm"># ── Main www server</span>
+<span class="cp">server</span> {
+    <span class="cv">listen</span> 443 ssl http2;
+    <span class="cv">server_name</span> www.aloftz.com;
+    <span class="cv">root</span> /var/www/aloftz;
+    <span class="cv">index</span> index.html;
+
+    <span class="cm"># ── Strip trailing slashes (except /)</span>
+    <span class="cv">rewrite</span> ^(/[^/]+)/+$ $1 permanent;
+
+    <span class="cm"># ── 301: .html → clean URL (core pages)</span>
+    <span class="cv">location</span> = /index.html       { <span class="cv">return</span> 301 /; }
+    <span class="cv">location</span> = /about.html       { <span class="cv">return</span> 301 /about; }
+    <span class="cv">location</span> = /services.html    { <span class="cv">return</span> 301 /services; }
+    <span class="cv">location</span> = /work.html        { <span class="cv">return</span> 301 /work; }
+    <span class="cv">location</span> = /blog.html        { <span class="cv">return</span> 301 /blog; }
+    <span class="cv">location</span> = /contact.html     { <span class="cv">return</span> 301 /contact; }
+    <span class="cv">location</span> = /appointment.html { <span class="cv">return</span> 301 /appointment; }
+    <span class="cv">location</span> = /home.html        { <span class="cv">return</span> 301 /; }
+
+    <span class="cm"># ── 301: blog post .html → clean URLs</span>
+    <span class="cv">location</span> = /7-seo-mistakes-blog.html {
+        <span class="cv">return</span> 301 /blog/7-seo-mistakes-agency-google-rankings; }
+    <span class="cv">location</span> = /blog-ai-copywriting.html {
+        <span class="cv">return</span> 301 /blog/ai-vs-human-copywriters-2026; }
+    <span class="cv">location</span> = /blog-ai-landing-page.html {
+        <span class="cv">return</span> 301 /blog/ai-landing-page-2-hours; }
+    <span class="cv">location</span> = /blog-ai-to-Write-30-days.html {
+        <span class="cv">return</span> 301 /blog/ai-blog-writing-30-days-content; }
+    <span class="cv">location</span> = /blog-ai-tools-agencies.html {
+        <span class="cv">return</span> 301 /blog/jasper-copyai-claude-comparison-agencies; }
+    <span class="cv">location</span> = /blog-ai.html {
+        <span class="cv">return</span> 301 /blog/claude-chatgpt-content-strategy; }
+    <span class="cv">location</span> = /blog-creative.html {
+        <span class="cv">return</span> 301 /blog/death-of-generic-content; }
+    <span class="cv">location</span> = /blog-generative-ai-advertising-india.html {
+        <span class="cv">return</span> 301 /blog/generative-ai-advertising-india; }
+    <span class="cv">location</span> = /blog-instagram-growth.html {
+        <span class="cv">return</span> 301 /blog/200-to-50000-instagram-followers-ai-strategy; }
+    <span class="cv">location</span> = /blog-landing-page.html {
+        <span class="cv">return</span> 301 /blog/high-converting-landing-page-guide; }
+    <span class="cv">location</span> = /blog-long-tail-keywords.html {
+        <span class="cv">return</span> 301 /blog/long-tail-keywords-indian-startups; }
+    <span class="cv">location</span> = /blog-rank-page-1.html {
+        <span class="cv">return</span> 301 /blog/rank-page-1-ai-blog-posts; }
+    <span class="cv">location</span> = /blog-social.html {
+        <span class="cv">return</span> 301 /blog/ai-content-strategy-social-media; }
+    <span class="cv">location</span> = /blog-strategy.html {
+        <span class="cv">return</span> 301 /blog/0-to-1-lakh-organic-visitors-90-days; }
+    <span class="cv">location</span> = /blog-traffic-zero-leads.html {
+        <span class="cv">return</span> 301 /blog/blog-traffic-zero-leads-fix; }
+    <span class="cv">location</span> = /blog-web-dev.html {
+        <span class="cv">return</span> 301 /blog/top-10-ai-marketing-tools-india-2026; }
+
+    <span class="cm"># ── Clean URL → .html internal rewrite (core pages)</span>
+    <span class="cv">location</span> = /about       { try_files /about.html =404; }
+    <span class="cv">location</span> = /services    { try_files /services.html =404; }
+    <span class="cv">location</span> = /work        { try_files /work.html =404; }
+    <span class="cv">location</span> = /blog        { try_files /blog.html =404; }
+    <span class="cv">location</span> = /contact     { try_files /contact.html =404; }
+    <span class="cv">location</span> = /appointment { try_files /appointment.html =404; }
+
+    <span class="cm"># ── Clean URL → .html internal rewrite (blog posts)</span>
+    <span class="cv">location</span> = /blog/7-seo-mistakes-agency-google-rankings {
+        try_files /7-seo-mistakes-blog.html =404; }
+    <span class="cv">location</span> = /blog/ai-vs-human-copywriters-2026 {
+        try_files /blog-ai-copywriting.html =404; }
+    <span class="cv">location</span> = /blog/ai-landing-page-2-hours {
+        try_files /blog-ai-landing-page.html =404; }
+    <span class="cv">location</span> = /blog/ai-blog-writing-30-days-content {
+        try_files /blog-ai-to-Write-30-days.html =404; }
+    <span class="cv">location</span> = /blog/jasper-copyai-claude-comparison-agencies {
+        try_files /blog-ai-tools-agencies.html =404; }
+    <span class="cv">location</span> = /blog/claude-chatgpt-content-strategy {
+        try_files /blog-ai.html =404; }
+    <span class="cv">location</span> = /blog/death-of-generic-content {
+        try_files /blog-creative.html =404; }
+    <span class="cv">location</span> = /blog/generative-ai-advertising-india {
+        try_files /blog-generative-ai-advertising-india.html =404; }
+    <span class="cv">location</span> = /blog/200-to-50000-instagram-followers-ai-strategy {
+        try_files /blog-instagram-growth.html =404; }
+    <span class="cv">location</span> = /blog/high-converting-landing-page-guide {
+        try_files /blog-landing-page.html =404; }
+    <span class="cv">location</span> = /blog/long-tail-keywords-indian-startups {
+        try_files /blog-long-tail-keywords.html =404; }
+    <span class="cv">location</span> = /blog/rank-page-1-ai-blog-posts {
+        try_files /blog-rank-page-1.html =404; }
+    <span class="cv">location</span> = /blog/ai-content-strategy-social-media {
+        try_files /blog-social.html =404; }
+    <span class="cv">location</span> = /blog/0-to-1-lakh-organic-visitors-90-days {
+        try_files /blog-strategy.html =404; }
+    <span class="cv">location</span> = /blog/blog-traffic-zero-leads-fix {
+        try_files /blog-traffic-zero-leads.html =404; }
+    <span class="cv">location</span> = /blog/top-10-ai-marketing-tools-india-2026 {
+        try_files /blog-web-dev.html =404; }
+
+    <span class="cm"># ── SPA fallback (must be last)</span>
+    <span class="cv">location</span> / {
+        try_files $uri $uri/ /index.html;
+    }
+}</pre>
+  </div>
+</section>
+
+<!-- SECTION 5: CANONICAL + META DESCRIPTIONS -->
+<section>
+  <div class="sec-eyebrow"><div class="dot"></div>§ 05 — Canonical & Meta Tags</div>
+  <h2>Per-Page Canonical & Meta Description — Complete Reference</h2>
+  <p>Copy the exact <code style="font-family:'Fira Code',monospace;font-size:12px;background:#f0ece4;padding:2px 5px;border-radius:3px;">&lt;head&gt;</code> block below into the corresponding HTML file. Each meta description is trimmed to under 155 characters, keyword-relevant, and unique.</p>
+
+  <h3 style="margin-bottom:12px; margin-top:24px;">HTML Head Template</h3>
+  <div class="code-wrap">
+    <div class="code-header"><span class="code-lang">HTML</span><span class="code-note">Template — replace CANONICAL_URL and META_DESC per page</span></div>
+    <pre><span class="ck">&lt;head&gt;</span>
+  <span class="cm">&lt;!-- Character set + viewport: always first --&gt;</span>
+  <span class="ck">&lt;meta</span> <span class="cv">charset=</span><span class="cs">"UTF-8"</span><span class="ck">&gt;</span>
+  <span class="ck">&lt;meta</span> <span class="cv">name=</span><span class="cs">"viewport"</span> <span class="cv">content=</span><span class="cs">"width=device-width, initial-scale=1.0"</span><span class="ck">&gt;</span>
+
+  <span class="cm">&lt;!-- Canonical — self-referencing, exact clean URL --&gt;</span>
+  <span class="ck">&lt;link</span> <span class="cv">rel=</span><span class="cs">"canonical"</span> <span class="cv">href=</span><span class="cs">"CANONICAL_URL"</span> <span class="ck">/&gt;</span>
+
+  <span class="cm">&lt;!-- Title: 50–60 chars, primary keyword first --&gt;</span>
+  <span class="ck">&lt;title&gt;</span>PAGE_TITLE<span class="ck">&lt;/title&gt;</span>
+
+  <span class="cm">&lt;!-- Meta description: 120–155 chars, action-oriented --&gt;</span>
+  <span class="ck">&lt;meta</span> <span class="cv">name=</span><span class="cs">"description"</span> <span class="cv">content=</span><span class="cs">"META_DESC"</span><span class="ck">&gt;</span>
+
+  <span class="cm">&lt;!-- Open Graph (optional but recommended) --&gt;</span>
+  <span class="ck">&lt;meta</span> <span class="cv">property=</span><span class="cs">"og:url"</span> <span class="cv">content=</span><span class="cs">"CANONICAL_URL"</span><span class="ck">&gt;</span>
+  <span class="ck">&lt;meta</span> <span class="cv">property=</span><span class="cs">"og:title"</span> <span class="cv">content=</span><span class="cs">"PAGE_TITLE"</span><span class="ck">&gt;</span>
+  <span class="ck">&lt;meta</span> <span class="cv">property=</span><span class="cs">"og:description"</span> <span class="cv">content=</span><span class="cs">"META_DESC"</span><span class="ck">&gt;</span>
+<span class="ck">&lt;/head&gt;</span></pre>
+  </div>
+
+  <h3 style="margin-bottom:12px; margin-top:28px;">Per-Page Values — Core Pages</h3>
+  <table class="data-table">
+    <thead>
+      <tr><th>Page</th><th>Canonical URL</th><th>Meta Description (≤155 chars)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Homepage</strong></td>
+        <td class="new-url">https://www.aloftz.com/</td>
+        <td>ALOFTZ is India's AI-powered 360° digital marketing agency — SEO, Google Ads, Meta Ads, social media, and web for startups and SMBs. Get a free strategy call.</td>
+      </tr>
+      <tr>
+        <td><strong>About</strong></td>
+        <td class="new-url">https://www.aloftz.com/about</td>
+        <td>Learn about ALOFTZ Marketing Pvt. Ltd. — an AI-powered digital marketing agency in Kolkata, India, helping startups and brands grow with ROI-driven strategy.</td>
+      </tr>
+      <tr>
+        <td><strong>Services</strong></td>
+        <td class="new-url">https://www.aloftz.com/services</td>
+        <td>Full-spectrum digital marketing from ALOFTZ: SEO, Google Ads, Meta Ads, social media marketing, web development, and creative production — all under one roof.</td>
+      </tr>
+      <tr>
+        <td><strong>Work</strong></td>
+        <td class="new-url">https://www.aloftz.com/work</td>
+        <td>See ALOFTZ's digital marketing portfolio — real case studies across healthcare, e-commerce, real estate, restaurants, and education niches. Results, not promises.</td>
+      </tr>
+      <tr>
+        <td><strong>Blog</strong></td>
+        <td class="new-url">https://www.aloftz.com/blog</td>
+        <td>Actionable digital marketing insights from ALOFTZ: SEO strategies, AI content tools, Google Ads tips, Meta Ads tactics, and growth case studies for Indian brands.</td>
+      </tr>
+      <tr>
+        <td><strong>Contact</strong></td>
+        <td class="new-url">https://www.aloftz.com/contact</td>
+        <td>Get in touch with ALOFTZ Marketing Pvt. Ltd. Book a free 30-minute digital marketing strategy call. No commitment — just clarity on SEO, ads, and social media.</td>
+      </tr>
+      <tr>
+        <td><strong>Appointment</strong></td>
+        <td class="new-url">https://www.aloftz.com/appointment</td>
+        <td>Book an appointment with ALOFTZ — India's AI-powered digital marketing agency. Choose a time that works for you. We respond within 24 hours. Based in Kolkata.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin-bottom:12px; margin-top:28px;">Per-Page Values — Blog Posts</h3>
+  <table class="data-table">
+    <thead>
+      <tr><th>File → Clean URL</th><th>Meta Description</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="new-url">/blog/7-seo-mistakes-agency-google-rankings</span></td>
+        <td>We audited 50 marketing agency websites and found the same SEO mistakes on every one. Here are the 7 errors killing your Google rankings — and exactly how to fix them.</td>
+      </tr>
+      <tr>
+        <td><span class="new-url">/blog/ai-vs-human-copywriters-2026</span></td>
+        <td>We ran a 3-month experiment: AI copywriting vs. human writers across 12 client verticals. The results challenge everything you assumed. Here's what actually happened.</td>
+      </tr>
+      <tr>
+        <td><span class="new-url">/blog/ai-landing-page-2-hours</span></td>
+        <td>Most landing pages lose leads in the first 5 seconds. Here's how to build a high-converting landing page using AI in under 2 hours — no design skills needed.</td>
+      </tr>
+      <tr>
+        <td><span class="new-url">/blog/ai-blog-writing-30-days-content</span></td>
+        <td>Create 30 days of SEO-ready blog content in a single afternoon using AI. The exact workflow we use at ALOFTZ — prompts, structure, and quality control included.</td>
+      </tr>
+      <tr>
+        <td><span class="new-url">/blog/jasper-copyai-claude-comparison-agencies</span></td>
+        <td>We tested Jasper, Copy.ai, and Claude across 60 days and 12 client verticals. Here's which AI writing tool wins for agency work — and which ones to skip in 2026.</td>
+      </tr>
+      <tr>
+        <td><span class="new-url">/blog/claude-chatgpt-content-strategy</span></td>
+        <td>How ALOFTZ uses Claude AI and ChatGPT together as a dual-AI content strategy — splitting research, drafting, and editing between models for consistently better output.</td>
+      </tr>
+      <tr>
+        <td><span class="new-url">/blog/death-of-generic-content</span></td>
+        <td>Generic content is invisible in 2026. Here's why specificity is the only content strategy that still works — and the framework we use to make every piece unforgettable.</td>
+      </tr>
+      <tr>
+        <td><span class="new-url">/blog/generative-ai-advertising-india</span></td>
+        <td>Generative AI advertising in India: real use cases, a 5-step implementation plan, and how Indian brands are using AI to cut ad production costs by up to 60%.</td>
+      </tr>
+      <tr>
+        <td><span class="new-url">/blog/200-to-50000-instagram-followers-ai-strategy</span></td>
+        <td>How we grew a brand's Instagram from 200 to 50,000 followers in 8 months using an AI-assisted content system. Real numbers, real strategy, no paid promotions.</td>
+      </tr>
+      <tr>
+        <td><span class="new-url">/blog/high-converting-landing-page-guide</span></td>
+        <td>A step-by-step guide to building landing pages that actually convert — page structure, copy framework, AI-assisted design, and speed optimisation for Indian audiences.</td>
+      </tr>
+      <tr>
+        <td><span class="new-url">/blog/long-tail-keywords-indian-startups</span></td>
+        <td>Big brands own the obvious keywords. Here's how Indian startups use long-tail keyword strategy to rank faster, attract higher-intent buyers, and outrank competitors.</td>
+      </tr>
+      <tr>
+        <td><span class="new-url">/blog/rank-page-1-ai-blog-posts</span></td>
+        <td>The exact 9-step process ALOFTZ uses to rank AI-assisted blog posts on Google Page 1. Real workflow, real results — no black-hat tactics, no shortcuts.</td>
+      </tr>
+      <tr>
+        <td><span class="new-url">/blog/ai-content-strategy-social-media</span></td>
+        <td>What if one afternoon of AI-assisted work could fuel your entire month's social content? Here's the system that eliminates blank-page syndrome for good.</td>
+      </tr>
+      <tr>
+        <td><span class="new-url">/blog/0-to-1-lakh-organic-visitors-90-days</span></td>
+        <td>How a focused 90-day content and SEO sprint took a D2C brand from zero to 1 lakh monthly organic visitors — with no paid ads. The full strategy, phase by phase.</td>
+      </tr>
+      <tr>
+        <td><span class="new-url">/blog/blog-traffic-zero-leads-fix</span></td>
+        <td>Your blog ranks on Google but generates no leads. Here's exactly why it happens — and the 6-step conversion fix that turns traffic into enquiries and customers.</td>
+      </tr>
+      <tr>
+        <td><span class="new-url">/blog/top-10-ai-marketing-tools-india-2026</span></td>
+        <td>The 10 AI marketing tools Indian agencies use in 2026 to 3x output and reduce costs. Honest reviews, pricing in ₹, and the priority order to build your stack.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SECTION 6: INTERNAL LINKS UPDATE -->
+<section>
+  <div class="sec-eyebrow"><div class="dot"></div>§ 06 — Internal Links</div>
+  <h2>Update Internal Links — .html References to Clean URLs</h2>
+  <p><strong style="color:#1a6b3a">✓ DONE in v2 ZIP.</strong> All 18 internal <code style="font-family:'Fira Code',monospace;font-size:12px;background:#f0ece4;padding:2px 5px;border-radius:3px;">href</code> attributes using <code style="font-family:'Fira Code',monospace;font-size:12px;background:#f0ece4;padding:2px 5px;border-radius:3px;">.html</code> extensions have been replaced in the HTML files in this zip. The one-liner below is provided as reference for future files or to verify the fix on your server copy.</p>
+
+  <div class="code-wrap">
+    <div class="code-header"><span class="code-lang">Bash</span><span class="code-note">Run from your project root — replaces .html hrefs in all HTML files</span></div>
+    <pre><span class="cm"># Dry run first (no changes — just shows what would change)</span>
+grep -rn '\.html"' *.html | grep -o 'href="[^"]*\.html"' | sort | uniq -c
+
+<span class="cm"># Replace all internal .html hrefs with clean URLs</span>
+<span class="cm"># Core pages</span>
+sed -i 's|href="index\.html"|href="/"|g' *.html
+sed -i 's|href="about\.html"|href="/about"|g' *.html
+sed -i 's|href="services\.html"|href="/services"|g' *.html
+sed -i 's|href="work\.html"|href="/work"|g' *.html
+sed -i 's|href="blog\.html"|href="/blog"|g' *.html
+sed -i 's|href="contact\.html"|href="/contact"|g' *.html
+sed -i 's|href="appointment\.html"|href="/appointment"|g' *.html
+
+<span class="cm"># Blog posts — update any cross-links between blog posts</span>
+sed -i 's|href="7-seo-mistakes-blog\.html"|href="/blog/7-seo-mistakes-agency-google-rankings"|g' *.html
+sed -i 's|href="blog-ai-copywriting\.html"|href="/blog/ai-vs-human-copywriters-2026"|g' *.html
+sed -i 's|href="blog-creative\.html"|href="/blog/death-of-generic-content"|g' *.html
+sed -i 's|href="blog-strategy\.html"|href="/blog/0-to-1-lakh-organic-visitors-90-days"|g' *.html
+<span class="cm"># ... repeat for all blog post filenames</span>
+
+<span class="cm"># Verify: after running, no .html hrefs should remain in internal links</span>
+grep -rn 'href="[^h][^t]*\.html"' *.html</pre>
+  </div>
+
+  <div class="callout green">
+    <div class="callout-lbl">✓ Note on External Links</div>
+    <p>You don't need to update links on third-party sites pointing to your old .html URLs. The 301 redirects in Block 2 of your .htaccess will transparently forward any external link traffic to the correct clean URL, preserving link equity.</p>
+  </div>
+</section>
+
+<!-- SECTION 7: VALIDATION -->
+<section>
+  <div class="sec-eyebrow"><div class="dot"></div>§ 07 — Validation</div>
+  <h2>Post-Deployment Validation Steps</h2>
+  <p>Run these checks in order after deploying to staging, then repeat on production after go-live.</p>
+
+  <h3 style="margin-bottom:12px;">Automated Redirect Check (cURL)</h3>
+  <div class="code-wrap">
+    <div class="code-header"><span class="code-lang">Bash</span><span class="code-note">Test 301 status codes for all .html → clean URL redirects</span></div>
+    <pre><span class="cm">#!/bin/bash
+# Replace BASE with your staging or production domain</span>
+BASE="https://www.aloftz.com"
+
+<span class="cn">TESTS</span>=(
+  "/about.html /about"
+  "/services.html /services"
+  "/work.html /work"
+  "/blog.html /blog"
+  "/contact.html /contact"
+  "/appointment.html /appointment"
+  "/index.html /"
+  "/home.html /"
+  "/7-seo-mistakes-blog.html /blog/7-seo-mistakes-agency-google-rankings"
+  "/blog-creative.html /blog/death-of-generic-content"
+  "/blog-strategy.html /blog/0-to-1-lakh-organic-visitors-90-days"
+  "/blog-instagram-growth.html /blog/200-to-50000-instagram-followers-ai-strategy"
+)
+
+<span class="ck">for</span> pair <span class="ck">in</span> "${TESTS[@]}"; do
+  <span class="cv">old</span>=$(echo $pair | awk '{print $1}')
+  <span class="cv">expected</span>=$(echo $pair | awk '{print $2}')
+  <span class="cv">response</span>=$(curl -s -o /dev/null -w "%{http_code} → %{redirect_url}" "$BASE$old")
+  echo "[$old] $response (expected: $BASE$expected)"
+done</pre>
+  </div>
+
+  <h3 style="margin-bottom:12px; margin-top:24px;">Canonical Tag Verification</h3>
+  <div class="code-wrap">
+    <div class="code-header"><span class="code-lang">Bash</span><span class="code-note">Verify canonical tag presence and value on all clean URLs</span></div>
+    <pre><span class="cn">PAGES</span>=(
+  "/" "/about" "/services" "/work" "/blog" "/contact" "/appointment"
+  "/blog/7-seo-mistakes-agency-google-rankings"
+  "/blog/death-of-generic-content"
+  "/blog/0-to-1-lakh-organic-visitors-90-days"
+  "/blog/ai-blog-writing-30-days-content"
+)
+
+BASE="https://www.aloftz.com"
+<span class="ck">for</span> page <span class="ck">in</span> "${PAGES[@]}"; do
+  <span class="cv">canon</span>=$(curl -sL "$BASE$page" | grep -o 'rel="canonical"[^>]*href="[^"]*"' | grep -o 'href="[^"]*"')
+  echo "$page → canonical: $canon"
+done</pre>
+  </div>
+
+  <h3 style="margin-bottom:12px; margin-top:24px;">Manual Validation Checklist</h3>
+  <table class="data-table">
+    <thead><tr><th>Test</th><th>Expected Result</th><th>Tool</th></tr></thead>
+    <tbody>
+      <tr><td>GET /about.html</td><td>301 → /about</td><td>curl, browser, Redirect Checker</td></tr>
+      <tr><td>GET /blog-creative.html</td><td>301 → /blog/death-of-generic-content</td><td>curl</td></tr>
+      <tr><td>GET /about</td><td>200 OK, serves about.html content</td><td>curl</td></tr>
+      <tr><td>Canonical on /about</td><td>https://www.aloftz.com/about</td><td>View source</td></tr>
+      <tr><td>GET /about/ (trailing slash)</td><td>301 → /about</td><td>curl</td></tr>
+      <tr><td>GET http://aloftz.com/about</td><td>301 → https://www.aloftz.com/about</td><td>curl</td></tr>
+      <tr><td>GET /home.html</td><td>301 → /</td><td>curl</td></tr>
+      <tr><td>No .html href in page source</td><td>Zero href="*.html" in internal nav</td><td>grep / DevTools</td></tr>
+      <tr><td>GSC URL Inspection on /about</td><td>Canonical confirmed, indexable</td><td>Google Search Console</td></tr>
+      <tr><td>sitemap.xml submitted, 24 URLs</td><td>All accepted, no errors</td><td>GSC → Sitemaps</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SECTION 8: DEPLOYMENT + ROLLBACK -->
+<section>
+  <div class="sec-eyebrow"><div class="dot"></div>§ 08 — Deployment & Rollback</div>
+  <h2>Safe Rollout Plan with Rollback</h2>
+
+  <div class="step-list">
+    <div class="step">
+      <div class="step-left"><div class="step-circle">1</div><div class="step-line"></div></div>
+      <div class="step-body">
+        <div class="step-title">Backup Current .htaccess</div>
+        <div class="step-desc">Before touching anything: <code style="font-family:'Fira Code',monospace;font-size:11px;background:#f0ece4;padding:1px 5px;border-radius:2px;">cp .htaccess .htaccess.bak.$(date +%Y%m%d)</code>. Keep this on the server and locally. If anything breaks, this is your instant rollback.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-left"><div class="step-circle">2</div><div class="step-line"></div></div>
+      <div class="step-body">
+        <div class="step-title">Deploy to Staging First</div>
+        <div class="step-desc">Upload the new .htaccess and all updated HTML files (with canonical/meta tags) to a staging subdomain (staging.aloftz.com). Run the full curl validation script from §07. Confirm zero 404s and all 301s resolve correctly before touching production.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-left"><div class="step-circle">3</div><div class="step-line"></div></div>
+      <div class="step-body">
+        <div class="step-title">Add Canonical + Meta Tags to All 7 Missing Blog Posts</div>
+        <div class="step-desc"><strong style="color:#1a6b3a">✓ DONE in v2 ZIP.</strong> All 7 blog posts now have correct canonical tags injected. Canonical for blog-paid-ads.html also assigned a unique URL. No manual editing required for this step.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-left"><div class="step-circle">4</div><div class="step-line"></div></div>
+      <div class="step-body">
+        <div class="step-title">Delete Duplicate Files</div>
+        <div class="step-desc">Remove <code style="font-family:'Fira Code',monospace;font-size:11px;background:#f0ece4;padding:1px 5px;border-radius:2px;">home.html</code> and <code style="font-family:'Fira Code',monospace;font-size:11px;background:#f0ece4;padding:1px 5px;border-radius:2px;">blog (1).html</code> from the server. The 301 rules in Block 2 of .htaccess will catch any lingering traffic to these URLs. Confirm they return 301, not 200 or 404.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-left"><div class="step-circle">5</div><div class="step-line"></div></div>
+      <div class="step-body">
+        <div class="step-title">Deploy to Production (Off-Peak Hours)</div>
+        <div class="step-desc">Deploy between 11 PM–4 AM IST to minimise traffic impact. Upload in this order: (1) updated HTML files, (2) new .htaccess. Do not upload .htaccess until all HTML files are in place — otherwise clean URLs may 404 briefly.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-left"><div class="step-circle">6</div><div class="step-line"></div></div>
+      <div class="step-body">
+        <div class="step-title">Run Validation on Production</div>
+        <div class="step-desc">Re-run the curl script pointing at production. Open 5 pages in browser and verify source shows correct canonical. Check GSC Coverage → inspect 3 URLs within 24 hours.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-left"><div class="step-circle">7</div><div class="step-line"></div></div>
+      <div class="step-body">
+        <div class="step-title">Resubmit Sitemap to Google Search Console</div>
+        <div class="step-desc">Update sitemap.xml to use only clean URLs (remove all .html extensions from &lt;loc&gt; entries). Submit in GSC → Sitemaps. Use URL Inspection to request indexing on the 7 previously uncanonicalized blog posts.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-left"><div class="step-circle">8</div><div class="step-line"></div></div>
+      <div class="step-body">
+        <div class="step-title">Rollback Procedure (If Needed)</div>
+        <div class="step-desc">If any core page breaks: <code style="font-family:'Fira Code',monospace;font-size:11px;background:#f0ece4;padding:1px 5px;border-radius:2px;">cp .htaccess.bak.YYYYMMDD .htaccess</code>. This instantly restores the previous routing without touching any content files. The HTML files with updated canonical/meta tags are safe to leave in place — they cause no harm even under the old .htaccess.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9: CHECKLIST -->
+<section>
+  <div class="sec-eyebrow"><div class="dot"></div>§ 09 — SEO Integrity Checklist</div>
+  <h2>Minimal Viable Checklist — Post-Migration SEO</h2>
+
+  <ul class="checklist">
+    <li class="cl-item">
+      <div class="cl-box"></div>
+      <div class="cl-content">
+        <strong>All .html URLs return 301, not 200</strong>
+        <span>Test /about.html, /blog.html, and 3 random blog posts. If any return 200, the redirect rule is missing or the rewrite order is wrong.</span>
+      </div>
+      <span class="cl-badge"><span class="badge miss">Critical</span></span>
+    </li>
+    <li class="cl-item">
+      <div class="cl-box"></div>
+      <div class="cl-content">
+        <strong>Zero redirect chains</strong>
+        <span>/about.html → /about in one hop. Never /about.html → /about.html → /about. Check with curl -L -I and count Location: headers.</span>
+      </div>
+      <span class="cl-badge"><span class="badge miss">Critical</span></span>
+    </li>
+    <li class="cl-item">
+      <div class="cl-box"></div>
+      <div class="cl-content">
+        <strong>Every page has a unique canonical tag pointing to its own clean URL</strong>
+        <span>No two pages share the same canonical href. No canonical pointing to a URL that returns a 301.</span>
+      </div>
+      <span class="cl-badge"><span class="badge miss">Critical</span></span>
+    </li>
+    <li class="cl-item">
+      <div class="cl-box"></div>
+      <div class="cl-content">
+        <strong>All canonical tags use https://www.aloftz.com (not non-www, not http)</strong>
+        <span>Grep all HTML files: grep -r 'canonical' *.html | grep -v 'www.aloftz.com' should return zero results.</span>
+      </div>
+      <span class="cl-badge"><span class="badge miss">Critical</span></span>
+    </li>
+    <li class="cl-item">
+      <div class="cl-box"></div>
+      <div class="cl-content">
+        <strong>Every page has a unique meta description under 155 characters</strong>
+        <span>Duplicate meta descriptions dilute click-through rates. Use the values from §05 table directly.</span>
+      </div>
+      <span class="cl-badge"><span class="badge warn">High</span></span>
+    </li>
+    <li class="cl-item">
+      <div class="cl-box"></div>
+      <div class="cl-content">
+        <strong>No internal links pointing to .html URLs</strong>
+        <span>Run: grep -rn 'href="[^"]*\.html"' *.html after the sed replacements in §06. Output should be empty.</span>
+      </div>
+      <span class="cl-badge"><span class="badge warn">High</span></span>
+    </li>
+    <li class="cl-item">
+      <div class="cl-box"></div>
+      <div class="cl-content">
+        <strong>sitemap.xml updated — all &lt;loc&gt; entries use clean URLs</strong>
+        <span>No .html extensions in sitemap. All URLs use https://www.aloftz.com. Sitemap resubmitted in Google Search Console.</span>
+      </div>
+      <span class="cl-badge"><span class="badge warn">High</span></span>
+    </li>
+    <li class="cl-item">
+      <div class="cl-box"></div>
+      <div class="cl-content">
+        <strong>home.html and blog (1).html deleted from server</strong>
+        <span>Both return 301 (via .htaccess rules), not 200. Confirm neither file exists on disk.</span>
+      </div>
+      <span class="cl-badge"><span class="badge warn">High</span></span>
+    </li>
+    <li class="cl-item">
+      <div class="cl-box"></div>
+      <div class="cl-content">
+        <strong>blog-paid-ads.html title mismatch resolved</strong>
+        <span>Either delete the file (add 301 to /blog/7-seo-mistakes-agency-google-rankings) or correct the title and add unique canonical.</span>
+      </div>
+      <span class="cl-badge"><span class="badge warn">High</span></span>
+    </li>
+    <li class="cl-item">
+      <div class="cl-box"></div>
+      <div class="cl-content">
+        <strong>GSC URL Inspection run on 5 sample clean URLs</strong>
+        <span>Confirm Google reads the canonical you set, not a different one. Flag any "Alternate page with proper canonical tag" in Coverage.</span>
+      </div>
+      <span class="cl-badge"><span class="badge ok">Medium</span></span>
+    </li>
+    <li class="cl-item">
+      <div class="cl-box"></div>
+      <div class="cl-content">
+        <strong>Indexing requested for 7 previously uncanonicalized posts</strong>
+        <span>Use GSC URL Inspection → Request Indexing for the 7 blog posts that had no canonical before this migration.</span>
+      </div>
+      <span class="cl-badge"><span class="badge ok">Medium</span></span>
+    </li>
+  </ul>
+</section>
+
+<footer>
+  <span>ALOFTZ Marketing Pvt. Ltd. · Clean URL Migration Plan · Apache · v1.0</span>
+  <span>April 2026 · aloftz.com · 22 clean URLs · 24 source files</span>
+</footer>
+
+</body>
+</html>

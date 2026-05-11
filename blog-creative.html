@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Death of Generic Content — And What Brands Must Do Next | ALOFTZ</title>
+  <meta name="description" content="Generic content is dying. Here's what brands need to do in 2026 to create content that stands out and converts." />
+  <meta property="og:title" content="The Death of Generic Content — And What Brands Must Do Next | ALOFTZ" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="ALOFTZ Marketing Agency" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&family=Syne:wght@900&display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --bg: #0a1f22;
+      --ac: #11948d;
+      --ow: #F4FAFB;
+      --sl: rgba(214,240,243,0.68);
+      --gb: rgba(214,240,243,0.11);
+    }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f8f8f6;
+      color: #1a1a1a;
+      line-height: 1.75;
+      margin: 0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    .site-header {
+      background: rgba(10,31,34,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(214,240,243,0.11);
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+    .logo { font-size: 16px; font-weight: 700; color: #F4FAFB; letter-spacing: .04em; }
+    .logo span { color: #11948d; }
+    .back-btn {
+      background: none;
+      border: 1px solid rgba(214,240,243,0.11);
+      color: rgba(214,240,243,0.68);
+      padding: 7px 18px;
+      border-radius: 20px;
+      font-size: .8rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .25s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .back-btn:hover { border-color: #11948d; color: #11948d; }
+
+    /* Blog wrap styles */
+    .blog-wrap { max-width: 800px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; line-height: 1.8; }
+    .blog-wrap .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.25rem; }
+    .blog-wrap .tag { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: #f5f5f3; color: #666; padding: 4px 10px; border-radius: 20px; border: 0.5px solid rgba(0,0,0,0.1); }
+    .blog-wrap .tag.hl { background: #E6F1FB; color: #0C447C; border-color: #B5D4F4; }
+    .blog-wrap .headline { font-family: 'Syne', serif; font-size: clamp(26px, 5vw, 44px); font-weight: 900; line-height: 1.15; margin-bottom: 1rem; color: #1a1a1a; }
+    .blog-wrap .headline em { color: #D85A30; font-style: normal; }
+    .blog-wrap .deck { font-size: 17px; font-weight: 300; color: #555; margin-bottom: 1.5rem; line-height: 1.65; border-left: 3px solid #D85A30; padding-left: 1rem; }
+    .blog-wrap .post-meta { font-size: 13px; color: #999; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid rgba(0,0,0,0.1); }
+    .blog-wrap .post-meta strong { color: #1a1a1a; }
+    .blog-wrap .toc { background: #f5f5f3; border: 0.5px solid rgba(0,0,0,0.1); border-radius: 12px; padding: 1.1rem 1.4rem; margin: 0 0 2rem; }
+    .blog-wrap .toc-title { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; color: #999; margin-bottom: 0.75rem; }
+    .blog-wrap .toc ol { padding-left: 1.25rem; font-size: 14px; color: #555; }
+    .blog-wrap .toc li { margin-bottom: 5px; }
+    .blog-wrap .toc a { color: #185FA5; text-decoration: none; }
+    .blog-wrap .toc a:hover { text-decoration: underline; }
+    .blog-wrap .bl { color: #185FA5; text-decoration: underline; text-decoration-color: rgba(24,95,165,0.35); text-underline-offset: 3px; font-weight: 500; cursor:pointer; }
+    .blog-wrap .bl:hover { text-decoration-color: #185FA5; }
+    .blog-wrap .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 2rem 0; }
+    .blog-wrap .stat-card { background: #f5f5f3; border: 0.5px solid rgba(0,0,0,0.1); border-radius: 12px; padding: 1rem 1.25rem; text-align: center; }
+    .blog-wrap .stat-num { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: #D85A30; display: block; }
+    .blog-wrap .stat-label { font-size: 12px; color: #666; margin-top: 4px; line-height: 1.4; }
+    .blog-wrap h2 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; margin: 2rem 0 0.65rem; color: #1a1a1a; scroll-margin-top: 1rem; }
+    .blog-wrap h3 { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 500; margin: 1.25rem 0 0.4rem; color: #1a1a1a; }
+    .blog-wrap p { margin-bottom: 0.9rem; font-size: 15.5px; }
+    .blog-wrap ul, .blog-wrap ol { margin-bottom: 0.9rem; padding-left: 1.5rem; font-size: 15px; }
+    .blog-wrap li { margin-bottom: 0.4rem; }
+    .blog-wrap .callout { background: #FAECE7; border-left: 4px solid #D85A30; border-radius: 0 8px 8px 0; padding: 0.9rem 1.1rem; margin: 1.25rem 0; color: #993C1D; font-size: 14.5px; }
+    .blog-wrap .callout-green { background: #EAF3DE; border-left: 4px solid #639922; border-radius: 0 8px 8px 0; padding: 0.9rem 1.1rem; margin: 1.25rem 0; color: #27500A; font-size: 14.5px; }
+    .blog-wrap .checklist { list-style: none; padding: 0; margin: 0.75rem 0 1.25rem; }
+    .blog-wrap .checklist li { padding: 0.45rem 0 0.45rem 1.75rem; position: relative; font-size: 15px; border-bottom: 0.5px solid rgba(0,0,0,0.08); }
+    .blog-wrap .checklist li:last-child { border-bottom: none; }
+    .blog-wrap .checklist li::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 15px; height: 15px; border-radius: 50%; background: #E6F1FB; border: 2px solid #378ADD; }
+    .blog-wrap .checklist li.done::before { background: #D85A30; border-color: #D85A30; }
+    .blog-wrap .faq-item { border-bottom: 0.5px solid rgba(0,0,0,0.08); padding: 0.85rem 0; }
+    .blog-wrap .faq-item:last-child { border-bottom: none; }
+    .blog-wrap .faq-q { font-weight: 500; font-size: 15px; margin-bottom: 0.35rem; color: #1a1a1a; }
+    .blog-wrap .faq-a { font-size: 14px; color: #555; line-height: 1.7; }
+    .blog-wrap .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin: 1.25rem 0 1.75rem; }
+    .blog-wrap .svc-card { background: #fff; border: 0.5px solid rgba(0,0,0,0.1); border-radius: 10px; padding: 0.75rem 1rem; text-align: center; cursor: pointer; transition: all 0.3s ease; }
+    .blog-wrap .svc-card:hover { border-color: rgba(0,0,0,0.25); background: #f9f9f9; transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+    .blog-wrap .svc-icon { font-size: 18px; margin-bottom: 5px; display: block; }
+    .blog-wrap .svc-name { font-size: 13px; font-weight: 500; display: block; color: #1a1a1a; }
+    .blog-wrap hr { border: none; border-top: 1px solid rgba(0,0,0,0.1); margin: 1.75rem 0; }
+    /* Back button inside blog-wrap */
+    .blog-wrap button[onclick*="go("] { background: none; border: 1px solid rgba(0,0,0,0.15); color: #555; padding: 7px 16px; border-radius: 20px; font-size: .8rem; cursor: pointer; font-family: inherit; transition: all .3s; }
+    .blog-wrap button[onclick*="go("]:hover { border-color: #11948d; color: #11948d; }
+  </style>
+<link rel="canonical" href="https://www.aloftz.com/blog/death-of-generic-content">
+</head>
+<body>
+<header class="site-header">
+  <a href="/blog" class="logo" style="text-decoration:none">Aloftz <span>Marketing</span></a>
+  <button class="back-btn" onclick="goBack()">← Back to Blog</button>
+</header>
+<div class="blog-wrap">
+  <div class="wrap" style="max-width:800px;margin:0 auto;padding:2.5rem 1.5rem 5rem;line-height:1.8">
+      <div style="margin-bottom:1rem">
+        <button onclick="go('blog')" style="background:none;border:1px solid rgba(255,255,255,.15);color:var(--sl);padding:7px 16px;border-radius:20px;font-size:.8rem;cursor:pointer;font-family:inherit;transition:all .3s" onmouseover="this.style.borderColor='var(--ac)';this.style.color='var(--ac)'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='var(--sl)'">← Back to Blog</button>
+      </div>
+
+      <div class="tag-row">
+        <span class="tag hl">Content Marketing</span>
+        <span class="tag">Creative Strategy</span>
+        <span class="tag">Brand Content</span>
+        <span class="tag">Copywriting</span>
+      </div>
+
+      <h2 class="headline">The Death of <em>Generic Content</em> — And What Brands Must Do Next</h2>
+
+      <p class="deck">Audiences don't want more content. They want content that feels like it was written for them. Generic is invisible. Specific is unforgettable.</p>
+
+      <div class="post-meta">
+        <span>By <strong>Aloftz Marketing Agency PVT LTD</strong></span>
+        <span>April 2025</span>
+        <span>6 min read · ~1,000 words</span>
+      </div>
+
+      <div class="toc">
+        <div class="toc-title">In this article</div>
+        <ol>
+          <li><a href="#why-generic-died">Why generic content stopped working</a></li>
+          <li><a href="#what-is-generic">What generic actually looks like</a></li>
+          <li><a href="#specificity">The Specificity Principle</a></li>
+          <li><a href="#brands-must-do">What brands must do next</a></li>
+          <li><a href="#opportunity">The opportunity in the wreckage</a></li>
+        </ol>
+      </div>
+
+      <p><strong style="color:#F4FAFB">Somewhere between the content explosion and the AI gold rush, something quietly died.</strong> It didn't make headlines. Nobody wrote a eulogy. But if you have been watching engagement metrics, conversion rates, and brand trust scores over the last two years — you already know what we're talking about.</p>
+
+      <p>Generic content is dead. The blog post that could have been written for any brand in any industry. The social caption that says a lot but means nothing. The email that arrives, gets skimmed, and gets deleted before the third line. This content isn't just underperforming. It is actively damaging brands — because indifference is now the audience's default, and every piece of hollow content trains them to expect less from you.</p>
+
+      <p>At Aloftz, we work with brands across industries every single day. And the pattern we keep seeing is the same: the brands struggling with content aren't producing too little of it. They're producing too much of the wrong kind.</p>
+
+      <div class="callout">
+        Your audience doesn't owe your content attention. Every line you write has to earn the next one.
+      </div>
+
+      <h2 id="why-generic-died">Why Generic Content Stopped Working</h2>
+
+      <p>The internet didn't always punish sameness this harshly. For a long time, showing up was enough. If you had a blog, you were ahead of your competitors. If you posted on Instagram, you were visible. The bar was low and volume was the strategy.</p>
+
+      <p>Then three things happened simultaneously, and they changed everything.</p>
+
+      <p><strong>First, the volume of content exploded.</strong> By 2024, over 7 million blog posts were being published every single day globally. Social feeds became relentless. Inboxes became war zones. The sheer quantity of content competing for your audience's attention crossed a threshold where attention itself became the scarcest resource in marketing.</p>
+
+      <p><strong>Second, audiences got smarter.</strong> Years of being marketed to have made people extraordinarily good at detecting inauthenticity. They can feel in three seconds whether a piece of content was written for them or assembled for a demographic they happen to belong to. That feeling triggers a scroll, a close, a delete.</p>
+
+      <p><strong>Third, AI flooded the zone with average.</strong> The early promise of AI content tools was efficiency. What many brands discovered is that efficiency at scale mostly means more mediocrity faster. When every competitor is generating the same keyword-stuffed, structure-perfect, soul-free content — standing out requires something AI alone cannot manufacture: genuine specificity.</p>
+
+      <div class="stat-row">
+        <div class="stat-card"><span class="stat-num">91%</span><div class="stat-label">of consumers are more likely to shop with brands that provide relevant, personalised content</div></div>
+      </div>
+
+      <h2 id="what-is-generic">What Generic Actually Looks Like</h2>
+
+      <p>Most brands don't think they're producing generic content. That's the trap. Generic content rarely announces itself. It hides inside well-intentioned briefs and "industry best practices." It wears the clothes of strategy but has no actual opinion, no specific insight, no moment where a reader thinks — <em>yes, this was written for me.</em></p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:1.5rem 0">
+        <div style="background:rgba(240,60,60,.06);border:1px solid rgba(240,60,60,.18);border-radius:10px;padding:1rem">
+          <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px;font-weight:600;color:#e05555">Generic — Invisible</div>
+          <div style="font-size:.95rem;font-weight:600;color:#F4FAFB;margin-bottom:10px">Content that blends in</div>
+          <ul style="list-style:none;font-size:.85rem;color:var(--sl)">
+            <li style="padding:5px 0;border-bottom:1px solid var(--gb);display:flex;gap:7px"><span style="color:#e05555">✕</span>Talks to "businesses" not specific people</li>
+            <li style="padding:5px 0;border-bottom:1px solid var(--gb);display:flex;gap:7px"><span style="color:#e05555">✕</span>Tips anyone could Google in 30 seconds</li>
+            <li style="padding:5px 0;border-bottom:1px solid var(--gb);display:flex;gap:7px"><span style="color:#e05555">✕</span>No brand voice — could be anyone's</li>
+            <li style="padding:5px 0;border-bottom:1px solid var(--gb);display:flex;gap:7px"><span style="color:#e05555">✕</span>Safe opinions that offend nobody</li>
+            <li style="padding:5px 0;display:flex;gap:7px"><span style="color:#e05555">✕</span>Written for search engines first</li>
+          </ul>
+        </div>
+        <div style="background:rgba(17,148,141,.08);border:1px solid rgba(17,148,141,.22);border-radius:10px;padding:1rem">
+          <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px;font-weight:600;color:var(--ac)">Specific — Unforgettable</div>
+          <div style="font-size:.95rem;font-weight:600;color:#F4FAFB;margin-bottom:10px">Content that sticks</div>
+          <ul style="list-style:none;font-size:.85rem;color:var(--sl)">
+            <li style="padding:5px 0;border-bottom:1px solid var(--gb);display:flex;gap:7px"><span style="color:var(--ac)">✦</span>Written for one person who reads it as theirs</li>
+            <li style="padding:5px 0;border-bottom:1px solid var(--gb);display:flex;gap:7px"><span style="color:var(--ac)">✦</span>Proprietary insight from real experience</li>
+            <li style="padding:5px 0;border-bottom:1px solid var(--gb);display:flex;gap:7px"><span style="color:var(--ac)">✦</span>Unmistakable brand voice and POV</li>
+            <li style="padding:5px 0;border-bottom:1px solid var(--gb);display:flex;gap:7px"><span style="color:var(--ac)">✦</span>Takes a clear, sometimes uncomfortable position</li>
+            <li style="padding:5px 0;display:flex;gap:7px"><span style="color:var(--ac)">✦</span>Written for humans first, optimised second</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>The difference isn't budget. It isn't team size. It's a decision about what kind of brand you want to be — one that produces content, or one that produces content people actually remember.</p>
+
+      <h2 id="specificity">The Specificity Principle</h2>
+
+      <p>Here is the single most useful reframe we give our clients at Aloftz: <strong>stop trying to reach everyone and start trying to genuinely reach someone.</strong></p>
+
+      <p>Specific content scales. When you write something precise enough to feel personal, it paradoxically resonates with more people — because humans are wired to trust specificity. Vague advice feels safe but is forgotten in minutes. A precise insight, a real number, a named customer problem — these are the things that create the feeling of being understood.</p>
+
+      <div class="callout-green">
+        <strong>The Specificity Test:</strong> Before publishing any content, ask yourself: could a competitor brand swap their name onto this and publish it unchanged? If the answer is yes, it is not specific enough. Rewrite until only your brand could have said it.
+      </div>
+
+      <p>This is also where AI becomes genuinely powerful — not as a replacement for human insight, but as an amplifier of it. The brands winning with AI-assisted content in 2025 are not the ones generating the most output. They are the ones using AI to surface patterns in their audience data, personalise at scale, and free up their human writers to focus exclusively on the thinking and voice that AI cannot replicate.</p>
+
+      <h2 id="brands-must-do">What Brands Must Do Next</h2>
+
+      <p>None of this requires a complete content overhaul overnight. It requires a shift in what you optimise for. Here is the framework we use with every brand we work with at Aloftz:</p>
+
+      <div style="list-style:none;padding:0;margin:1.5rem 0 1.75rem;counter-reset:s">
+        <div style="counter-increment:s;display:flex;gap:20px;margin-bottom:24px;align-items:flex-start">
+          <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--ac);opacity:.2;line-height:1;min-width:40px">01</div>
+          <div><strong style="display:block;font-size:.95rem;color:#F4FAFB;margin-bottom:5px;font-weight:600">Find your unfair insight</strong><p style="font-size:.88rem;margin:0">Every brand has knowledge that no one else has — customer conversations, internal data, category experience. Start there. That is the raw material of content that cannot be replicated. Mine your sales calls, your support tickets, your comment sections. The gold is always in the specifics.</p></div>
+        </div>
+        <div style="counter-increment:s;display:flex;gap:20px;margin-bottom:24px;align-items:flex-start">
+          <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--ac);opacity:.2;line-height:1;min-width:40px">02</div>
+          <div><strong style="display:block;font-size:.95rem;color:#F4FAFB;margin-bottom:5px;font-weight:600">Build a point of view, not just a content calendar</strong><p style="font-size:.88rem;margin:0">A content calendar tells you when to post. A point of view tells you what to actually say. Define the two or three genuine positions your brand holds about your industry — and then have the courage to say them clearly, repeatedly, specifically.</p></div>
+        </div>
+        <div style="counter-increment:s;display:flex;gap:20px;margin-bottom:24px;align-items:flex-start">
+          <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--ac);opacity:.2;line-height:1;min-width:40px">03</div>
+          <div><strong style="display:block;font-size:.95rem;color:#F4FAFB;margin-bottom:5px;font-weight:600">Write for one person, publish for many</strong><p style="font-size:.88rem;margin:0">The best brief you can give a writer is a single customer, named and profiled, with a specific problem on a specific day. Content written with that level of precision consistently outperforms content written for a broad audience segment.</p></div>
+        </div>
+        <div style="counter-increment:s;display:flex;gap:20px;margin-bottom:24px;align-items:flex-start">
+          <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--ac);opacity:.2;line-height:1;min-width:40px">04</div>
+          <div><strong style="display:block;font-size:.95rem;color:#F4FAFB;margin-bottom:5px;font-weight:600">Use AI for personalisation at scale, not for ideas</strong><p style="font-size:.88rem;margin:0">Personalised content AI is extraordinarily good at adapting your core message across segments, channels, and contexts. Use it for that. Keep your humans on the ideas and the voice — the two things that make the message worth adapting in the first place.</p></div>
+        </div>
+        <div style="counter-increment:s;display:flex;gap:20px;align-items:flex-start">
+          <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--ac);opacity:.2;line-height:1;min-width:40px">05</div>
+          <div><strong style="display:block;font-size:.95rem;color:#F4FAFB;margin-bottom:5px;font-weight:600">Measure resonance, not just reach</strong><p style="font-size:.88rem;margin:0">Impressions and followers are vanity. Time on page, scroll depth, share rate, comment quality, and reply rates — these measure whether your content is actually connecting. Optimise for resonance and reach follows. Optimise only for reach and you get noise.</p></div>
+        </div>
+      </div>
+
+      <div class="callout-green">
+        <strong>The content marketing shift happening right now:</strong> The brands dominating content in 2025 are producing less content, not more — but every piece is more targeted, more specific, and more deeply connected to a real audience need. Less noise. More signal. That is the entire game.
+      </div>
+
+      <h2 id="opportunity">The Opportunity in the Wreckage</h2>
+
+      <p>Here is what most people miss when they hear "generic content is dead": this is actually the best news for brands willing to do the harder, smarter work of being specific.</p>
+
+      <p>When your entire industry is producing content that blurs together, showing up with something precise, opinionated, and genuinely useful is not just noticeable — it is remarkable. In a feed full of sameness, specificity feels like a spotlight. Your audience will find it. They will share it. They will remember who wrote it.</p>
+
+      <p>We have watched this play out for clients across sectors — from D2C brands to B2B SaaS to real estate developers. The moment they stopped trying to say something for everyone and started saying something true for someone, their content started working in ways it never had before.</p>
+
+      <p><strong style="color:#F4FAFB">Generic is invisible. Specific is unforgettable. The death of one is the birth of the other. The only question is which side of that line your brand is standing on.</strong></p>
+
+      <hr />
+
+      <h2>Ready to build specific content that actually converts?</h2>
+
+      <p>At <strong>Aloftz Marketing Agency PVT LTD</strong>, we specialise in building content strategies that feel written for your exact audience — because they are. No fluff. No generic frameworks. Just proprietary insights, genuine voice, and content that actually works.</p>
+
+      <div class="services-grid">
+        <div class="svc-card" onclick="go('services'); setTimeout(()=>{const tabs=document.querySelectorAll('#svcTabs .tb'); const panels=document.querySelectorAll('.svcp'); tabs.forEach(t=>t.classList.remove('on')); panels.forEach(p=>p.classList.remove('on')); if(tabs[4])tabs[4].classList.add('on'); const panel=document.getElementById('sp4'); if(panel)panel.classList.add('on')}, 100)" style="cursor:pointer;" title="Creative services"><span class="svc-icon">🎬</span><span class="svc-name">Creative</span></div>
+        <div class="svc-card" onclick="go('services'); setTimeout(()=>{const tabs=document.querySelectorAll('#svcTabs .tb'); const panels=document.querySelectorAll('.svcp'); tabs.forEach(t=>t.classList.remove('on')); panels.forEach(p=>p.classList.remove('on')); if(tabs[0])tabs[0].classList.add('on'); const panel=document.getElementById('sp0'); if(panel)panel.classList.add('on')}, 100)" style="cursor:pointer;" title="SEO services"><span class="svc-icon">🔍</span><span class="svc-name">SEO</span></div>
+        <div class="svc-card" onclick="go('services'); setTimeout(()=>{const tabs=document.querySelectorAll('#svcTabs .tb'); const panels=document.querySelectorAll('.svcp'); tabs.forEach(t=>t.classList.remove('on')); panels.forEach(p=>p.classList.remove('on')); if(tabs[1])tabs[1].classList.add('on'); const panel=document.getElementById('sp1'); if(panel)panel.classList.add('on')}, 100)" style="cursor:pointer;" title="Social Media services"><span class="svc-icon">📱</span><span class="svc-name">Social Media</span></div>
+        <div class="svc-card" onclick="go('services'); setTimeout(()=>{const tabs=document.querySelectorAll('#svcTabs .tb'); const panels=document.querySelectorAll('.svcp'); tabs.forEach(t=>t.classList.remove('on')); panels.forEach(p=>p.classList.remove('on')); if(tabs[2])tabs[2].classList.add('on'); const panel=document.getElementById('sp2'); if(panel)panel.classList.add('on')}, 100)" style="cursor:pointer;" title="Website services"><span class="svc-icon">💻</span><span class="svc-name">Website</span></div>
+        <div class="svc-card" onclick="go('services'); setTimeout(()=>{const tabs=document.querySelectorAll('#svcTabs .tb'); const panels=document.querySelectorAll('.svcp'); tabs.forEach(t=>t.classList.remove('on')); panels.forEach(p=>p.classList.remove('on')); if(tabs[3])tabs[3].classList.add('on'); const panel=document.getElementById('sp3'); if(panel)panel.classList.add('on')}, 100)" style="cursor:pointer;" title="Ads services"><span class="svc-icon">🎯</span><span class="svc-name">Ads</span></div>
+        <div class="svc-card" onclick="go('services'); setTimeout(()=>{const tabs=document.querySelectorAll('#svcTabs .tb'); const panels=document.querySelectorAll('.svcp'); tabs.forEach(t=>t.classList.remove('on')); panels.forEach(p=>p.classList.remove('on')); if(tabs[5])tabs[5].classList.add('on'); const panel=document.getElementById('sp5'); if(panel)panel.classList.add('on')}, 100)" style="cursor:pointer;" title="Digital Strategy services"><span class="svc-icon">📊</span><span class="svc-name">Digital Strategy</span></div>
+      </div>
+
+      <div style="background:var(--ac);border-radius:14px;padding:1.75rem 2rem;margin-top:2rem;text-align:center">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--ab);margin-bottom:0.4rem">Ready to stop being invisible?</h3>
+        <p style="font-size:.85rem;color:rgba(10,31,34,.85);margin-bottom:1rem">Let's build a content strategy that is specific enough to be unforgettable — and smart enough to scale.</p>
+        <button onclick="go('contact')" class="bp">Start the Conversation →</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function goBack() {
+    try {
+      if (window.parent && window.parent !== window && window.parent.go) {
+        window.parent.go('blog');
+      } else {
+        window.location.href = 'blog.html';
+      }
+    } catch(e) { window.history.back(); }
+  }
+  function goContact() {
+    try {
+      if (window.parent && window.parent !== window && window.parent.go) {
+        window.parent.go('contact');
+      } else {
+        window.location.href = 'contact.html';
+      }
+    } catch(e) {}
+  }
+  function goServices() {
+    try {
+      if (window.parent && window.parent !== window && window.parent.go) {
+        window.parent.go('services');
+      } else {
+        window.location.href = 'services.html';
+      }
+    } catch(e) {}
+  }
+  function goService(idx) {
+    try {
+      if (window.parent && window.parent !== window && window.parent.go) {
+        window.parent.go('services');
+      } else {
+        window.location.href = 'services.html';
+      }
+    } catch(e) {}
+  }
+  // Fix go() calls inside blog-wrap buttons
+  function go(pg) {
+    try {
+      if (window.parent && window.parent !== window && window.parent.go) {
+        window.parent.go(pg);
+      } else {
+        window.location.href = 'blog.html';
+      }
+    } catch(e) {}
+  }
+  document.querySelectorAll('.toc a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>

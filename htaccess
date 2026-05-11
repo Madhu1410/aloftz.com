@@ -1,0 +1,135 @@
+RewriteOptions inherit
+RewriteEngine On
+
+# ═══════════════════════════════════════════════════════════
+# BLOCK 1: HTTPS + WWW ENFORCEMENT (runs first, always)
+# ═══════════════════════════════════════════════════════════
+
+# 1a. HTTP → HTTPS redirect
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://www.aloftz.com/$1 [L,R=301]
+
+# 1b. non-www → www redirect
+RewriteCond %{HTTP_HOST} ^aloftz\.com$ [NC]
+RewriteRule ^(.*)$ https://www.aloftz.com/$1 [L,R=301]
+
+# ═══════════════════════════════════════════════════════════
+# BLOCK 2: 301 REDIRECTS — .html → clean URL
+# (Browsers/crawlers hitting old .html URLs get sent here)
+# ═══════════════════════════════════════════════════════════
+
+# 2a. Trailing-slash strip (except homepage)
+RewriteCond %{REQUEST_URI} !^/$
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/+$ /$1 [R=301,L]
+
+# 2b. Core page .html → clean URL redirects
+RewriteRule ^index\.html$       / [R=301,L]
+RewriteRule ^about\.html$       /about [R=301,L]
+RewriteRule ^services\.html$    /services [R=301,L]
+RewriteRule ^work\.html$        /work [R=301,L]
+RewriteRule ^blog\.html$        /blog [R=301,L]
+RewriteRule ^contact\.html$     /contact [R=301,L]
+RewriteRule ^appointment\.html$ /appointment [R=301,L]
+
+# 2c. Duplicate file redirects (delete these files from server too)
+RewriteRule ^home\.html$          / [R=301,L]
+RewriteRule ^blog%20\(1\)\.html$  /blog [R=301,L]
+
+# 2d. Blog post .html → clean URL redirects (file slug → /blog/post-slug)
+RewriteRule ^7-seo-mistakes-blog\.html$
+    /blog/7-seo-mistakes-agency-google-rankings [R=301,L]
+RewriteRule ^blog-ai-copywriting\.html$
+    /blog/ai-vs-human-copywriters-2026 [R=301,L]
+RewriteRule ^blog-ai-landing-page\.html$
+    /blog/ai-landing-page-2-hours [R=301,L]
+RewriteRule ^blog-ai-to-Write-30-days\.html$
+    /blog/ai-blog-writing-30-days-content [R=301,L]
+RewriteRule ^blog-ai-tools-agencies\.html$
+    /blog/jasper-copyai-claude-comparison-agencies [R=301,L]
+RewriteRule ^blog-ai\.html$
+    /blog/claude-chatgpt-content-strategy [R=301,L]
+RewriteRule ^blog-creative\.html$
+    /blog/death-of-generic-content [R=301,L]
+RewriteRule ^blog-generative-ai-advertising-india\.html$
+    /blog/generative-ai-advertising-india [R=301,L]
+RewriteRule ^blog-instagram-growth\.html$
+    /blog/200-to-50000-instagram-followers-ai-strategy [R=301,L]
+RewriteRule ^blog-landing-page\.html$
+    /blog/high-converting-landing-page-guide [R=301,L]
+RewriteRule ^blog-long-tail-keywords\.html$
+    /blog/long-tail-keywords-indian-startups [R=301,L]
+RewriteRule ^blog-rank-page-1\.html$
+    /blog/rank-page-1-ai-blog-posts [R=301,L]
+RewriteRule ^blog-social\.html$
+    /blog/ai-content-strategy-social-media [R=301,L]
+RewriteRule ^blog-strategy\.html$
+    /blog/0-to-1-lakh-organic-visitors-90-days [R=301,L]
+RewriteRule ^blog-traffic-zero-leads\.html$
+    /blog/blog-traffic-zero-leads-fix [R=301,L]
+RewriteRule ^blog-web-dev\.html$
+    /blog/top-10-ai-marketing-tools-india-2026 [R=301,L]
+
+# ═══════════════════════════════════════════════════════════
+# BLOCK 3: INTERNAL REWRITES — clean URL → serve .html file
+# (These are invisible to the browser; no redirect shown)
+# ═══════════════════════════════════════════════════════════
+
+RewriteBase /
+
+# 3a. Core pages
+RewriteRule ^about$       about.html [L]
+RewriteRule ^services$    services.html [L]
+RewriteRule ^work$        work.html [L]
+RewriteRule ^blog$        blog.html [L]
+RewriteRule ^contact$     contact.html [L]
+RewriteRule ^appointment$ appointment.html [L]
+
+# 3b. Blog posts (clean slug → actual .html filename)
+RewriteRule ^blog/7-seo-mistakes-agency-google-rankings$
+    7-seo-mistakes-blog.html [L]
+RewriteRule ^blog/ai-vs-human-copywriters-2026$
+    blog-ai-copywriting.html [L]
+RewriteRule ^blog/ai-landing-page-2-hours$
+    blog-ai-landing-page.html [L]
+RewriteRule ^blog/ai-blog-writing-30-days-content$
+    blog-ai-to-Write-30-days.html [L]
+RewriteRule ^blog/jasper-copyai-claude-comparison-agencies$
+    blog-ai-tools-agencies.html [L]
+RewriteRule ^blog/claude-chatgpt-content-strategy$
+    blog-ai.html [L]
+RewriteRule ^blog/death-of-generic-content$
+    blog-creative.html [L]
+RewriteRule ^blog/generative-ai-advertising-india$
+    blog-generative-ai-advertising-india.html [L]
+RewriteRule ^blog/200-to-50000-instagram-followers-ai-strategy$
+    blog-instagram-growth.html [L]
+RewriteRule ^blog/high-converting-landing-page-guide$
+    blog-landing-page.html [L]
+RewriteRule ^blog/long-tail-keywords-indian-startups$
+    blog-long-tail-keywords.html [L]
+RewriteRule ^blog/rank-page-1-ai-blog-posts$
+    blog-rank-page-1.html [L]
+RewriteRule ^blog/ai-content-strategy-social-media$
+    blog-social.html [L]
+RewriteRule ^blog/0-to-1-lakh-organic-visitors-90-days$
+    blog-strategy.html [L]
+RewriteRule ^blog/blog-traffic-zero-leads-fix$
+    blog-traffic-zero-leads.html [L]
+RewriteRule ^blog/top-10-ai-marketing-tools-india-2026$
+    blog-web-dev.html [L]
+
+# ═══════════════════════════════════════════════════════════
+# BLOCK 4: HOTLINK PROTECTION (unchanged from original)
+# ═══════════════════════════════════════════════════════════
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https://www\.aloftz\.com/.*$ [NC]
+RewriteCond %{HTTP_REFERER} !^https://aloftz\.com/.*$ [NC]
+RewriteRule .*\.(jpg|jpeg|gif|png|bmp|webp)$ - [F,NC]
+
+# ═══════════════════════════════════════════════════════════
+# BLOCK 5: SPA FALLBACK — must be absolutely last
+# ═══════════════════════════════════════════════════════════
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 7 SEO Mistakes Killing Your Marketing Agency's Google Rankings | ALOFTZ</title>
+  <meta name="description" content="We audited 50 agency websites. All 50 had at least 4 of these exact mistakes. Stop guessing. Start ranking." />
+  <meta property="og:title" content="The 7 SEO Mistakes Killing Your Marketing Agency's Google Rankings | ALOFTZ" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="ALOFTZ Marketing Agency" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&family=Syne:wght@900&display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --bg: #0a1f22;
+      --ac: #11948d;
+      --ow: #F4FAFB;
+      --sl: rgba(214,240,243,0.68);
+      --gb: rgba(214,240,243,0.11);
+    }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f8f8f6;
+      color: #1a1a1a;
+      line-height: 1.75;
+      margin: 0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    .site-header {
+      background: rgba(10,31,34,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(214,240,243,0.11);
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+    .logo { font-size: 16px; font-weight: 700; color: #F4FAFB; letter-spacing: .04em; }
+    .logo span { color: #11948d; }
+    .back-btn {
+      background: none;
+      border: 1px solid rgba(214,240,243,0.11);
+      color: rgba(214,240,243,0.68);
+      padding: 7px 18px;
+      border-radius: 20px;
+      font-size: .8rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .25s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .back-btn:hover { border-color: #11948d; color: #11948d; }
+
+    /* Blog wrap styles */
+    .blog-wrap { max-width: 800px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; line-height: 1.8; }
+    .blog-wrap .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.25rem; }
+    .blog-wrap .tag { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: #f5f5f3; color: #666; padding: 4px 10px; border-radius: 20px; border: 0.5px solid rgba(0,0,0,0.1); }
+    .blog-wrap .tag.hl { background: #E6F1FB; color: #0C447C; border-color: #B5D4F4; }
+    .blog-wrap .headline { font-family: 'Syne', serif; font-size: clamp(26px, 5vw, 44px); font-weight: 900; line-height: 1.15; margin-bottom: 1rem; color: #1a1a1a; }
+    .blog-wrap .headline em { color: #D85A30; font-style: normal; }
+    .blog-wrap .deck { font-size: 17px; font-weight: 300; color: #555; margin-bottom: 1.5rem; line-height: 1.65; border-left: 3px solid #D85A30; padding-left: 1rem; }
+    .blog-wrap .post-meta { font-size: 13px; color: #999; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid rgba(0,0,0,0.1); }
+    .blog-wrap .post-meta strong { color: #1a1a1a; }
+    .blog-wrap .toc { background: #f5f5f3; border: 0.5px solid rgba(0,0,0,0.1); border-radius: 12px; padding: 1.1rem 1.4rem; margin: 0 0 2rem; }
+    .blog-wrap .toc-title { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; color: #999; margin-bottom: 0.75rem; }
+    .blog-wrap .toc ol { padding-left: 1.25rem; font-size: 14px; color: #555; }
+    .blog-wrap .toc li { margin-bottom: 5px; }
+    .blog-wrap .toc a { color: #185FA5; text-decoration: none; }
+    .blog-wrap .toc a:hover { text-decoration: underline; }
+    .blog-wrap .bl { color: #185FA5; text-decoration: underline; text-decoration-color: rgba(24,95,165,0.35); text-underline-offset: 3px; font-weight: 500; cursor:pointer; }
+    .blog-wrap .bl:hover { text-decoration-color: #185FA5; }
+    .blog-wrap .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 2rem 0; }
+    .blog-wrap .stat-card { background: #f5f5f3; border: 0.5px solid rgba(0,0,0,0.1); border-radius: 12px; padding: 1rem 1.25rem; text-align: center; }
+    .blog-wrap .stat-num { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: #D85A30; display: block; }
+    .blog-wrap .stat-label { font-size: 12px; color: #666; margin-top: 4px; line-height: 1.4; }
+    .blog-wrap h2 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; margin: 2rem 0 0.65rem; color: #1a1a1a; scroll-margin-top: 1rem; }
+    .blog-wrap h3 { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 500; margin: 1.25rem 0 0.4rem; color: #1a1a1a; }
+    .blog-wrap p { margin-bottom: 0.9rem; font-size: 15.5px; }
+    .blog-wrap ul, .blog-wrap ol { margin-bottom: 0.9rem; padding-left: 1.5rem; font-size: 15px; }
+    .blog-wrap li { margin-bottom: 0.4rem; }
+    .blog-wrap .callout { background: #FAECE7; border-left: 4px solid #D85A30; border-radius: 0 8px 8px 0; padding: 0.9rem 1.1rem; margin: 1.25rem 0; color: #993C1D; font-size: 14.5px; }
+    .blog-wrap .callout-green { background: #EAF3DE; border-left: 4px solid #639922; border-radius: 0 8px 8px 0; padding: 0.9rem 1.1rem; margin: 1.25rem 0; color: #27500A; font-size: 14.5px; }
+    .blog-wrap .checklist { list-style: none; padding: 0; margin: 0.75rem 0 1.25rem; }
+    .blog-wrap .checklist li { padding: 0.45rem 0 0.45rem 1.75rem; position: relative; font-size: 15px; border-bottom: 0.5px solid rgba(0,0,0,0.08); }
+    .blog-wrap .checklist li:last-child { border-bottom: none; }
+    .blog-wrap .checklist li::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 15px; height: 15px; border-radius: 50%; background: #E6F1FB; border: 2px solid #378ADD; }
+    .blog-wrap .checklist li.done::before { background: #D85A30; border-color: #D85A30; }
+    .blog-wrap .faq-item { border-bottom: 0.5px solid rgba(0,0,0,0.08); padding: 0.85rem 0; }
+    .blog-wrap .faq-item:last-child { border-bottom: none; }
+    .blog-wrap .faq-q { font-weight: 500; font-size: 15px; margin-bottom: 0.35rem; color: #1a1a1a; }
+    .blog-wrap .faq-a { font-size: 14px; color: #555; line-height: 1.7; }
+    .blog-wrap .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin: 1.25rem 0 1.75rem; }
+    .blog-wrap .svc-card { background: #fff; border: 0.5px solid rgba(0,0,0,0.1); border-radius: 10px; padding: 0.75rem 1rem; text-align: center; cursor: pointer; transition: all 0.3s ease; }
+    .blog-wrap .svc-card:hover { border-color: rgba(0,0,0,0.25); background: #f9f9f9; transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+    .blog-wrap .svc-icon { font-size: 18px; margin-bottom: 5px; display: block; }
+    .blog-wrap .svc-name { font-size: 13px; font-weight: 500; display: block; color: #1a1a1a; }
+    .blog-wrap hr { border: none; border-top: 1px solid rgba(0,0,0,0.1); margin: 1.75rem 0; }
+    /* Back button inside blog-wrap */
+    .blog-wrap button[onclick*="go("] { background: none; border: 1px solid rgba(0,0,0,0.15); color: #555; padding: 7px 16px; border-radius: 20px; font-size: .8rem; cursor: pointer; font-family: inherit; transition: all .3s; }
+    .blog-wrap button[onclick*="go("]:hover { border-color: #11948d; color: #11948d; }
+  </style>
+<link rel="canonical" href="https://www.aloftz.com/blog/paid-ads-seo-mistakes-guide">
+</head>
+<body>
+<header class="site-header">
+  <a href="/blog" class="logo" style="text-decoration:none">Aloftz <span>Marketing</span></a>
+  <button class="back-btn" onclick="goBack()">← Back to Blog</button>
+</header>
+<div class="blog-wrap">
+  <div class="wrap" style="max-width:800px;margin:0 auto;padding:2.5rem 1.5rem 5rem;line-height:1.8">
+      <div style="margin-bottom:1rem">
+        <button onclick="go('blog')" style="background:none;border:1px solid rgba(255,255,255,.15);color:var(--sl);padding:7px 16px;border-radius:20px;font-size:.8rem;cursor:pointer;font-family:inherit;transition:all .3s" onmouseover="this.style.borderColor='var(--ac)';this.style.color='var(--ac)'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='var(--sl)'">← Back to Blog</button>
+      </div>
+
+      <div class="tag-row">
+        <span class="tag hl">SEO</span>
+        <span class="tag">Agency Growth</span>
+        <span class="tag">Google Rankings</span>
+        <span class="tag">Digital Marketing India</span>
+      </div>
+
+      <h2 class="headline">The <em>7 SEO Mistakes</em> Killing Your Marketing Agency's Google Rankings</h2>
+
+      <p class="deck">We audited 50 agency websites. All 50 had at least 4 of these exact mistakes. Stop guessing. Start ranking.</p>
+
+      <div class="post-meta">
+        <span>By <strong>Aloftz Marketing Agency PVT LTD</strong></span>
+        <span>March 2026</span>
+        <span>5 min read · ~1,000 words</span>
+      </div>
+
+      <div class="toc">
+        <div class="toc-title">In this article</div>
+        <ol>
+          <li><a href="#irony">The irony no one talks about</a></li>
+          <li><a href="#mistakes">All 7 mistakes — explained</a></li>
+          <li><a href="#fix">How to fix them fast</a></li>
+          <li><a href="#faq">FAQ: agency SEO in 2026</a></li>
+        </ol>
+      </div>
+
+      <h2 id="irony">The uncomfortable irony of agency SEO</h2>
+
+      <p>Here's something that doesn't get said enough. The businesses that are supposed to be best at <a href="#" class="bl">digital marketing</a> are often the worst at marketing themselves. Specifically, at getting found on Google.</p>
+
+      <p>We've seen it happen repeatedly. An agency runs excellent <a href="#" class="bl">Google Ads</a> and <a href="#" class="bl">Meta Ads</a> for clients, delivers strong results, and keeps those clients ranking. But their own website? Sitting on page three. No organic traffic. No inbound leads. Just a beautiful site that nobody finds.</p>
+
+      <p>When we audited 50 <a href="#" class="bl">digital marketing</a> agency websites, we weren't expecting to find much. We found everything. Every single site had at least four of the mistakes below. Several had all seven.</p>
+
+      <div class="stat-row">
+        <div class="stat-card"><span class="stat-num">50</span><div class="stat-label">agency websites audited by the Aloftz team</div></div>
+        <div class="stat-card"><span class="stat-num">100%</span><div class="stat-label">had at least 4 of these 7 mistakes</div></div>
+        <div class="stat-card"><span class="stat-num">3x</span><div class="stat-label">average organic traffic increase after fixing these issues</div></div>
+      </div>
+
+      <h2 id="mistakes">The 7 SEO mistakes killing agency rankings</h2>
+
+      <div class="mistake-card">
+        <div class="mistake-num">Mistake 01</div>
+        <div class="mistake-title">Targeting keywords no client would ever search</div>
+        <div class="mistake-body">Most agency websites are optimised for phrases like "integrated omnichannel solutions" or "360-degree brand strategy." Real clients search for "best <a href="#" class="bl">SEO</a> agency in Kolkata" or "affordable <a href="#" class="bl">social media marketing</a> for small business." There's a gap between how agencies describe themselves and how buyers actually look for help. The agencies that close that gap own the first page.</div>
+        <span class="fix-tag">Fix: build a keyword list from real client search queries, not internal jargon</span>
+      </div>
+
+      <div class="mistake-card">
+        <div class="mistake-num">Mistake 02</div>
+        <div class="mistake-title">One generic service page for everything</div>
+        <div class="mistake-body">A single "Services" page trying to rank for <a href="#" class="bl">SEO</a>, <a href="#" class="bl">social media marketing</a>, <a href="#" class="bl">Google Ads</a>, <a href="#" class="bl">Meta Ads</a>, web design, and creative — all at once — will rank for none of them. Google can't figure out what the page is actually about. Each service needs its own dedicated page with its own keyword focus, its own content, and its own intent signal. This is the single highest-impact structural fix most agencies can make.</div>
+        <span class="fix-tag">Fix: create one dedicated landing page per service</span>
+      </div>
+
+      <div class="mistake-card">
+        <div class="mistake-num">Mistake 03</div>
+        <div class="mistake-title">No local SEO — at all</div>
+        <div class="mistake-body">Most agencies want clients from their city. But their website has no city name in the title tags, no Google Business Profile, no local schema markup, and no location-specific content. When someone in Mumbai or Kolkata types "<a href="#" class="bl">digital marketing</a> agency near me," the result they get won't be you. Local <a href="#" class="bl">SEO</a> is one of the fastest ways for a service business to start appearing in relevant, high-intent searches.</div>
+        <span class="fix-tag">Fix: claim your Google Business Profile and add city-specific title tags</span>
+      </div>
+
+      <div class="mistake-card">
+        <div class="mistake-num">Mistake 04</div>
+        <div class="mistake-title">Slow, heavy websites with no performance optimisation</div>
+        <div class="mistake-body">An agency selling website development services, running a website that scores 38 on Google PageSpeed. This is more common than it should be. Core Web Vitals are a confirmed ranking factor. A slow website doesn't just frustrate visitors — it actively tells Google your site is lower quality than a competitor's. The fix isn't always a full rebuild. Often it's image compression, caching, and removing unnecessary scripts.</div>
+        <span class="fix-tag">Fix: run a Core Web Vitals audit and address the top three issues first</span>
+      </div>
+
+      <div class="mistake-card">
+        <div class="mistake-num">Mistake 05</div>
+        <div class="mistake-title">No blog — or a blog that hasn't been touched in two years</div>
+        <div class="mistake-body">Content is still the backbone of organic <a href="#" class="bl">SEO</a>. Agencies that publish consistently — answering the questions their potential clients are actually searching — build topical authority that compounds over time. An abandoned blog sends the opposite signal. It tells Google the site is dormant, and it means you're missing hundreds of long-tail keyword opportunities that competitors are quietly capturing every month.</div>
+        <span class="fix-tag">Fix: commit to 2 posts per month minimum, mapped to real keyword gaps</span>
+      </div>
+
+      <div class="mistake-card">
+        <div class="mistake-num">Mistake 06</div>
+        <div class="mistake-title">Backlinks from nobody — or from the wrong places</div>
+        <div class="mistake-body">Link building is still one of the strongest ranking signals Google uses. But most agency sites have either no backlinks or a handful from low-quality directories that do more harm than good. Earning genuine links — from industry publications, local business networks, guest articles, or client case study mentions — is how you build the domain authority that lets your pages compete for the keywords that actually bring in enquiries.</div>
+        <span class="fix-tag">Fix: identify 5 credible sites in your niche and pitch one guest post to each</span>
+      </div>
+
+      <div class="mistake-card">
+        <div class="mistake-num">Mistake 07</div>
+        <div class="mistake-title">Ignoring the technical foundation entirely</div>
+        <div class="mistake-body">Broken internal links. Pages accidentally blocked from Google's crawlers. No XML sitemap submitted to Search Console. Duplicate title tags across half the site. These technical issues don't show up visually — the site looks fine — but they quietly suppress every other SEO effort you're making. Good content on a technically broken site is like putting a great product in a locked room. Nobody gets to it.</div>
+        <span class="fix-tag">Fix: run a Screaming Frog crawl and fix crawl errors, duplicate tags, and redirect chains</span>
+      </div>
+
+      <div class="callout">
+        None of these are new problems. Every one of them has a known fix. The agencies that rank well for their own keywords are simply the ones that bothered to apply them consistently.
+      </div>
+
+      <h2 id="fix">How Aloftz approaches this differently</h2>
+
+      <p class="pull-quote">"We don't just fix these mistakes for clients. We fixed them on our own site first."</p>
+
+      <p>At Aloftz, our <a href="#" class="bl">SEO</a> work always starts with a full technical and content audit. We look at the same seven areas above — keyword targeting, site structure, local presence, page speed, content, backlinks, and technical health — and we build a fix roadmap before writing a single word of content or placing a single link.</p>
+
+      <p>This same approach applies whether you're running <a href="#" class="bl">Google Ads</a> and want organic to back it up, or you're relying entirely on <a href="#" class="bl">social media marketing</a> and want search to start working alongside it. SEO doesn't replace your other channels — it makes everything else more effective.</p>
+
+      <div class="callout-green">
+        Fixing these 7 issues on a client's agency website led to a 3.1x increase in organic sessions within 6 months — with no increase in paid spend.
+      </div>
+
+      <hr />
+
+      <h2 id="faq">FAQ: SEO for marketing agencies in 2026</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">Why do marketing agencies struggle with their own SEO?</div>
+        <div class="faq-a">The most common reason is that agency teams are fully occupied delivering results for clients. Their own website becomes an afterthought. The second reason is that agencies often write for other marketers rather than for their actual buyers — real business owners who search in plain language, not industry terms.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How long does it take to fix these SEO mistakes?</div>
+        <div class="faq-a">Technical and on-page fixes — title tags, page speed, site structure — can be done within two to four weeks. Content and backlink improvements take longer to show results, typically three to six months. But the compounding effect is real: agencies that fix these issues once rarely need to revisit them.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Should a <a href="#" class="bl">digital marketing</a> agency run <a href="#" class="bl">Google Ads</a> and <a href="#" class="bl">Meta Ads</a> alongside SEO?</div>
+        <div class="faq-a">Yes — and this is where the real leverage is. <a href="#" class="bl">Google Ads</a> and <a href="#" class="bl">Meta Ads</a> generate immediate visibility while <a href="#" class="bl">SEO</a> builds long-term organic presence. Running both means you're capturing high-intent traffic from search while also staying visible on social. At Aloftz, we integrate all three channels so they reinforce each other rather than compete for the same budget.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What's the first SEO fix a marketing agency should make?</div>
+        <div class="faq-a">Start with dedicated service pages. It's the structural change with the biggest impact on rankings, and it creates the foundation everything else builds on — content, backlinks, and local <a href="#" class="bl">SEO</a> all work better when your site architecture is clean and purposeful.</div>
+      </div>
+
+      <hr />
+
+      <p>If any of these seven mistakes sound familiar, you're not alone. The good news is they're all fixable. At <strong style="font-weight:500">Aloftz Marketing Agency PVT LTD</strong>, we offer a free <a href="#" class="bl">SEO</a> audit that covers every one of these areas — so you know exactly where you stand before spending a single rupee on content or links.</p>
+
+      <div class="services-grid">
+        <div class="svc-card" onclick="goService(0)" style="cursor:pointer;" title="SEO services"><span class="svc-icon">🔍</span><span class="svc-name">SEO</span></div>
+        <div class="svc-card" onclick="goService(1)" style="cursor:pointer;" title="Social Media services"><span class="svc-icon">📱</span><span class="svc-name">Social Media</span></div>
+        <div class="svc-card" onclick="goService(2)" style="cursor:pointer;" title="Website services"><span class="svc-icon">💻</span><span class="svc-name">Website</span></div>
+        <div class="svc-card" onclick="goService(3)" style="cursor:pointer;" title="Ads services"><span class="svc-icon">🎯</span><span class="svc-name">Ads</span></div>
+        <div class="svc-card" onclick="goService(4)" style="cursor:pointer;" title="Creative services"><span class="svc-icon">🎬</span><span class="svc-name">Creative</span></div>
+        <div class="svc-card" onclick="goService(5)" style="cursor:pointer;" title="Digital Strategy services"><span class="svc-icon">📊</span><span class="svc-name">Digital Strategy</span></div>
+      </div>
+
+      <div style="background:var(--ac);border-radius:14px;padding:1.75rem 2rem;margin-top:2rem;text-align:center">
+        <h3 style="font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:#fff;margin-bottom:0.4rem">Ready to scale your content without scaling your workload?</h3>
+        <p style="font-size:.9rem;color:rgba(255,255,255,.8);margin-bottom:1.1rem">Aloftz builds AI-assisted content systems that rank, convert, and keep publishing — month after month.</p>
+        <button onclick="go('contact')" class="bp">Talk to Aloftz today ↗</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script>
+  function goBack() {
+    try {
+      if (window.parent && window.parent !== window && window.parent.go) {
+        window.parent.go('blog');
+      } else {
+        window.location.href = 'blog.html';
+      }
+    } catch(e) { window.history.back(); }
+  }
+  function goContact() {
+    try {
+      if (window.parent && window.parent !== window && window.parent.go) {
+        window.parent.go('contact');
+      } else {
+        window.location.href = 'contact.html';
+      }
+    } catch(e) {}
+  }
+  function goServices() {
+    try {
+      if (window.parent && window.parent !== window && window.parent.go) {
+        window.parent.go('services');
+      } else {
+        window.location.href = 'services.html';
+      }
+    } catch(e) {}
+  }
+  function goService(idx) {
+    try {
+      if (window.parent && window.parent !== window && window.parent.go) {
+        window.parent.go('services');
+      } else {
+        window.location.href = 'services.html';
+      }
+    } catch(e) {}
+  }
+  // Fix go() calls inside blog-wrap buttons
+  function go(pg) {
+    try {
+      if (window.parent && window.parent !== window && window.parent.go) {
+        window.parent.go(pg);
+      } else {
+        window.location.href = 'blog.html';
+      }
+    } catch(e) {}
+  }
+  document.querySelectorAll('.toc a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>

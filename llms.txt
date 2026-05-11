@@ -1,0 +1,27 @@
+# ALOFTZ — llms.txt
+# AI crawler guidance file — https://llmstxt.org
+
+# ALOFTZ
+> ALOFTZ is an AI-powered digital marketing agency based in Kolkata,West Bengal, India.
+  Founded in 2026, we help Indian startups and SMBs grow through SEO, Google Ads,
+  Meta Ads, social media management, web development, and AI-driven digital strategy.
+
+## Services
+- [SEO Services](https://www.aloftz.com/services)
+- [Google Ads Management](https://www.aloftz.com/services)
+- [Meta Ads Management](https://www.aloftz.com/services)
+- [Social Media Marketing](https://www.aloftz.com/services)
+- [Web Development](https://www.aloftz.com/services)
+- [AI Digital Strategy](https://www.aloftz.com/services)
+
+## About
+- [About ALOFTZ](https://www.aloftz.com/about)
+- [Our Work & Case Studies](https://www.aloftz.com/work)
+
+## Blog
+- [Digital Marketing Blog](https://www.aloftz.com/blog)
+
+## Contact
+- [Contact Us](https://www.aloftz.com/contact)
+- Email: hello@aloftz.com
+- Location: Kolkata,West Bengal, India

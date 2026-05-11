@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta -->
+  <title>Rank Page 1 Google with AI Blog Posts | Aloftz</title>
+  <meta name="description" content="The exact 9-step process Aloftz uses to rank AI-assisted blog posts on Google Page 1. Real workflow, real results — no fluff." />
+  <meta name="keywords" content="AI blog posts SEO, rank page 1 Google, AI content strategy, AI-assisted blogging, SEO blog writing, content marketing India, digital marketing agency blog SEO" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Rank on Page 1 of Google with AI-Assisted Blog Posts" />
+  <meta property="og:description" content="Page 1 isn't luck. It's a repeatable 9-step process. Here's exactly how we do it at Aloftz." />
+  <meta property="og:type" content="article" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a1f22;
+      --ac: #11948d;
+      --ow: #F4FAFB;
+      --sl: rgba(214,240,243,0.68);
+      --gb: rgba(214,240,243,0.11);
+      --card-bg: rgba(214,240,243,0.05);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ow);
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── header ── */
+    .site-header {
+      background: rgba(10,31,34,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gb);
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+    .logo { font-size: 16px; font-weight: 700; color: var(--ow); letter-spacing: .04em; }
+    .logo span { color: var(--ac); }
+    .back-btn {
+      background: none;
+      border: 1px solid var(--gb);
+      color: var(--sl);
+      padding: 7px 18px;
+      border-radius: 20px;
+      font-size: .8rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .25s;
+      text-decoration: none;
+    }
+    .back-btn:hover { border-color: var(--ac); color: var(--ac); }
+
+    /* ── hero ── */
+    .hero {
+      padding: 72px 24px 52px;
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, rgba(17,148,141,0.14), rgba(10,31,34,0));
+      border-radius: 24px;
+      border: 1px solid rgba(17,148,141,0.18);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.16);
+    }
+    .tag-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 1.5rem; }
+    .tag {
+      display: inline-block;
+      background: rgba(214,240,243,0.08);
+      border: 0.5px solid var(--gb);
+      color: var(--sl);
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .tag.hl { background: rgba(17,148,141,0.18); border-color: rgba(17,148,141,0.45); color: var(--ac); }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 50px);
+      font-weight: 700;
+      line-height: 1.14;
+      color: var(--ow);
+      margin-bottom: 1rem;
+    }
+    .hero h1 em { color: var(--ac); font-style: normal; }
+    .hero .deck {
+      font-size: 18px;
+      color: var(--sl);
+      max-width: 640px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.75;
+      font-style: normal;
+    }
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      font-size: 13px;
+      color: rgba(214,240,243,0.4);
+      padding-top: 1.5rem;
+      border-top: 0.5px solid var(--gb);
+    }
+    .post-meta strong { color: var(--ow); }
+
+    /* ── seo box ── */
+    .seo-panel {
+      max-width: 860px;
+      margin: 0 auto 0;
+      padding: 0 24px;
+    }
+    .seo-box {
+      background: rgba(10,31,34,0.75);
+      border: 1px solid rgba(17,148,141,0.25);
+      border-radius: 18px;
+      padding: 1.35rem 1.6rem;
+      margin-bottom: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .seo-row { font-size: 13px; }
+    .seo-label { color: var(--sl); font-size: 11px; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 3px; }
+    .seo-val { color: var(--ow); font-weight: 500; }
+    .seo-kw { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 3px; }
+    .kw-pill { background: rgba(17,148,141,0.15); border: 0.5px solid rgba(17,148,141,0.3); color: var(--ac); font-size: 11px; padding: 2px 9px; border-radius: 12px; }
+    .kw-pill.primary { background: rgba(216,90,48,0.15); border-color: rgba(216,90,48,0.3); color: #F0997B; }
+
+    /* ── toc ── */
+    .toc-wrap {
+      max-width: 860px;
+      margin: 0 auto 2rem;
+      padding: 0 24px;
+    }
+    .toc {
+      background: var(--card-bg);
+      border: 0.5px solid var(--gb);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+    }
+    .toc-title { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ac); margin-bottom: .75rem; font-weight: 700; }
+    .toc ol { padding-left: 1.25rem; }
+    .toc li { margin-bottom: 5px; font-size: 14px; color: var(--sl); }
+    .toc a { color: #9FE1CB; text-decoration: none; transition: color .2s; }
+    .toc a:hover { color: var(--ac); }
+
+    /* ── article body ── */
+    .article {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ow);
+      margin: 3rem 0 .75rem;
+      scroll-margin-top: 80px;
+    }
+    h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ow);
+      margin: 1.75rem 0 .5rem;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--sl);
+      margin-bottom: 1.1rem;
+    }
+    p strong { color: var(--ow); }
+    a.bl { color: #9FE1CB; text-decoration: underline; text-decoration-color: rgba(159,225,203,0.35); text-underline-offset: 3px; }
+    a.bl:hover { text-decoration-color: #9FE1CB; }
+
+    /* ── step box ── */
+    .step-block {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      background: rgba(17,148,141,0.08);
+      border: 1px solid rgba(17,148,141,0.2);
+      border-radius: 18px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+    .step-num {
+      background: rgba(17,148,141,0.2);
+      border: 1px solid rgba(17,148,141,0.4);
+      color: var(--ac);
+      font-size: 13px;
+      font-weight: 700;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-content h3 { margin: 0 0 6px; font-size: 16px; }
+    .step-content p { margin: 0; font-size: 14.5px; line-height: 1.65; }
+
+    /* ── pro tip ── */
+    .pro-tip {
+      background: rgba(17,148,141,0.1);
+      border-left: 3px solid var(--ac);
+      border-radius: 0 10px 10px 0;
+      padding: 1.1rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .pro-tip-label { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ac); font-weight: 700; margin-bottom: 5px; }
+    .pro-tip p { margin: 0; font-size: 15px; color: var(--ow); font-style: italic; }
+
+    /* ── callout ── */
+    .callout {
+      background: rgba(17,148,141,0.12);
+      border: 1px solid rgba(17,148,141,0.25);
+      border-radius: 14px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .callout-label { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ac); font-weight: 700; margin-bottom: 6px; }
+    .callout p { margin: 0; font-size: 15px; color: var(--ow); }
+    .callout-green {
+      background: rgba(17,148,141,0.16);
+      border: 1px solid rgba(17,148,141,0.3);
+      border-radius: 14px;
+      padding: 1.25rem 1.6rem;
+      margin: 1.75rem 0;
+      color: var(--ow);
+    }
+    .callout-green strong { color: var(--ow); }
+
+    /* ── bullets ── */
+    .article ul {
+      list-style: none;
+      padding: 0;
+      margin: .75rem 0 1.25rem;
+    }
+    .article ul li {
+      font-size: 15.5px;
+      color: var(--sl);
+      padding: 8px 0 8px 22px;
+      position: relative;
+      border-bottom: 0.5px solid rgba(214,240,243,0.07);
+      line-height: 1.6;
+    }
+    .article ul li:last-child { border-bottom: none; }
+    .article ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 16px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--ac);
+    }
+    .article ul li strong { color: var(--ow); }
+
+    /* ── headline options box ── */
+    .headline-opts {
+      background: rgba(17,148,141,0.08);
+      border: 1px solid rgba(17,148,141,0.18);
+      border-radius: 18px;
+      padding: 1.35rem 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+    }
+    .headline-opts-label { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--sl); font-weight: 700; margin-bottom: .75rem; }
+    .headline-opt {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 0.5px solid var(--gb);
+    }
+    .headline-opt:last-child { border-bottom: none; }
+    .opt-num { background: rgba(17,148,141,0.15); color: var(--ac); font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 20px; flex-shrink: 0; margin-top: 2px; }
+    .opt-text { font-size: 15px; color: var(--ow); font-weight: 500; line-height: 1.45; }
+
+    /* ── internal link note ── */
+    .link-note {
+      display: inline-block;
+      background: rgba(56,138,221,0.12);
+      border: 0.5px solid rgba(56,138,221,0.3);
+      color: #85B7EB;
+      font-size: 11px;
+      padding: 2px 9px;
+      border-radius: 20px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* ── divider ── */
+    .divider { border: none; border-top: 0.5px solid var(--gb); margin: 2.5rem 0; }
+
+    /* ── stat row ── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 1.75rem 0;
+    }
+    .stat-box {
+      background: var(--card-bg);
+      border: 0.5px solid var(--gb);
+      border-radius: 12px;
+      padding: 1.1rem;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ac);
+    }
+    .stat-label { font-size: 12px; color: var(--sl); margin-top: 4px; line-height: 1.4; }
+
+    /* ── CTA ── */
+    .cta-block {
+      background: linear-gradient(135deg, rgba(17,148,141,0.38), rgba(10,31,34,0.85));
+      border: 1px solid rgba(17,148,141,0.35);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      margin-top: 3rem;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.22);
+    }
+    .cta-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      color: var(--ow);
+      margin: 0 0 .6rem;
+    }
+    .cta-block p { font-size: 15px; color: var(--sl); margin-bottom: 1.25rem; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--ac);
+      color: var(--ow);
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 13px 30px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity .2s;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    .cta-btn:hover { opacity: .85; }
+    .cta-btn.ghost {
+      background: none;
+      border: 1px solid var(--gb);
+      color: var(--sl);
+    }
+    .cta-btn.ghost:hover { border-color: var(--ac); color: var(--ac); }
+
+    .svc-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 1rem; }
+    .svc-chip { background: rgba(214,240,243,0.07); border: 0.5px solid var(--gb); color: var(--sl); font-size: 12px; padding: 5px 13px; border-radius: 20px; cursor: pointer; transition: all .2s; text-decoration: none; display: inline-block; }
+    .svc-chip:hover { background: rgba(17,148,141,0.15); border-color: rgba(17,148,141,0.3); color: var(--ac); }
+
+    /* ── kw footer ── */
+    .kw-footer { font-size: 12px; color: rgba(214,240,243,0.28); border-top: 0.5px solid var(--gb); margin-top: 2.5rem; padding-top: 1rem; }
+
+    @media (max-width: 600px) {
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      .seo-box { grid-template-columns: 1fr; }
+      .site-header { padding: 12px 16px; }
+      .hero, .seo-panel, .toc-wrap, .article { padding-left: 16px; padding-right: 16px; }
+    }
+  </style>
+<link rel="canonical" href="https://www.aloftz.com/blog/rank-page-1-ai-blog-posts" />
+<meta property="og:title" content="Rank on Page 1 of Google with AI Blog Posts | ALOFTZ" />
+<meta property="og:description" content="The exact framework ALOFTZ uses to rank AI-assisted blog posts on Google page one — keyword research, structure, E-E-A-T signals, and internal linking strategy." />
+<meta property="og:url" content="https://www.aloftz.com/blog/rank-page-1-ai-blog-posts" />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://www.aloftz.com/IMG/aloftz-logo-final.png" />
+<meta property="og:locale" content="en_IN" />
+<meta property="og:site_name" content="ALOFTZ Marketing Agency" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Rank on Page 1 of Google with AI Blog Posts | ALOFTZ" />
+<meta name="twitter:description" content="The exact framework ALOFTZ uses to rank AI-assisted blog posts on Google page one — keyword research, structure, E-E-A-T signals, and internal linking strategy." />
+<meta name="twitter:image" content="https://www.aloftz.com/IMG/aloftz-logo-final.png" />
+<meta name="twitter:site" content="@aloftz14887" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Rank on Page 1 of Google with AI Blog Posts",
+  "description": "The exact framework ALOFTZ uses to rank AI-assisted blog posts on Google page one — keyword research, structure, E-E-A-T signals, and internal linking strategy.",
+  "image": "https://www.aloftz.com/IMG/aloftz-logo-final.png",
+  "datePublished": "2026-02-20",
+  "dateModified": "2026-02-20",
+  "author": {
+    "@type": "Organization",
+    "name": "ALOFTZ",
+    "url": "https://www.aloftz.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ALOFTZ",
+    "logo": {"@type": "ImageObject", "url": "https://www.aloftz.com/IMG/aloftz-logo-final.png"}
+  },
+  "mainEntityOfPage": "https://www.aloftz.com/blog/rank-page-1-ai-blog-posts"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aloftz.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aloftz.com/blog"},
+    {"@type": "ListItem", "position": 3, "name": "Rank on Page 1 of Google with AI Blog Posts", "item": "https://www.aloftz.com/blog/rank-page-1-ai-blog-posts"}
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="logo">Aloftz <span>Marketing</span></div>
+  <a href="/blog" class="back-btn">← Back to Blog</a>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="tag-row">
+    <span class="tag hl">SEO Strategy</span>
+    <span class="tag">AI Content</span>
+    <span class="tag">Page 1 Rankings</span>
+    <span class="tag">Digital Marketing India</span>
+  </div>
+  <h1>How to Rank on <em>Page 1 of Google</em> with AI-Assisted Blog Posts</h1>
+  <p class="deck">We'll show you the exact 9-step process we use for every blog post that hits Page 1. Page 1 isn't luck. It's process.</p>
+  <div class="post-meta">
+    <span>By <strong>Aloftz Marketing Agency PVT LTD</strong></span>
+    <span>April 2026</span>
+    <span>12 min read · ~2,200 words</span>
+    <span>Target: Small business owners, CMOs, Gen Z entrepreneurs</span>
+  </div>
+</div>
+
+<!-- SEO Panel -->
+<div class="seo-panel">
+  <div class="seo-box">
+    <div class="seo-row">
+      <div class="seo-label">Meta Title (58 chars)</div>
+      <div class="seo-val">Rank Page 1 Google with AI Blog Posts | Aloftz</div>
+    </div>
+    <div class="seo-row">
+      <div class="seo-label">Meta Description (152 chars)</div>
+      <div class="seo-val">The exact 9-step process Aloftz uses to rank AI-assisted blog posts on Google Page 1. Real workflow, real results — no fluff.</div>
+    </div>
+    <div class="seo-row" style="grid-column:1/-1">
+      <div class="seo-label">Primary Keyword + LSI Keywords</div>
+      <div class="seo-kw">
+        <span class="kw-pill primary">AI-assisted blog posts SEO</span>
+        <span class="kw-pill">rank page 1 Google</span>
+        <span class="kw-pill">AI content strategy</span>
+        <span class="kw-pill">SEO blog writing India</span>
+        <span class="kw-pill">AI writing tools SEO</span>
+        <span class="kw-pill">content marketing agency</span>
+        <span class="kw-pill">Google ranking factors 2026</span>
+        <span class="kw-pill">long-form content SEO</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Headline Options -->
+<div class="toc-wrap">
+  <div class="headline-opts">
+    <div class="headline-opts-label">3 Headline Options (H1) — All include primary keyword</div>
+    <div class="headline-opt">
+      <span class="opt-num">H1-A</span>
+      <span class="opt-text">How to Rank on Page 1 of Google with AI-Assisted Blog Posts (The 9-Step Process)</span>
+    </div>
+    <div class="headline-opt">
+      <span class="opt-num">H1-B</span>
+      <span class="opt-text">AI-Assisted Blog Posts That Actually Rank: Our Proven 9-Step Process for Page 1</span>
+    </div>
+    <div class="headline-opt">
+      <span class="opt-num">H1-C</span>
+      <span class="opt-text">Stop Guessing. Here's How We Use AI-Assisted Blog Posts to Hit Page 1 Every Time</span>
+    </div>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc-wrap">
+  <div class="toc">
+    <div class="toc-title">In this article</div>
+    <ol>
+      <li><a href="#why-most-fail">Why most AI blog posts never rank (and ours do)</a></li>
+      <li><a href="#step1">Step 1 — Start with search intent, not a topic</a></li>
+      <li><a href="#step2">Step 2 — Build your keyword cluster before writing</a></li>
+      <li><a href="#step3">Step 3 — Brief the AI like a senior editor, not a search bar</a></li>
+      <li><a href="#step4">Step 4 — Write the intro yourself</a></li>
+      <li><a href="#step5">Step 5 — Use AI for structure and speed, humans for specificity</a></li>
+      <li><a href="#step6">Step 6 — Add the things AI can't fabricate</a></li>
+      <li><a href="#step7">Step 7 — Optimise on-page signals properly</a></li>
+      <li><a href="#step8">Step 8 — Publish fast. Update faster.</a></li>
+      <li><a href="#step9">Step 9 — Build one internal link before you hit publish</a></li>
+      <li><a href="#conclusion">Conclusion + CTA</a></li>
+    </ol>
+  </div>
+</div>
+
+<!-- Article Body -->
+<article class="article">
+
+  <!-- Hook -->
+  <p>Here's a number that should bother you: <strong>96.5% of all content on the internet gets zero traffic from Google.</strong> None. Not a trickle — zero. <a href="https://ahrefs.com/blog/search-traffic-study/" class="bl" target="_blank" rel="noopener">[Source: Ahrefs content traffic study]</a></p>
+
+  <p>Most marketing teams respond to this by publishing more. More posts, more AI-generated output, more volume. And somehow, their traffic stays flat. We've watched this happen at agencies three times the size of ours.</p>
+
+  <p>The problem isn't the volume. It's the process. <strong>Ranking on Page 1 is reproducible</strong> — but only if you treat it as a system, not a content calendar entry. Here's ours.</p>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="stat-num">96.5%</div>
+      <div class="stat-label">of web content gets zero organic traffic</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">68%</div>
+      <div class="stat-label">of online experiences start with a search engine</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">9</div>
+      <div class="stat-label">steps between a blank doc and a Page 1 result</div>
+    </div>
+  </div>
+
+  <hr class="divider" id="why-most-fail">
+
+  <!-- Section 1 -->
+  <h2>Why most AI blog posts never rank (and ours do)</h2>
+
+  <p>When AI writing tools went mainstream, agencies did what agencies do: they optimised for speed. Publish 30 posts a month instead of 4. Cover every keyword. Fill the calendar.</p>
+
+  <p>Google noticed. Not because it can reliably detect AI text — it can't, and anyone telling you otherwise is guessing. But because <strong>thin, undifferentiated content rarely earns backlinks, rarely gets shared, and rarely satisfies search intent better than what's already on Page 1.</strong> Google rewards pages that actually serve the searcher. Volume without quality just means a bigger graveyard.</p>
+
+  <p>The posts that rank from our process do something different. They use AI for the things AI is genuinely good at — speed, structure, keyword integration, variation — and bring humans in for the things AI can't do: original insight, specific proof, and writing that actually sounds like a person wrote it.</p>
+
+  <hr class="divider" id="step1">
+
+  <!-- Step 1 -->
+  <h2>Step 1 — Start with search intent, not a topic</h2>
+
+  <div class="step-block">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <h3>Identify what the searcher actually wants — before you write a word</h3>
+      <p>Before you open a brief or prompt an AI, search your target keyword and look at Page 1. What type of content dominates? Listicles, how-tos, comparison pages, tool reviews? That's the intent signal. Match it or explain why your format is better. Ignoring this is the single most common reason well-written posts don't rank.</p>
+    </div>
+  </div>
+
+  <p>The four types of search intent worth memorising:</p>
+  <ul>
+    <li><strong>Informational</strong> — the searcher wants to learn something ("what is content marketing")</li>
+    <li><strong>Navigational</strong> — they're looking for a specific site or brand ("Aloftz agency blog")</li>
+    <li><strong>Commercial</strong> — they're evaluating options ("best SEO agency India 2026")</li>
+    <li><strong>Transactional</strong> — they're ready to act ("hire content marketing agency")</li>
+  </ul>
+
+
+  <hr class="divider" id="step2">
+
+  <!-- Step 2 -->
+  <h2>Step 2 — Build your keyword cluster before writing</h2>
+
+  <div class="step-block">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <h3>One post should target one cluster, not one keyword</h3>
+      <p>Find your primary keyword, then identify 6–10 LSI (related) keywords and questions people also search alongside it. AI tools like ChatGPT, Claude, or Semrush's keyword magic tool can generate these in 2 minutes. Use them as H2/H3 subheadings and weave them naturally into the copy. This is how one post ranks for dozens of terms.</p>
+    </div>
+  </div>
+
+  <p>A quick cluster-building process that works:</p>
+  <ul>
+    <li>Search your primary keyword on Google and scroll to "People Also Ask" and "Related Searches"</li>
+    <li>Run your keyword through a free tool like Ubersuggest or AnswerThePublic</li>
+    <li>Prompt AI: <em>"Give me 10 LSI keywords and 5 FAQ-style questions for: [your keyword]"</em></li>
+    <li>Map each LSI term to a section of your outline — don't force them in after writing</li>
+  </ul>
+
+ 
+  <hr class="divider" id="step3">
+
+  <!-- Step 3 -->
+  <h2>Step 3 — Brief the AI like a senior editor, not a search bar</h2>
+
+  <div class="step-block">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <h3>Garbage in, garbage out. Your prompt is the most important part.</h3>
+      <p>Most people prompt AI the way they Google: one sentence, vague topic, no context. The output reads like it. A high-quality brief takes 5 minutes to write and saves 3 hours of revision. Include your audience, the search intent, the keyword cluster, the desired length, the tone, and what the post must NOT include (jargon, excessive lists, generic conclusions).</p>
+    </div>
+  </div>
+
+  <p>A brief template that consistently produces good first drafts:</p>
+  <ul>
+    <li><strong>Audience:</strong> [e.g., Indian SMB owners with no marketing team]</li>
+    <li><strong>Primary keyword:</strong> [e.g., AI-assisted blog posts SEO]</li>
+    <li><strong>Search intent:</strong> Informational — they want a step-by-step process</li>
+    <li><strong>Tone:</strong> Conversational, confident, minimal jargon, no bullet-point padding</li>
+    <li><strong>Include:</strong> A real example, a surprising stat, and a clear CTA</li>
+    <li><strong>Avoid:</strong> Generic conclusions, passive voice, starting sentences with "In today's digital landscape"</li>
+    <li><strong>Approximate length:</strong> 1,800–2,200 words</li>
+  </ul>
+
+
+  <hr class="divider" id="step4">
+
+  <!-- Step 4 -->
+  <h2>Step 4 — Write the intro yourself</h2>
+
+  <div class="step-block">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <h3>The first 100 words determine whether anyone reads the next 2,000</h3>
+      <p>AI intros are reliably the worst part of AI-written content. They open with a broad statement, add a statistic, and promise to explain everything. Nobody finds that compelling. The intro needs to do one thing: make the specific reader who just landed from a Google search feel like this post was written for them. That takes a human moment — a real frustration, a surprising contrast, a specific scenario.</p>
+    </div>
+  </div>
+
+  <p>Three intro patterns that actually work:</p>
+  <ul>
+    <li><strong>The frustration mirror:</strong> Name a thing your reader is currently doing that isn't working ("You're publishing twice a week and traffic is flat. Here's why.")</li>
+    <li><strong>The counterintuitive stat:</strong> Drop a number that challenges an assumption — then explain what it means</li>
+    <li><strong>The specific scenario:</strong> "Last month, a client came to us with 40 posts and 200 monthly visitors." Real and specific beats polished and vague every time.</li>
+  </ul>
+
+  <hr class="divider" id="step5">
+
+  <!-- Step 5 -->
+  <h2>Step 5 — Use AI for structure and speed, humans for specificity</h2>
+
+  <div class="step-block">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <h3>The best workflow is a division of labour, not a handoff</h3>
+      <p>Once your brief is solid, let AI draft the body sections — especially the middle parts that explain mechanics, define terms, and provide step-by-step guidance. AI handles these well. Then go through every section and add at least one specific, uncheckable-by-AI detail per major heading: a client story, an internal data point, a named tool and why you prefer it, a contrarian opinion.</p>
+    </div>
+  </div>
+
+
+  <hr class="divider" id="step6">
+
+  <!-- Step 6 -->
+  <h2>Step 6 — Add the things AI can't fabricate</h2>
+
+  <div class="step-block">
+    <div class="step-num">6</div>
+    <div class="step-content">
+      <h3>Original data and first-hand experience are the hardest things to copy — and the most valuable to Google</h3>
+      <p>Google's Helpful Content system rewards content that demonstrates first-hand experience (E-E-A-T: Experience, Expertise, Authority, Trust). AI has none of these in any measurable form. You do. So add: client results (with permission), internal conversion data, a specific tool comparison from personal testing, or your honest opinion on something everyone else is presenting neutrally.</p>
+    </div>
+  </div>
+
+  <p>Examples of E-E-A-T signals worth adding to every long post:</p>
+  <ul>
+    <li>A before/after metric from a real campaign (traffic, CTR, ranking movement)</li>
+    <li>A screenshot or description of something you tested yourself</li>
+    <li>An opinion on a trend — not "many experts say" but "here's what we actually think about this"</li>
+    <li>A named client industry, city, and result (even without the client's name)</li>
+  </ul>
+
+
+
+  <hr class="divider" id="step7">
+
+  <!-- Step 7 -->
+  <h2>Step 7 — Optimise on-page signals properly</h2>
+
+  <div class="step-block">
+    <div class="step-num">7</div>
+    <div class="step-content">
+      <h3>Technical SEO on a blog post takes 15 minutes if you have a checklist</h3>
+      <p>Most on-page optimisation is not complicated — it's just frequently skipped. Before publishing, run through this checklist without fail.</p>
+    </div>
+  </div>
+
+  <ul>
+    <li><strong>Title tag:</strong> Primary keyword near the front, under 60 characters</li>
+    <li><strong>Meta description:</strong> Includes the keyword, a benefit, and a reason to click — under 155 characters</li>
+    <li><strong>H1:</strong> Matches the search intent, includes the primary keyword</li>
+    <li><strong>H2s:</strong> Cover the LSI keywords and FAQ questions from your cluster</li>
+    <li><strong>First 100 words:</strong> Primary keyword appears naturally once</li>
+    <li><strong>Image alt text:</strong> Descriptive, includes keyword where it fits naturally</li>
+    <li><strong>URL slug:</strong> Short, keyword-first, no dates</li>
+    <li><strong>Schema markup:</strong> Article or FAQ schema if your CMS supports it</li>
+    <li><strong>Page speed:</strong> Under 2.5s on mobile — check with PageSpeed Insights before publishing</li>
+  </ul>
+
+  <hr class="divider" id="step8">
+
+  <!-- Step 8 -->
+  <h2>Step 8 — Publish fast. Update faster.</h2>
+
+  <div class="step-block">
+    <div class="step-num">8</div>
+    <div class="step-content">
+      <h3>A live, imperfect post ranks higher than a perfect draft that never goes live</h3>
+      <p>The moment a post is published, Google starts indexing and testing it. A post that sits in draft for two weeks waiting for final approval is not earning anything. Ship it. Then schedule a 90-day review: check Google Search Console for the queries it's showing up for, update the sections that answer those queries better, and refresh any stats that have aged out.</p>
+    </div>
+  </div>
+
+
+  <hr class="divider" id="step9">
+
+  <!-- Step 9 -->
+  <h2>Step 9 — Build one internal link before you hit publish</h2>
+
+  <div class="step-block">
+    <div class="step-num">9</div>
+    <div class="step-content">
+      <h3>Internal links pass authority and help Google understand what your site is about</h3>
+      <p>Before you publish, identify one existing post or service page on your site that should link TO this new post — and add the link. Then link FROM this post to one other relevant page. Two internal links: one incoming, one outgoing. It takes 5 minutes and it consistently accelerates indexing. Don't wait for the "content team" to do a link audit in Q3.</p>
+    </div>
+  </div>
+
+
+  <hr class="divider" id="conclusion">
+
+  <!-- Conclusion -->
+  <h2>To sum up</h2>
+
+  <p>Ranking on Page 1 with AI-assisted blog posts is not about using better tools or generating more content. It's about having a process that's consistent enough to be repeated — and specific enough to produce content that's actually better than what's already ranking.</p>
+
+  <p>The 9 steps in this post are the same steps we run for every piece we produce at Aloftz. Some are fast (the on-page checklist takes 15 minutes). Some require real effort (adding genuine E-E-A-T signals means having opinions and data, not just time). All of them are necessary.</p>
+
+  <p>If you take one thing from this: <strong>AI is not a shortcut to ranking. It's a tool that makes the right process faster.</strong> The process still has to be right.</p>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>Want blog posts that actually rank?</h2>
+    <p>Aloftz builds AI-assisted, SEO-optimised content strategies for businesses that are done guessing about traffic. Let's audit what you have and build a process that works.</p>
+    <a href="/contact" class="cta-btn">Get a Free Content Audit ↗</a>
+    <a href="/services" class="cta-btn ghost">See Our Services</a>
+    <div class="svc-chips">
+      <a href="services.html#seo" class="svc-chip">🔍 SEO</a>
+      <a href="services.html#social" class="svc-chip">📱 Social Media</a>
+      <a href="services.html#website" class="svc-chip">💻 Website</a>
+      <a href="services.html#ads" class="svc-chip">🎯 Ad Campaigns</a>
+      <a href="services.html#creative" class="svc-chip">🎬 Creative</a>
+      <a href="services.html#strategy" class="svc-chip">📊 Digital Strategy</a>
+    </div>
+  </div>
+
+  <p class="kw-footer">Keywords: AI-assisted blog posts SEO, rank page 1 Google, AI content strategy, SEO blog writing India, AI writing tools SEO, content marketing agency, Google ranking factors 2026, long-form content SEO, how to rank on Google with AI, AI blog writing process</p>
+
+</article>
+
+<script>
+  // Smooth scroll for TOC links
+  document.querySelectorAll('.toc a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      e.preventDefault();
+      const target=document.querySelector(a.getAttribute('href'));
+      if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+</script>
+
+
+<script>
+function aloftzGoBack() {
+  try {
+    if (window.parent && window.parent !== window && typeof window.parent.go === 'function') {
+      window.parent.go('blog');
+    } else {
+      window.location.href = 'blog.html';
+    }
+  } catch(e) { window.location.href = 'blog.html'; }
+}
+// Fix all existing back links/buttons to use aloftzGoBack
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href="/blog"], .back-btn').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      aloftzGoBack();
+    });
+  });
+});
+</script>
+</body>
+</html>
